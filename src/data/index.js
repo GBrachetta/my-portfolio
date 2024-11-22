@@ -60,7 +60,7 @@ export const projectsData = [
     title: "My Portfolio",
     info: "My Modern, Minimalistic Portfolio.",
     info2: "Built with Gatsby.",
-    repo: "https://github.com/GBrachetta/test-prtf",
+    repo: "https://github.com/GBrachetta/my-portfolio",
 
   },
   {
