@@ -1,4 +1,4 @@
-import { graphql, StaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import Image from "gatsby-image";
 import PropTypes from "prop-types";
 import React, { useContext, useEffect, useState } from "react";
@@ -68,10 +68,9 @@ export const About = () => {
   );
 };
 
-const AboutImage = ({ filename, alt }) => (
-  <StaticQuery
-    query={graphql`
-      query {
+const AboutImage = ({ filename, alt }) => {
+  const data = useStaticQuery(graphql`
+    query {
         images: allFile(filter: {extension: {ne: "svg"}}) {
           edges {
             node {
@@ -86,17 +85,16 @@ const AboutImage = ({ filename, alt }) => (
           }
         }
       }
-    `}
-    render={(data) => {
-      const image = data.images.edges.find((n) => n.node.relativePath.includes(filename));
+    `);
 
-      if (!image) return null;
+  const image = data.images.edges.find((n) => n.node.relativePath.includes(filename));
 
-      const imageFixed = image.node.childImageSharp.fixed;
-      return <Image className="rounded shadow-lg" alt={alt} fixed={imageFixed} />;
-    }}
-  />
-);
+  if (!image) return null;
+
+  const imageFixed = image.node.childImageSharp.fixed;
+
+  return <Image className="rounded shadow-lg" alt={alt} fixed={imageFixed} />;
+};
 
 AboutImage.defaultProps = {
   filename: null,

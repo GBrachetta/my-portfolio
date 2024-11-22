@@ -1,4 +1,4 @@
-import { graphql, StaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import Image from "gatsby-image";
 import PropTypes from "prop-types";
 import React, { useContext, useEffect, useState } from "react";
@@ -116,9 +116,8 @@ export const Projects = () => {
   );
 };
 
-const ProjectImage = ({ filename, alt }) => (
-  <StaticQuery
-    query={graphql`
+const ProjectImage = ({ filename, alt }) => {
+  const data = useStaticQuery(graphql`
       query {
         images: allFile {
           edges {
@@ -134,17 +133,16 @@ const ProjectImage = ({ filename, alt }) => (
           }
         }
       }
-    `}
-    render={(data) => {
-      const image = data.images.edges.find((n) => n.node.relativePath.includes(filename));
+    `);
 
-      if (!image) return null;
+  const image = data.images.edges.find((n) => n.node.relativePath.includes(filename));
 
-      const imageFluid = image.node.childImageSharp.fluid;
-      return <Image alt={alt} fluid={imageFluid} />;
-    }}
-  />
-);
+  if (!image) return null;
+
+  const imageFluid = image.node.childImageSharp.fluid;
+
+  return <Image alt={alt} fluid={imageFluid} />;
+};
 
 ProjectImage.propTypes = {
   filename: PropTypes.string.isRequired,
