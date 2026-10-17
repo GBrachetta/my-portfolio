@@ -1,6 +1,7 @@
 import React from "react";
 import { projectsData, aboutData } from "../data";
 import portrait from "../images/me.png";
+import aboutPortrait from "../images/me-about.jpeg";
 import whiteQueen from "../images/project4.jpg";
 import dice from "../images/project.jpg";
 import nina from "../images/project6.jpg";
@@ -36,7 +37,7 @@ export default function IndexPage() {
           </article>)}
           <a className="github-link" href="https://github.com/GBrachetta" target="_blank" rel="noopener noreferrer">Explore more on GitHub ↗</a>
         </section>
-        <section className="about-section" id="about" aria-labelledby="about-title"><div className="about-photo"><img src={portrait} alt="Guillermo Brachetta" loading="lazy" /><span>THE PERSON BEHIND THE KEYBOARD(S).</span></div><div className="about-copy"><span className="eyebrow">A NOTE ABOUT ME</span><h2 id="about-title">Different disciplines.<br /><em>Same curiosity.</em></h2><p>I’m Guillermo, a web developer and baroque performer. I work with React, Next.js, and Django to turn ideas into websites and applications.</p><p>Music and development both give me room to explore, solve problems, and care about the details. I enjoy the work that happens between an idea and something that feels right.</p><a className="text-link" href={aboutData.resume} target="_blank" rel="noopener noreferrer">Take a look at my CV ↗</a></div></section>
+        <section className="about-section" id="about" aria-labelledby="about-title"><div className="about-photo"><img src={aboutPortrait} alt="Guillermo Brachetta" loading="lazy" /><span>THE PERSON BEHIND THE KEYBOARD(S).</span></div><div className="about-copy"><span className="eyebrow">A NOTE ABOUT ME</span><h2 id="about-title">Different disciplines.<br /><em>Same curiosity.</em></h2><p>I’m Guillermo, a web developer and baroque performer. I work with React, Next.js, and Django to turn ideas into websites and applications.</p><p>Music and development both give me room to explore, solve problems, and care about the details. I enjoy the work that happens between an idea and something that feels right.</p><a className="text-link" href={aboutData.resume} target="_blank" rel="noopener noreferrer">Take a look at my CV ↗</a></div></section>
         <section className="contact-section" aria-labelledby="contact-title"><span className="eyebrow">GOT SOMETHING IN MIND?</span><h2 id="contact-title">Have an idea?<br /><em>Let’s build it.</em></h2><a className="contact-email" href="mailto:brachetta@me.com">brachetta@me.com <span aria-hidden="true">↗</span></a></section>
       </main>
       <footer className="site-footer"><a className="footer-signature" href="#top" aria-label="Guillermo Brachetta — back to top">Guillermo<br /><em>Brachetta.</em><span aria-hidden="true">↗</span></a><div className="footer-bottom"><span>© {new Date().getFullYear()} Guillermo Brachetta</span><div><a href="https://www.linkedin.com/in/guillermo-brachetta/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/GBrachetta" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#top">Back to top ↑</a></div></div></footer>
