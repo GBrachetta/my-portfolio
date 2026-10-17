@@ -145,3 +145,14 @@ body { font-size: 18px; }
 .footer-bottom { font-size: 15px; font-weight: 700; }
 .footer-bottom a { border-bottom: 2px solid $accent; padding-bottom: 3px; }
 @media (max-width: 700px) { .site-header nav { font-size: 18px; }.intro-kicker { font-size: 11px; }.hero-rule { font-size: 10px; }.intro-bottom p { font-size: 19px; }.intro-bottom p span { font-size: 17px; }.about-section { padding: 30px 6%; gap: 35px; }.about-copy p, .work-details p { font-size: 18px; }.footer-bottom { font-size: 14px; }.contact-email { font-size: clamp(19px, 4.5vw, 30px); } }
+
+/* Uneven ink strokes for dividers, independent of the panel outlines. */
+@mixin ink-divider {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='10' viewBox='0 0 1200 10' preserveAspectRatio='none'%3E%3Cpath d='M2 5 Q90 2 180 5 T365 4 T550 6 T735 4 T925 5 T1198 4' fill='none' stroke='%2326332c' stroke-width='2.1' stroke-linecap='round'/%3E%3Cpath d='M8 7 Q165 5 310 7 T620 6 T930 7 T1190 6' fill='none' stroke='%2326332c' stroke-width='.7' stroke-linecap='round' opacity='.5'/%3E%3C/svg%3E");
+  background-size: 100% 10px;
+  background-repeat: no-repeat;
+}
+.site-header { border-bottom: 0; @include ink-divider; background-position: center bottom; }
+.hero-rule { border-top: 0; @include ink-divider; background-position: center top; padding-top: 20px; }
+.hero-rule::after { height: 10px; background: none; @include ink-divider; transform: rotate(-.15deg); }
+.footer-bottom { border-top: 0; @include ink-divider; background-position: center top; }
