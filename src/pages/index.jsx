@@ -17,7 +17,7 @@ export default function IndexPage() {
     <>
       <a className="skip-link" href="#work">Skip to work</a>
       <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Guillermo Brachetta home">GB<span>↗</span></a>
+        <a className="wordmark" href="#top" aria-label="Guillermo Brachetta home">GB</a>
         <span className="header-note">WEB DEVELOPER. BAROQUE PERFORMER.</span>
         <nav aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><a href="mailto:brachetta@me.com">Say hello <span aria-hidden="true">↗</span></a></nav>
       </header>

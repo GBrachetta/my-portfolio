@@ -113,12 +113,12 @@ body { font-size: 18px; }
 .site-header nav a:nth-child(2) { transform: rotate(3deg); }
 .intro-kicker { font-size: 12px; }
 .edition { font-size: 11px; }
-.character-word { color: #f1cf69; }
+.character-word { color: $accent; }
 .hero-stamp, .hero-stamp::after { background: #f1cf69; }
 .graphic-title::after { color: #ec9e81; }
 .graphic-portrait::before { background: #f1cf69dd; }
 .graphic-portrait::after { color: #ec9e81; }
-.graphic-portrait { box-shadow: 6px 7px 0 #ec9e81, 10px 11px 0 $ink; }
+.graphic-portrait { box-shadow: 6px 7px 0 $accent, 10px 11px 0 $ink; }
 .graphic-portrait figcaption { background: #fff5da; }
 .intro-bottom p { font-size: 21px; line-height: 1.55; }
 .intro-bottom p span { font-size: 18px; }
@@ -131,11 +131,11 @@ body { font-size: 18px; }
 .work-card:nth-of-type(1) .eyebrow { background: #f1cf69; }
 .work-card:nth-of-type(2) .eyebrow { background: #ecb7a2; }
 .work-card:nth-of-type(3) .eyebrow { background: #bddba5; }
-.about-section { margin: 0 5%; padding: 45px 4%; background: #f1ddd0; color: $ink; border: 2px solid $ink; border-radius: 22px; box-shadow: 7px 7px 0 $ink; gap: 7%; }
+.about-section { margin: 0 5%; padding: 45px 4%; background: #dce8cf; color: $ink; border: 2px solid $ink; border-radius: 22px; box-shadow: 7px 7px 0 $ink; gap: 7%; }
 .about-photo img { filter: none; border-color: $ink; box-shadow: 6px 7px 0 #f1cf69; }
 .about-photo span { color: $ink; font-size: 11px; }
 .about-copy .eyebrow { display: inline-block; color: $ink; background: #f1cf69; padding: 7px 12px; border: 2px solid $ink; transform: rotate(-3deg); font-size: 13px; }
-.about-copy h2 em { color: #6d3d28; }
+.about-copy h2 em { color: $accent-dark; }
 .about-copy p { color: #424a3c; font-size: 19px; line-height: 1.6; }
 .text-link { color: $ink; font-family: 'Bangers', Impact, sans-serif; font-size: 22px; letter-spacing: .6px; border-color: $ink; }
 .contact-section > .eyebrow { background: #f1cf69; }
@@ -143,5 +143,5 @@ body { font-size: 18px; }
 .contact-email { background: #dcebd5; font-weight: 700; }
 .contact-email span { background: #f1cf69; }
 .footer-bottom { font-size: 15px; font-weight: 700; }
-.footer-bottom a { border-bottom: 2px solid #ec9e81; padding-bottom: 3px; }
+.footer-bottom a { border-bottom: 2px solid $accent; padding-bottom: 3px; }
 @media (max-width: 700px) { .site-header nav { font-size: 18px; }.intro-kicker { font-size: 11px; }.hero-rule { font-size: 10px; }.intro-bottom p { font-size: 19px; }.intro-bottom p span { font-size: 17px; }.about-section { padding: 30px 6%; gap: 35px; }.about-copy p, .work-details p { font-size: 18px; }.footer-bottom { font-size: 14px; }.contact-email { font-size: clamp(19px, 4.5vw, 30px); } }
