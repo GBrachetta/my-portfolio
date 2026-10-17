@@ -119,7 +119,7 @@ export const Projects = () => {
 const ProjectImage = ({ filename, alt }) => {
   const data = useStaticQuery(graphql`
       query {
-        images: allFile {
+        images: allFile(filter: {extension: {in: ["jpg", "jpeg", "png", "webp", "tif", "tiff"]}}) {
           edges {
             node {
               relativePath

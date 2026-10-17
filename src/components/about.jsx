@@ -71,7 +71,7 @@ export const About = () => {
 const AboutImage = ({ filename, alt }) => {
   const data = useStaticQuery(graphql`
     query {
-        images: allFile(filter: {extension: {ne: "svg"}}) {
+        images: allFile(filter: {extension: {in: ["jpg", "jpeg", "png", "webp", "tif", "tiff"]}}) {
           edges {
             node {
               relativePath
