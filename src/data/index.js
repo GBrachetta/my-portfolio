@@ -20,9 +20,12 @@ export const heroData = {
 export const aboutData = {
   img: "me.png",
   paragraphOne:
-    "I love to create, to sort challenges, to defy limitations, to conquer tenacious obstacles, to express myself, to learn.",
+    "I love to create, to sort challenges, to defy limitations, to conquer "
+    + "tenacious obstacles, to express myself, to learn.",
   paragraphTwo:
-    "I found in development the space to exploit these passions. Through React. Through Next.js. Through Django and the intricacies  of databases.",
+    "I found in development the space to exploit these passions. Through "
+    + "React. Through Next.js. Through Django and the intricacies  of "
+    + "databases.",
   paragraphThree: "I love the freedom it gives me.",
   resume: cv,
 };
@@ -30,7 +33,7 @@ export const aboutData = {
 // PROJECTS DATA
 export const projectsData = [
   {
-    id: nanoid(),
+    id: "white-queen",
     img: "project4.jpg",
     title: "White Queen",
     info: "SPA built with Next.js.",
@@ -38,7 +41,7 @@ export const projectsData = [
     url: "https://www.whitequeen.nl/",
   },
   {
-    id: nanoid(),
+    id: "mozarts-dice-game",
     img: "project.jpg",
     title: "Mozart's Dice Game",
     info: "A music randomizer created in Javascript.",
@@ -47,7 +50,7 @@ export const projectsData = [
     repo: "https://github.com/GBrachetta/Musical-Dice",
   },
   {
-    id: nanoid(),
+    id: "pingpanda",
     img: "project7.png",
     title: "PingPanda",
     info: "A Modern Fullstack Event Monitoring SaaS via Discord.",
@@ -55,7 +58,7 @@ export const projectsData = [
     url: "https://saas-josh.vercel.app/",
   },
   {
-    id: nanoid(),
+    id: "my-portfolio",
     img: "portfolio.png",
     title: "My Portfolio",
     info: "My Modern, Minimalistic Portfolio.",
@@ -64,7 +67,7 @@ export const projectsData = [
 
   },
   {
-    id: nanoid(),
+    id: "guillermo-brachetta",
     img: "guillermo-brachetta.png",
     title: "The Artist",
     info: "My portfolio website for my activities as a musician.",
@@ -73,7 +76,7 @@ export const projectsData = [
     repo: "https://github.com/GBrachetta/guillermo",
   },
   {
-    id: nanoid(),
+    id: "nina-przewozniak",
     img: "project6.jpg",
     title: "Nina Przewoźniak",
     info: "Nina Przewoźniak's website",
@@ -85,7 +88,9 @@ export const projectsData = [
     img: "parfumier.png",
     title: "Parfumier",
     info: "A fragrance discovery and review application.",
-    info2: "Built with Flask and MongoDB, with user accounts, reviews, search, and perfume management.",
+    info2:
+      "Built with Flask and MongoDB, with user accounts, reviews, search, and "
+      + "perfume management.",
     url: "https://parfumier.herokuapp.com/",
     repo: "https://github.com/GBrachetta/Parfumier",
   },

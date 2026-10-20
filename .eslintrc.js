@@ -9,7 +9,10 @@ module.exports = {
   extends: ["airbnb"],
   rules: {
     quotes: ["error", "double"],
-    "react/function-component-definition": ["warn", { namedComponents: "arrow-function", unnamedComponents: "arrow-function" }],
+    "react/function-component-definition": [
+      "warn",
+      { namedComponents: "arrow-function", unnamedComponents: "arrow-function" },
+    ],
     "react/react-in-jsx-scope": "off",
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": "off",
