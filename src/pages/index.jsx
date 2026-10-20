@@ -43,7 +43,6 @@ const selected = [
     ...projectsData.find((project) => project.id === "guillermo-brachetta"),
     title: "Guillermo Brachetta",
     image: musician,
-    preserveScreenshot: true,
     type: "ARTIST WEBSITE & SHOP",
     description:
       "My other life, online. A Django website for my work as a baroque "
@@ -53,7 +52,6 @@ const selected = [
   {
     ...projectsData.find((project) => project.id === "parfumier"),
     image: parfumier,
-    preserveScreenshot: true,
     type: "FULL-STACK APPLICATION",
     description:
       "A place to discover fragrances and share reviews. Built with Flask and "
@@ -175,7 +173,7 @@ const IndexPage = () => (
         {selected.map((project, index) => (
           <article className="work-card" key={project.id}>
             <a
-              className={`work-image${project.preserveScreenshot ? " work-image--full" : ""}`}
+              className="work-image"
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
