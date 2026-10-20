@@ -160,3 +160,11 @@ body { font-size: 18px; }
 .link-arrow--down { transform: rotate(135deg); }
 .link-arrow--up { transform: rotate(-45deg); }
 .graphic-portrait figcaption::after { content: ''; width: 30px; height: 30px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 20 Q12 12 4 4 M4 16 Q3 10 4 4 Q10 3 16 4' fill='none' stroke='%2326332c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat; }
+
+/* Additional examples use the same comic-card palette and rhythm. */
+.work-card:nth-of-type(4) .work-image { background-color: #dce8cf; transform: rotate(-1deg); }
+.work-card:nth-of-type(4) .eyebrow { background: #bddba5; }
+.work-card:nth-of-type(5) .work-image { background-color: #eee4c8; transform: rotate(1deg); }
+.work-card:nth-of-type(5) .eyebrow { background: #f1cf69; }
+
+.work-image--full img { aspect-ratio: auto; }

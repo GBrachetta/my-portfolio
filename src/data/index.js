@@ -65,7 +65,7 @@ export const projectsData = [
   },
   {
     id: nanoid(),
-    img: "project2.jpg",
+    img: "guillermo-brachetta.png",
     title: "The Artist",
     info: "My portfolio website for my activities as a musician.",
     info2: "Developed with Django, includes e-commerce.",
@@ -79,6 +79,15 @@ export const projectsData = [
     info: "Nina Przewoźniak's website",
     info2: "Developed with Nextjs, TailwindCSS and Framer Motion.",
     url: "https://nina-przewozniak.com",
+  },
+  {
+    id: "parfumier",
+    img: "parfumier.png",
+    title: "Parfumier",
+    info: "A fragrance discovery and review application.",
+    info2: "Built with Flask and MongoDB, with user accounts, reviews, search, and perfume management.",
+    url: "https://parfumier.herokuapp.com/",
+    repo: "https://github.com/GBrachetta/Parfumier",
   },
 ];
 

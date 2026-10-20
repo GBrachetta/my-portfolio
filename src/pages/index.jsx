@@ -5,6 +5,8 @@ import aboutPortrait from "../images/me-about.jpeg";
 import whiteQueen from "../images/project4.jpg";
 import dice from "../images/project.jpg";
 import nina from "../images/project6.jpg";
+import parfumier from "../images/parfumier.png";
+import musician from "../images/guillermo-brachetta.png";
 import "../style/graphic.scss";
 
 const Arrow = ({ direction = "external" }) => (
@@ -14,9 +16,11 @@ const Arrow = ({ direction = "external" }) => (
 );
 
 const selected = [
-  { ...projectsData[0], image: whiteQueen, type: "01 / CLIENT WEBSITE", description: "A clear digital presence for a Dutch safety consultancy. Branding, development, and a way to start the conversation." },
-  { ...projectsData[1], image: dice, type: "02 / INTERACTIVE EXPERIMENT", description: "An eighteenth-century idea, a browser, and a roll of the dice. An interactive musical game where performance meets programming." },
-  { ...projectsData[5], image: nina, type: "03 / ARTIST WEBSITE", description: "A digital stage for Nina Przewoźniak. Built with Next.js, Tailwind CSS, and Framer Motion." },
+  { ...projectsData[0], image: whiteQueen, type: "CLIENT WEBSITE", description: "A clear digital presence for a Dutch safety consultancy. Branding, development, and a way to start the conversation." },
+  { ...projectsData[1], image: dice, type: "INTERACTIVE EXPERIMENT", description: "An eighteenth-century idea, a browser, and a roll of the dice. An interactive musical game where performance meets programming." },
+  { ...projectsData[5], image: nina, type: "ARTIST WEBSITE", description: "A digital stage for Nina Przewoźniak. Built with Next.js, Tailwind CSS, and Framer Motion." },
+  { ...projectsData.find((project) => project.id === "parfumier"), image: parfumier, preserveScreenshot: true, type: "FULL-STACK APPLICATION", description: "A place to discover fragrances and share reviews. Built with Flask and MongoDB, with user accounts, search, and tools for managing the perfume collection." },
+  { ...projectsData.find((project) => project.title === "The Artist"), title: "Guillermo Brachetta", image: musician, preserveScreenshot: true, type: "ARTIST WEBSITE & SHOP", description: "My other life, online. A Django website for my work as a baroque performer, bringing together recordings, events, a gallery, and an online shop." },
 ];
 
 export default function IndexPage() {
@@ -36,10 +40,10 @@ export default function IndexPage() {
           <div className="hero-rule"><span>REACT / NEXT.JS / DJANGO</span><span>SCROLL TO EXPLORE <Arrow direction="down" /></span></div>
         </section>
         <section className="work-section" id="work" aria-labelledby="work-title">
-          <div className="section-heading"><h2 id="work-title">Less theory.<br /><span className="heading-solid">More <em>doing.</em></span></h2><p>SELECTED WORK / 01—03<br />Websites. Experiments. Things that work.</p></div>
-          {selected.map((project) => <article className="work-card" key={project.title}>
-            <a className="work-image" href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${project.title}`}><img src={project.image} alt={`${project.title} website preview`} loading="lazy" /><span className="image-arrow" aria-hidden="true"><Arrow /></span></a>
-            <div className="work-details"><span className="eyebrow">{project.type}</span><h3>{project.title}</h3><p>{project.description}</p><div className="project-links"><a href={project.url} target="_blank" rel="noopener noreferrer">Visit website <Arrow /></a>{project.repo && <a href={project.repo} target="_blank" rel="noopener noreferrer">Source code <Arrow /></a>}</div></div>
+          <div className="section-heading"><h2 id="work-title">Less theory.<br /><span className="heading-solid">More <em>doing.</em></span></h2><p>SELECTED WORK / 01—{String(selected.length).padStart(2, "0")}<br />Websites. Experiments. Things that work.</p></div>
+          {selected.map((project, index) => <article className="work-card" key={project.title}>
+            <a className={`work-image${project.preserveScreenshot ? " work-image--full" : ""}`} href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${project.title}`}><img src={project.image} alt={`${project.title} website preview`} loading="lazy" /><span className="image-arrow" aria-hidden="true"><Arrow /></span></a>
+            <div className="work-details"><span className="eyebrow">{String(index + 1).padStart(2, "0")} / {project.type}</span><h3>{project.title}</h3><p>{project.description}</p><div className="project-links"><a href={project.url} target="_blank" rel="noopener noreferrer">Visit website <Arrow /></a>{project.repo && <a href={project.repo} target="_blank" rel="noopener noreferrer">Source code <Arrow /></a>}</div></div>
           </article>)}
           <a className="github-link" href="https://github.com/GBrachetta" target="_blank" rel="noopener noreferrer">Explore more on GitHub <Arrow /></a>
         </section>
