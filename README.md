@@ -1,7 +1,9 @@
 # Guillermo Brachetta - Portfolio
 
-   ![image](src/images/portfolio.png)
+[![Guillermo Brachetta portfolio homepage](src/images/portfolio-readme.png)](https://www.gbrachetta.com/)
 
 Built with Gatsby
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/43d1b6af-bffc-4c20-b985-d1a839ca7fe8/deploy-status)](https://app.netlify.com/sites/gpbrachetta/deploys)
+[Live portfolio](https://www.gbrachetta.com/)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/96f4663b-e0bc-4eca-885c-e76a8153d2dd/deploy-status)](https://app.netlify.com/projects/gbrachetta/deploys)
