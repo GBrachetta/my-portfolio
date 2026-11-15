@@ -4,7 +4,7 @@ import { projectsData, aboutData } from "../data";
 import portrait from "../images/me.png";
 import aboutPortrait from "../images/me-about.jpeg";
 import whiteQueen from "../images/project4.jpg";
-import dice from "../images/project.jpg";
+import dice from "../images/mozarts-dice-game.png";
 import nina from "../images/project6.jpg";
 import parfumier from "../images/parfumier.png";
 import musician from "../images/guillermo-brachetta.png";

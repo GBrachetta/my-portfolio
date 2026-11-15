@@ -1215,11 +1215,37 @@ figcaption,
   background-color: #dce8cf;
 }
 .work-card:nth-of-type(4) .eyebrow {
-  background: #bddba5;
+  background: #b5d6eb;
 }
 .work-card:nth-of-type(5) .work-image {
   background-color: #eee4c8;
 }
 .work-card:nth-of-type(5) .eyebrow {
-  background: #f1cf69;
+  background: #d6c3e8;
+}
+.work-card:nth-of-type(6) .eyebrow {
+  background: #a9dcd4;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .about-photo img {
+    transition: transform 0.2s;
+  }
+
+  .about-photo:hover img {
+    transform: translateY(-4px);
+  }
+
+  .work-card .eyebrow,
+  .about-copy .eyebrow,
+  .contact-email {
+    transition: scale 180ms cubic-bezier(0.2, 0.8, 0.3, 1.15), rotate 180ms ease-out;
+  }
+
+  .work-card:hover .eyebrow,
+  .about-section:hover .about-copy .eyebrow,
+  .contact-email:hover {
+    scale: 1.06;
+    rotate: -1deg;
+  }
 }

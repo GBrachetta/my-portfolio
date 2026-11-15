@@ -55,14 +55,14 @@ export const projectsData = [
   },
   {
     id: "mozarts-dice-game",
-    img: "project.jpg",
+    img: "mozarts-dice-game.png",
     title: "Mozart's Dice Game",
     type: "INTERACTIVE EXPERIMENT",
     description:
       "An eighteenth-century idea, a browser, and a roll of the dice. An "
       + "interactive musical game where performance meets programming.",
-    url: "https://loving-mozart.netlify.app/",
-    repo: "https://github.com/GBrachetta/Musical-Dice",
+    url: "https://new-musical-dice.vercel.app/",
+    repo: "https://github.com/GBrachetta/new-musical-dice",
   },
   {
     id: "pingpanda",
