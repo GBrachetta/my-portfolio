@@ -8,6 +8,7 @@ import dice from "../images/project.jpg";
 import nina from "../images/project6.jpg";
 import parfumier from "../images/parfumier.png";
 import musician from "../images/guillermo-brachetta.png";
+import menno from "../images/menno-van-delft.png";
 import "../style/graphic.scss";
 
 const Arrow = ({ direction }) => (
@@ -40,47 +41,28 @@ Arrow.defaultProps = {
 
 const selected = [
   {
+    ...projectsData.find((project) => project.id === "menno-van-delft"),
+    image: menno,
+  },
+  {
     ...projectsData.find((project) => project.id === "guillermo-brachetta"),
-    title: "Guillermo Brachetta",
     image: musician,
-    type: "ARTIST WEBSITE & SHOP",
-    description:
-      "My other life, online. A Django website for my work as a baroque "
-      + "performer, bringing together recordings, events, a gallery, and an "
-      + "online shop.",
   },
   {
     ...projectsData.find((project) => project.id === "parfumier"),
     image: parfumier,
-    type: "FULL-STACK APPLICATION",
-    description:
-      "A place to discover fragrances and share reviews. Built with Flask and "
-      + "MongoDB, with user accounts, search, and tools for managing the perfume "
-      + "collection.",
   },
   {
     ...projectsData.find((project) => project.id === "white-queen"),
     image: whiteQueen,
-    type: "CLIENT WEBSITE",
-    description:
-      "A clear digital presence for a Dutch safety consultancy. Branding, "
-      + "development, and a way to start the conversation.",
   },
   {
     ...projectsData.find((project) => project.id === "mozarts-dice-game"),
     image: dice,
-    type: "INTERACTIVE EXPERIMENT",
-    description:
-      "An eighteenth-century idea, a browser, and a roll of the dice. An "
-      + "interactive musical game where performance meets programming.",
   },
   {
     ...projectsData.find((project) => project.id === "nina-przewozniak"),
     image: nina,
-    type: "ARTIST WEBSITE",
-    description:
-      "A digital stage for Nina Przewoźniak. Built with Next.js, Tailwind CSS, "
-      + "and Framer Motion.",
   },
 ];
 

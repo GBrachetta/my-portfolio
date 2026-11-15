@@ -33,19 +33,34 @@ export const aboutData = {
 // PROJECTS DATA
 export const projectsData = [
   {
+    id: "menno-van-delft",
+    img: "menno-van-delft.png",
+    title: "Menno van Delft",
+    type: "ARTIST WEBSITE",
+    description:
+      "A multilingual website for harpsichordist and clavichordist Menno van Delft, "
+      + "with audio previews, a recordings catalogue, and a press kit. Built with "
+      + "Astro and Sanity.",
+    url: "https://www.mennovandelft.com/",
+  },
+  {
     id: "white-queen",
     img: "project4.jpg",
     title: "White Queen",
-    info: "SPA built with Next.js.",
-    info2: "Branding, development, contact form, for a Dutch company.",
+    type: "CLIENT WEBSITE",
+    description:
+      "A clear digital presence for a Dutch safety consultancy. Branding, "
+      + "development, and a way to start the conversation.",
     url: "https://www.whitequeen.nl/",
   },
   {
     id: "mozarts-dice-game",
     img: "project.jpg",
     title: "Mozart's Dice Game",
-    info: "A music randomizer created in Javascript.",
-    info2: "For the artist in me. Music composed by myself as well ;)",
+    type: "INTERACTIVE EXPERIMENT",
+    description:
+      "An eighteenth-century idea, a browser, and a roll of the dice. An "
+      + "interactive musical game where performance meets programming.",
     url: "https://loving-mozart.netlify.app/",
     repo: "https://github.com/GBrachetta/Musical-Dice",
   },
@@ -53,25 +68,28 @@ export const projectsData = [
     id: "pingpanda",
     img: "project7.png",
     title: "PingPanda",
-    info: "A Modern Fullstack Event Monitoring SaaS via Discord.",
-    info2: "Next.js, Clerk, Stripe, Discord API, Neon, Prisma ORM.",
+    description:
+      "A Modern Fullstack Event Monitoring SaaS via Discord. "
+      + "Next.js, Clerk, Stripe, Discord API, Neon, Prisma ORM.",
     url: "https://saas-josh.vercel.app/",
   },
   {
     id: "my-portfolio",
     img: "portfolio.png",
     title: "My Portfolio",
-    info: "My Modern, Minimalistic Portfolio.",
-    info2: "Built with Gatsby.",
+    description: "My Modern, Minimalistic Portfolio. Built with Gatsby.",
     repo: "https://github.com/GBrachetta/my-portfolio",
 
   },
   {
     id: "guillermo-brachetta",
     img: "guillermo-brachetta.png",
-    title: "The Artist",
-    info: "My portfolio website for my activities as a musician.",
-    info2: "Developed with Django, includes e-commerce.",
+    title: "Guillermo Brachetta",
+    type: "ARTIST WEBSITE & SHOP",
+    description:
+      "My other life, online. A Django website for my work as a baroque "
+      + "performer, bringing together recordings, events, a gallery, and an "
+      + "online shop.",
     url: "https://guillermo-brachetta.herokuapp.com/",
     repo: "https://github.com/GBrachetta/guillermo",
   },
@@ -79,18 +97,21 @@ export const projectsData = [
     id: "nina-przewozniak",
     img: "project6.jpg",
     title: "Nina Przewoźniak",
-    info: "Nina Przewoźniak's website",
-    info2: "Developed with Nextjs, TailwindCSS and Framer Motion.",
+    type: "ARTIST WEBSITE",
+    description:
+      "A digital stage for Nina Przewoźniak. Built with Next.js, Tailwind CSS, "
+      + "and Framer Motion.",
     url: "https://nina-przewozniak.com",
   },
   {
     id: "parfumier",
     img: "parfumier.png",
     title: "Parfumier",
-    info: "A fragrance discovery and review application.",
-    info2:
-      "Built with Flask and MongoDB, with user accounts, reviews, search, and "
-      + "perfume management.",
+    type: "FULL-STACK APPLICATION",
+    description:
+      "A place to discover fragrances and share reviews. Built with Flask and "
+      + "MongoDB, with user accounts, search, and tools for managing the perfume "
+      + "collection.",
     url: "https://parfumier.herokuapp.com/",
     repo: "https://github.com/GBrachetta/Parfumier",
   },

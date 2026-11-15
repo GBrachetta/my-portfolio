@@ -31,7 +31,7 @@ export const Projects = () => {
           <Title title="Sample Projects" />
           {projects.map((project) => {
             const {
-              title, info, info2, url, repo, img, id,
+              title, description, url, repo, img, id,
             } = project;
 
             return (
@@ -47,8 +47,7 @@ export const Projects = () => {
                     <div className="project-wrapper__text">
                       <h3 className="project-wrapper__text-title">{title}</h3>
                       <div>
-                        <p>{info}</p>
-                        <p className="mb-4">{info2}</p>
+                        <p className="mb-4">{description}</p>
                       </div>
                       {url && (
                       <a
