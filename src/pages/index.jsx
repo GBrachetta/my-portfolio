@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { projectsData, aboutData } from "../data";
+import { Link } from "gatsby";
+import { projectsData } from "../data";
 import portrait from "../images/me-700.webp";
 import portrait2x from "../images/me-1200.webp";
 import aboutPortrait from "../images/me-about-700.webp";
@@ -437,7 +438,11 @@ const IndexPage = () => {
             <p className="intro-bio">
               <strong className="intro-bio-lead">Websites, applications, and a point of view.</strong>
               <br />
-              <span>I’m Guillermo — web developer and baroque harpsichordist.</span>
+              <span>
+                I’m Guillermo
+                <span className="bio-name-full"> Brachetta</span>
+                , web developer and baroque harpsichordist.
+              </span>
             </p>
             <div className="intro-actions">
               <a className="round-link round-link--work" href="#work">
@@ -625,16 +630,14 @@ const IndexPage = () => {
               details. I enjoy the work that happens between an idea and something that feels right.
             </p>
             <div className="about-actions">
-              <a
+              <Link
                 className="text-link"
-                href={aboutData.resume}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Take a look at my CV (PDF, opens in a new tab)"
+                to="/cv"
+                aria-label="Take a look at my CV dossier (opens interactive curriculum vitae)"
               >
                 Take a look at my CV
                 <Arrow />
-              </a>
+              </Link>
               <a
                 className="text-link"
                 href="https://blog.gbrachetta.com/"

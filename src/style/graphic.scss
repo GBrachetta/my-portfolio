@@ -4,7 +4,9 @@
   font-weight: 400;
   font-display: swap;
   src: url("../fonts/bangers-v25-latin-ext.woff2") format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
@@ -13,7 +15,9 @@
   font-weight: 400;
   font-display: swap;
   src: url("../fonts/bangers-v25-latin.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC,
+    U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -22,7 +26,9 @@
   font-weight: 400;
   font-display: swap;
   src: url("../fonts/comic-neue-v9-latin-400.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC,
+    U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -31,7 +37,9 @@
   font-weight: 700;
   font-display: swap;
   src: url("../fonts/comic-neue-v9-latin-700.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC,
+    U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 $paper: #f1f0e9;
@@ -169,10 +177,13 @@ figcaption,
 }
 .graphic-hero {
   display: grid;
-  grid-template-columns: 1.8fr 1fr;
-  gap: 3%;
+  grid-template-columns: minmax(420px, 1.25fr) minmax(300px, 360px);
+  justify-content: center;
+  gap: 64px;
   align-items: center;
   padding: 20px 0 35px;
+  max-width: 1040px;
+  margin: 0 auto;
 }
 .graphic-title {
   position: relative;
@@ -216,7 +227,9 @@ h1 {
   letter-spacing: 0.8px;
   line-height: 1.1;
   cursor: default;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 
   .stamp-star {
     position: absolute;
@@ -237,12 +250,16 @@ h1 {
 }
 .graphic-portrait {
   position: relative;
-  margin: 10px 8% 0 0;
-  transform: rotate(4deg);
+  margin: 0 auto;
+  max-width: 360px;
+  width: 100%;
+  transform: rotate(3deg);
   border: 2px solid $ink;
   background: $accent;
   box-shadow: 10px 10px 0 $ink;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 
   picture {
     display: block;
@@ -297,7 +314,10 @@ h1 {
   cursor: pointer;
   box-shadow: 2px 2px 0 $ink;
   white-space: nowrap;
-  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background-color 0.15s ease;
 
   &:hover {
     background: #ecc244;
@@ -403,7 +423,10 @@ h1 {
   padding: 5px 12px;
   cursor: pointer;
   box-shadow: 2px 2px 0 $ink;
-  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease,
+    background-color 0.15s ease;
 
   &:hover:not(:disabled) {
     background: #edd17d;
@@ -435,7 +458,9 @@ h1 {
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.1s ease;
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease;
 
   &:hover {
     background: #ec9e81;
@@ -477,7 +502,9 @@ h1 {
   align-items: center;
   font-family: "Comic Neue", cursive;
   font-weight: 700;
-  transition: background 0.08s ease, transform 0.05s ease;
+  transition:
+    background 0.08s ease,
+    transform 0.05s ease;
 
   .key-char {
     font-size: 11px;
@@ -626,8 +653,10 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 32px;
   padding: 30px 0 35px;
+  max-width: 1040px;
+  margin: 0 auto;
 }
 .intro-bio {
   font-family: "Comic Neue", cursive;
@@ -649,6 +678,10 @@ h1 {
     font-size: 15px;
     font-weight: 600;
     color: #38473e;
+  }
+
+  .bio-name-full {
+    display: none !important;
   }
 }
 .intro-actions {
@@ -672,7 +705,10 @@ h1 {
   letter-spacing: 0.8px;
   line-height: 1;
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
 
   .btn-arrow {
     display: inline-flex;
@@ -721,6 +757,8 @@ h1 {
   border-top: 2px solid $ink;
   border-bottom: 2px solid $ink;
   margin-top: 15px;
+  max-width: 1040px;
+  margin-inline: auto;
 }
 .hero-tech-strip {
   display: flex;
@@ -777,7 +815,9 @@ h1 {
   color: $ink;
   text-decoration: none;
   white-space: nowrap;
-  transition: color 0.15s ease, transform 0.15s ease;
+  transition:
+    color 0.15s ease,
+    transform 0.15s ease;
 
   .link-arrow {
     width: 16px;
@@ -887,7 +927,9 @@ h1 {
   transform: rotate(-3deg);
   z-index: 4;
   pointer-events: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 .work-card:nth-of-type(even) .comic-issue-stamp {
   background: #bddba5;
@@ -936,7 +978,9 @@ h1 {
   border: 2px solid $ink;
   border-radius: 6px 2px 7px 3px;
   box-shadow: 2px 2px 0 $ink;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 
   &:nth-child(4n + 1) {
     background: #fff5da;
@@ -1008,7 +1052,10 @@ h1 {
   border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
 
   .link-arrow {
     width: 17px;
@@ -1101,23 +1148,37 @@ h1 {
 }
 .about-actions {
   display: flex;
-  gap: 28px;
+  gap: 14px;
   flex-wrap: wrap;
   align-items: center;
+  margin-top: 22px;
 }
 .text-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  border-bottom: 2px solid #c2e3c0;
-  padding-bottom: 8px;
-  margin-top: 18px;
-  transition: border-color 0.15s ease, color 0.15s ease;
+  justify-content: space-between;
+  gap: 8px;
+  background: #faf8f2;
+  color: $ink;
+  border: 2px solid $ink;
+  border-radius: 9px;
+  box-shadow: 3px 3px 0 $ink;
+  padding: 9px 16px 7px;
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 19px;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+  margin: 0;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
 
   &:hover {
-    color: $accent-dark;
-    border-color: $accent-dark;
+    background: #f1cf69;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0 $ink;
+    color: $ink;
   }
 }
 .contact-section {
@@ -1154,7 +1215,9 @@ h1 {
   padding: 30px 36px;
   margin: 36px 0 28px;
   position: relative;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 
   @media (max-width: 650px) {
     padding: 20px 18px;
@@ -1236,7 +1299,10 @@ h1 {
   min-width: 68px;
   position: relative;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
 
   &:hover {
     background: #fff8e8;
@@ -1289,13 +1355,7 @@ h1 {
 }
 .postcard-divider {
   width: 2px;
-  background: repeating-linear-gradient(
-    to bottom,
-    $line 0,
-    $line 6px,
-    transparent 6px,
-    transparent 12px
-  );
+  background: repeating-linear-gradient(to bottom, $line 0, $line 6px, transparent 6px, transparent 12px);
   align-self: stretch;
 
   @media (max-width: 860px) {
@@ -1366,11 +1426,7 @@ h1 {
   border-radius: 10px;
   box-shadow: 3px 4px 0 $ink;
   padding: 12px 14px;
-  background-image: repeating-linear-gradient(
-    transparent,
-    transparent 27px,
-    #edf0e9 28px
-  );
+  background-image: repeating-linear-gradient(transparent, transparent 27px, #edf0e9 28px);
 
   textarea {
     flex: 1;
@@ -1674,7 +1730,9 @@ h1 {
   line-height: 1;
   box-shadow: 2px 2px 0 $ink;
   transform: rotate(-2.5deg);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 
   .eyebrow-dispatch {
     font-weight: 400;
@@ -1908,13 +1966,6 @@ figcaption,
   font-size: 19px;
   line-height: 1.6;
 }
-.text-link {
-  color: $ink;
-  font-family: "Bangers", Impact, sans-serif;
-  font-size: 22px;
-  letter-spacing: 0.6px;
-  border-color: $ink;
-}
 .contact-section > .eyebrow {
   background: #f1cf69;
 }
@@ -2034,7 +2085,9 @@ figcaption,
   .work-card .eyebrow,
   .about-copy .eyebrow,
   .contact-email {
-    transition: scale 180ms cubic-bezier(0.2, 0.8, 0.3, 1.15), rotate 180ms ease-out;
+    transition:
+      scale 180ms cubic-bezier(0.2, 0.8, 0.3, 1.15),
+      rotate 180ms ease-out;
   }
 
   .work-card:hover .eyebrow,
@@ -2060,13 +2113,17 @@ figcaption,
 
   // Header
   .site-header {
-    padding: 14px 4%;
-    gap: 10px;
+    margin: 0 !important;
+    padding: 12px 4%;
+    gap: 8px;
     align-items: center;
     justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
 
     .wordmark-group {
       gap: 0;
+      flex-shrink: 0;
     }
 
     .site-title-name {
@@ -2081,70 +2138,83 @@ figcaption,
       margin-left: auto;
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 15px;
+      gap: 7px;
+      font-size: 13.5px;
+      flex-shrink: 0;
 
       a:last-child {
-        padding: 5px 9px 4px;
-        font-size: 14px;
+        padding: 4px 7px 3px;
+        font-size: 12px;
       }
     }
   }
 
   // Hero section
   .intro {
-    padding: 16px 5% 0;
+    padding: 16px 4% 0;
   }
 
   .graphic-hero {
     display: flex !important;
     flex-direction: column !important;
-    gap: 18px !important;
-    padding: 8px 0 20px !important;
+    gap: 16px !important;
+    padding: 6px 0 18px !important;
   }
 
   .graphic-title {
+    position: relative !important;
     width: 100%;
-    padding-bottom: 0 !important;
+    max-width: 320px;
+    margin: 0 auto;
+    display: block !important;
+    padding-bottom: 38px !important;
   }
 
   h1 {
-    font-size: clamp(38px, 11vw, 54px) !important;
-    line-height: 1 !important;
+    font-size: clamp(44px, 12.5vw, 56px) !important;
+    line-height: 0.92 !important;
     letter-spacing: 0.5px !important;
-    transform: none !important;
+    transform: rotate(-1deg) !important;
+    margin: 0 !important;
   }
 
   .character-word {
     display: inline-block;
     color: $accent;
     letter-spacing: 0.5px;
-    -webkit-text-stroke: 2px $ink;
+    -webkit-text-stroke: 2.2px $ink;
     paint-order: stroke fill;
-    text-shadow: 3px 3px 0 $ink;
+    text-shadow: 3.5px 3.5px 0 $ink;
     transform: rotate(-2deg);
   }
 
   .hero-stamp {
-    position: static !important;
+    position: absolute !important;
+    left: 6px !important;
+    bottom: -26px !important;
+    z-index: 2;
     display: inline-flex !important;
-    margin-top: 14px;
-    font-size: 15px;
-    padding: 6px 38px 5px 12px;
-    box-shadow: 3px 3px 0 $ink;
-    transform: rotate(-2deg);
+    flex-direction: column !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    font-size: 14px !important;
+    padding: 5px 34px 4px 11px !important;
+    box-shadow: 3px 3px 0 $ink !important;
+    transform: rotate(-3deg) !important;
+    border-radius: 8px !important;
 
     .stamp-star {
-      font-size: 24px;
-      right: 9px;
-      top: 5px;
+      position: absolute !important;
+      font-size: 21px !important;
+      right: 7px !important;
+      top: 5px !important;
     }
   }
 
   .graphic-portrait {
     width: 100% !important;
     max-width: 310px !important;
-    margin: 14px auto 0 !important;
+    margin: 12px auto 0 !important;
     transform: rotate(1deg);
     box-shadow: 7px 7px 0 $ink !important;
 
@@ -2205,6 +2275,10 @@ figcaption,
 
     span {
       font-size: 14.5px;
+    }
+
+    .bio-name-full {
+      display: inline !important;
     }
   }
 
@@ -2361,6 +2435,20 @@ figcaption,
     line-height: 1.55;
   }
 
+  .about-actions {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 18px;
+    width: 100%;
+
+    .text-link {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px 16px 8px;
+      font-size: 17px;
+    }
+  }
+
   // Contact section
   .contact-section {
     padding: 36px 5%;
@@ -2438,3 +2526,866 @@ figcaption,
     align-self: flex-start;
   }
 }
+
+// ==========================================
+// CV DOSSIER & PRINT STYLES
+// ==========================================
+.cv-wrapper {
+  background-color: $paper;
+  color: $ink;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba($paper, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid $ink;
+  padding: 12px 5%;
+}
+
+.cv-nav-container {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cv-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  padding: 8px 16px 6px;
+  border: 2px solid $ink;
+  border-radius: 8px;
+  box-shadow: 3px 3px 0 $ink;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+  line-height: 1;
+
+  &:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 $ink;
+  }
+
+  &:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 $ink;
+  }
+
+  &--back {
+    background: #faf8f2;
+    color: $ink;
+
+    &:hover {
+      background: $accent;
+    }
+  }
+
+  &--print {
+    background: #f1cf69;
+    color: $ink;
+
+    &:hover {
+      background: #ecc244;
+    }
+  }
+
+  &--download {
+    background: #faf8f2;
+    color: $ink;
+
+    &:hover {
+      background: #edd17d;
+    }
+  }
+
+  &--contact {
+    background: $accent;
+    color: $ink;
+
+    &:hover {
+      background: #9bc5a0;
+    }
+  }
+}
+
+.cv-page {
+  flex: 1;
+  max-width: 1040px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 36px 5% 60px;
+}
+
+// Dossier Header
+.cv-header {
+  border: 2.5px solid $ink;
+  background: #faf8f2;
+  border-radius: 12px;
+  box-shadow: 6px 6px 0 $ink;
+  padding: 28px 32px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.cv-stamp-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+
+  .cv-badge {
+    background: $ink;
+    color: #faf8f2;
+    font-family: "Bangers", Impact, sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.8px;
+    padding: 4px 10px 2px;
+    border-radius: 4px;
+    transform: rotate(-1.5deg);
+  }
+
+  .cv-stamp-meta {
+    font-family: "Comic Neue", cursive;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: $accent-dark;
+  }
+}
+
+.cv-header-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.cv-name {
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: clamp(38px, 6vw, 56px);
+  line-height: 0.95;
+  letter-spacing: 0.5px;
+  color: $ink;
+  margin: 0 0 12px;
+
+  .cv-name-accent {
+    color: $accent-dark;
+  }
+}
+
+.cv-headline {
+  font-family: "Comic Neue", cursive;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #38473e;
+  margin: 0;
+}
+
+.cv-contact-panel {
+  background: #f1f0e9;
+  border: 1.5px solid $ink;
+  border-radius: 8px;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 2px 2px 0 $ink;
+}
+
+.cv-contact-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: "Comic Neue", cursive;
+  font-size: 13.5px;
+  line-height: 1.4;
+
+  .cv-label {
+    font-weight: 700;
+    color: $accent-dark;
+    min-width: 80px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .cv-value {
+    color: $ink;
+    font-weight: 600;
+  }
+
+  .cv-link {
+    color: $ink;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    font-weight: 700;
+    word-break: break-all;
+
+    &:hover {
+      color: $accent-dark;
+    }
+  }
+}
+
+// Section Base
+.cv-section {
+  margin-bottom: 34px;
+}
+
+.cv-section-tag {
+  display: inline-block;
+  background: $accent-dark;
+  color: #faf8f2;
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  padding: 5px 14px 3px;
+  border: 2px solid $ink;
+  border-radius: 6px;
+  box-shadow: 3px 3px 0 $ink;
+  transform: rotate(-1deg);
+  margin-bottom: 14px;
+}
+
+// Summary Panel
+.cv-summary-card {
+  background: #faf8f2;
+  border: 2px solid $ink;
+  border-radius: 10px;
+  box-shadow: 4px 4px 0 $ink;
+  padding: 24px 28px;
+  font-family: "Comic Neue", cursive;
+
+  .cv-summary-lead {
+    font-family: "Comic Neue", cursive;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.45;
+    color: $ink;
+    margin: 0 0 14px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.65;
+    color: #2e3b33;
+    margin: 0 0 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Skills Grid
+.cv-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.cv-skill-card {
+  background: #faf8f2;
+  border: 2px solid $ink;
+  border-radius: 9px;
+  box-shadow: 3px 3px 0 $ink;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-skill-title {
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 21px;
+  letter-spacing: 0.6px;
+  color: $ink;
+  margin: 0 0 4px;
+}
+
+.cv-skill-lead {
+  font-family: "Comic Neue", cursive;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: $accent-dark;
+  margin: 0 0 12px;
+}
+
+.cv-skill-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  li {
+    background: #f1f0e9;
+    border: 1.5px solid $ink;
+    border-radius: 6px;
+    box-shadow: 1.5px 1.5px 0 $ink;
+    font-family: "Comic Neue", cursive;
+    font-size: 13px;
+    font-weight: 700;
+    color: $ink;
+    padding: 3px 8px 2px;
+  }
+}
+
+// Timeline
+.cv-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cv-entry {
+  background: #faf8f2;
+  border: 2px solid $ink;
+  border-radius: 9px;
+  box-shadow: 3px 3px 0 $ink;
+  padding: 20px 24px;
+}
+
+.cv-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.cv-entry-title {
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+  color: $ink;
+  margin: 0 0 3px;
+}
+
+.cv-entry-company {
+  font-family: "Comic Neue", cursive;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: $accent-dark;
+  display: block;
+}
+
+.cv-entry-badge {
+  background: #f1cf69;
+  border: 1.5px solid $ink;
+  border-radius: 6px;
+  box-shadow: 2px 2px 0 $ink;
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  color: $ink;
+  padding: 3px 9px 2px;
+  white-space: nowrap;
+}
+
+.cv-entry-summary {
+  font-family: "Comic Neue", cursive;
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #26332c;
+  margin: 0 0 10px;
+}
+
+.cv-entry-bullets {
+  margin: 0;
+  padding-left: 20px;
+  font-family: "Comic Neue", cursive;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #38473e;
+
+  li {
+    margin-bottom: 6px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  em {
+    font-style: italic;
+    font-weight: 700;
+    color: $ink;
+  }
+}
+
+// Education Grid
+.cv-edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.cv-edu-card {
+  background: #faf8f2;
+  border: 2px solid $ink;
+  border-radius: 9px;
+  box-shadow: 3px 3px 0 $ink;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-edu-badge {
+  background: $accent;
+  border: 1.5px solid $ink;
+  border-radius: 5px;
+  box-shadow: 1.5px 1.5px 0 $ink;
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 13.5px;
+  letter-spacing: 0.5px;
+  color: $ink;
+  padding: 2px 8px 1px;
+  align-self: flex-start;
+  margin-bottom: 10px;
+}
+
+.cv-edu-title {
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 19px;
+  letter-spacing: 0.5px;
+  color: $ink;
+  margin: 0 0 4px;
+}
+
+.cv-edu-school {
+  font-family: "Comic Neue", cursive;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: $accent-dark;
+  margin: 0 0 8px;
+}
+
+.cv-edu-note {
+  font-family: "Comic Neue", cursive;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #38473e;
+  margin: 0;
+}
+
+// Selected Projects Table
+.cv-projects-table {
+  background: #faf8f2;
+  border: 2px solid $ink;
+  border-radius: 9px;
+  box-shadow: 3px 3px 0 $ink;
+  overflow: hidden;
+}
+
+.cv-project-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1.5px solid #e2ded0;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.cv-project-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-project-name {
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  color: $ink;
+}
+
+.cv-project-desc {
+  font-family: "Comic Neue", cursive;
+  font-size: 13px;
+  color: #4f5f56;
+}
+
+.cv-project-stack {
+  font-family: "Comic Neue", cursive;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: $accent-dark;
+}
+
+.cv-contact-cta {
+  margin-top: 36px;
+  margin-bottom: 24px;
+}
+
+.cv-cta-card {
+  background: #faf8f2;
+  border: 2.5px solid $ink;
+  border-radius: 12px;
+  box-shadow: 6px 6px 0 $ink;
+  padding: 32px 36px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  .cv-cta-title {
+    font-family: "Bangers", Impact, sans-serif;
+    font-size: clamp(28px, 4.5vw, 38px);
+    letter-spacing: 0.6px;
+    color: $ink;
+    margin: 0;
+  }
+
+  .cv-cta-desc {
+    font-family: "Comic Neue", cursive;
+    font-size: 16.5px;
+    line-height: 1.55;
+    color: #38473e;
+    max-width: 580px;
+    margin: 0 0 8px;
+  }
+
+  .cv-btn--cta {
+    font-size: 19px;
+    padding: 10px 22px 8px;
+  }
+}
+
+.cv-print-footer {
+  display: none;
+}
+
+.cv-footer-links {
+  display: flex;
+  gap: 16px;
+
+  a {
+    color: $ink;
+    font-weight: 700;
+    text-decoration: underline;
+
+    &:hover {
+      color: $accent-dark;
+    }
+  }
+}
+
+// Responsive layout
+@media (max-width: 768px) {
+  .cv-header-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cv-project-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .cv-nav-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cv-nav-actions {
+    justify-content: stretch;
+
+    .cv-btn {
+      flex: 1;
+      justify-content: center;
+    }
+  }
+}
+
+// ==========================================
+// PRINT STYLES FOR RECRUITERS / HR
+// ==========================================
+@media print {
+  @page {
+    margin: 12mm 15mm;
+    size: A4 portrait;
+  }
+
+  // Hide UI buttons and website chrome
+  .cv-nav-bar,
+  .cv-screen-footer,
+  .cv-contact-cta,
+  .cv-btn,
+  .link-arrow {
+    display: none !important;
+  }
+
+  body,
+  .cv-wrapper {
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  }
+
+  .cv-page {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  // Remove box-shadows and comic tilts for crisp ATS printing
+  .cv-header,
+  .cv-summary-card,
+  .cv-skill-card,
+  .cv-entry,
+  .cv-edu-card,
+  .cv-projects-table,
+  .cv-section-tag,
+  .cv-badge,
+  .cv-entry-badge,
+  .cv-edu-badge,
+  .cv-contact-panel,
+  .cv-skill-tags li {
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .cv-header {
+    border: 1.5px solid #222222 !important;
+    background: #ffffff !important;
+    padding: 16px 20px !important;
+    margin-bottom: 20px !important;
+    border-radius: 6px !important;
+  }
+
+  .cv-header-grid {
+    grid-template-columns: 1.4fr 1fr !important;
+    gap: 16px !important;
+  }
+
+  .cv-name {
+    font-family: "Bangers", Impact, sans-serif !important;
+    font-size: 34px !important;
+    margin-bottom: 6px !important;
+    color: #000000 !important;
+
+    .cv-name-accent {
+      color: #333333 !important;
+    }
+  }
+
+  .cv-headline {
+    font-size: 13.5px !important;
+    color: #333333 !important;
+  }
+
+  .cv-contact-panel {
+    background: #f7f7f7 !important;
+    border: 1px solid #cccccc !important;
+    padding: 10px 14px !important;
+    gap: 4px !important;
+    border-radius: 4px !important;
+  }
+
+  .cv-contact-row {
+    font-size: 11.5px !important;
+
+    .cv-label {
+      min-width: 65px !important;
+      font-size: 10.5px !important;
+      color: #555555 !important;
+    }
+
+    .cv-link {
+      color: #111111 !important;
+      text-decoration: none !important;
+    }
+  }
+
+  .cv-section {
+    margin-bottom: 18px !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .cv-section-tag {
+    background: #222222 !important;
+    color: #ffffff !important;
+    border: 1px solid #000000 !important;
+    font-size: 14px !important;
+    padding: 3px 10px 2px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .cv-summary-card {
+    background: #ffffff !important;
+    border: 1px solid #cccccc !important;
+    padding: 14px 18px !important;
+
+    .cv-summary-lead {
+      font-size: 14.5px !important;
+      margin-bottom: 8px !important;
+      color: #000000 !important;
+    }
+
+    p {
+      font-size: 12.5px !important;
+      line-height: 1.5 !important;
+      color: #222222 !important;
+      margin-bottom: 8px !important;
+    }
+  }
+
+  .cv-skills-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .cv-skill-card {
+    background: #ffffff !important;
+    border: 1px solid #cccccc !important;
+    padding: 12px 14px !important;
+  }
+
+  .cv-skill-title {
+    font-size: 16px !important;
+    color: #000000 !important;
+  }
+
+  .cv-skill-lead {
+    font-size: 11.5px !important;
+    color: #555555 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .cv-skill-tags li {
+    background: #f3f3f3 !important;
+    border: 1px solid #dddddd !important;
+    font-size: 11px !important;
+    padding: 2px 6px 1px !important;
+  }
+
+  .cv-entry {
+    background: #ffffff !important;
+    border: 1px solid #cccccc !important;
+    padding: 12px 16px !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .cv-entry-title {
+    font-size: 16px !important;
+    color: #000000 !important;
+  }
+
+  .cv-entry-company {
+    font-size: 12px !important;
+    color: #444444 !important;
+  }
+
+  .cv-entry-badge {
+    background: #e8e8e8 !important;
+    border: 1px solid #bbbbbb !important;
+    font-size: 12px !important;
+    color: #111111 !important;
+    padding: 2px 6px 1px !important;
+  }
+
+  .cv-entry-summary {
+    font-size: 12.5px !important;
+    color: #222222 !important;
+    margin-bottom: 6px !important;
+  }
+
+  .cv-entry-bullets {
+    font-size: 11.5px !important;
+    line-height: 1.45 !important;
+    color: #333333 !important;
+
+    li {
+      margin-bottom: 4px !important;
+    }
+  }
+
+  .cv-edu-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .cv-edu-card {
+    background: #ffffff !important;
+    border: 1px solid #cccccc !important;
+    padding: 10px 14px !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .cv-edu-badge {
+    background: #eeeeee !important;
+    border: 1px solid #cccccc !important;
+    font-size: 11px !important;
+    color: #333333 !important;
+  }
+
+  .cv-edu-title {
+    font-size: 15px !important;
+  }
+
+  .cv-edu-school {
+    font-size: 11.5px !important;
+  }
+
+  .cv-edu-note {
+    font-size: 11px !important;
+  }
+
+  .cv-projects-table {
+    border: 1px solid #cccccc !important;
+    background: #ffffff !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .cv-project-row {
+    padding: 8px 14px !important;
+    font-size: 11.5px !important;
+    grid-template-columns: 1.5fr 1fr 1fr !important;
+  }
+
+  .cv-project-name {
+    font-size: 14px !important;
+  }
+
+  .cv-print-footer {
+    display: block !important;
+    text-align: center;
+    margin-top: 24px;
+    padding-top: 10px;
+    border-top: 1px solid #cccccc;
+    font-size: 11px;
+    color: #666666;
+  }
+}
+
