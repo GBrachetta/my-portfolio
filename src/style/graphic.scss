@@ -2591,11 +2591,20 @@ figcaption,
   }
 
   &--back {
-    background: #faf8f2;
+    background: #8ecae6;
     color: $ink;
 
     &:hover {
-      background: $accent;
+      background: #76bee2;
+    }
+  }
+
+  &--contact {
+    background: #bddba5;
+    color: $ink;
+
+    &:hover {
+      background: #a8d48d;
     }
   }
 
@@ -2609,20 +2618,11 @@ figcaption,
   }
 
   &--download {
-    background: #faf8f2;
+    background: #c5a6eb;
     color: $ink;
 
     &:hover {
-      background: #edd17d;
-    }
-  }
-
-  &--contact {
-    background: $accent;
-    color: $ink;
-
-    &:hover {
-      background: #9bc5a0;
+      background: #b48fe3;
     }
   }
 }

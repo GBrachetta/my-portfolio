@@ -53,6 +53,85 @@ Arrow.defaultProps = {
   direction: "external",
 };
 
+const ComicStar = () => (
+  <svg
+    viewBox="0 0 24 24"
+    width="1em"
+    height="1em"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <line x1="12" y1="2" x2="12" y2="22" />
+    <line x1="2" y1="12" x2="22" y2="12" />
+    <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+    <line x1="4.93" y1="19.07" x2="19.07" y2="4.93" />
+  </svg>
+);
+
+const KeyboardIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    width="15"
+    height="15"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    focusable="false"
+    style={{ display: "inline-block", verticalAlign: "middle", marginRight: "3px" }}
+  >
+    <rect x="2" y="5" width="20" height="14" rx="2" />
+    <line x1="6" y1="5" x2="6" y2="13" />
+    <line x1="10" y1="5" x2="10" y2="13" />
+    <line x1="14" y1="5" x2="14" y2="13" />
+    <line x1="18" y1="5" x2="18" y2="13" />
+  </svg>
+);
+
+const CheckIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    width="17"
+    height="17"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    focusable="false"
+    style={{ display: "inline-block", verticalAlign: "-0.15em", marginRight: "4px" }}
+  >
+    <polyline points="20 6 9 17 4 12" />
+  </svg>
+);
+
+const AlertIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    width="16"
+    height="16"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    focusable="false"
+    style={{ display: "inline-block", verticalAlign: "-0.15em", marginRight: "4px" }}
+  >
+    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+    <line x1="12" y1="9" x2="12" y2="13" />
+    <line x1="12" y1="17" x2="12.01" y2="17" />
+  </svg>
+);
+
 const selected = [
   {
     ...projectsData.find((project) => project.id === "menno-van-delft"),
@@ -203,10 +282,10 @@ const ContactPostcard = () => {
               <rect x="10.5" y="4" width="3" height="9" fill="currentColor" />
               <rect x="15.5" y="4" width="3" height="9" fill="currentColor" />
             </svg>
-            <span className="stamp-caption">{isPlucking ? "PLUCKING..." : "KEYBOARD ♫"}</span>
+            <span className="stamp-caption">{isPlucking ? "PLUCKING..." : "KEYBOARD"}</span>
             {toccataBubble && (
               <span className="comic-stamp-bubble" role="status">
-                Quill: calibrated. Coffee: brewed. ☕
+                Quill: calibrated. Coffee: brewed.
               </span>
             )}
           </button>
@@ -318,7 +397,7 @@ const ContactPostcard = () => {
             ) : (
               <>
                 <span>DISPATCH MESSAGE</span>
-                <span aria-hidden="true">✳</span>
+                <ComicStar />
               </>
             )}
           </button>
@@ -326,12 +405,15 @@ const ContactPostcard = () => {
           <div className="form-feedback" aria-live="polite">
             {status === "success" && (
               <p className="feedback-success">
-                ✓ Dispatched! No carrier pigeons were harmed. I’ll reply shortly.
+                <CheckIcon />
+                {" "}
+                Dispatched! No carrier pigeons were harmed. I’ll reply shortly.
               </p>
             )}
             {status === "error" && (
               <p className="feedback-error">
-                <span>⚠ </span>
+                <AlertIcon />
+                {" "}
                 {errorMessage}
               </p>
             )}
@@ -389,7 +471,7 @@ const IndexPage = () => {
                 CODE &amp;
                 <br />
                 CURIOSITY
-                <span className="stamp-star" aria-hidden="true">✳</span>
+                <span className="stamp-star" aria-hidden="true"><ComicStar /></span>
               </span>
             </div>
             <figure className="graphic-portrait">
@@ -422,7 +504,7 @@ const IndexPage = () => {
                   aria-controls="harpsichord-strip"
                   title="Toggle the mini Baroque Harpsichord"
                 >
-                  <span aria-hidden="true">🎹</span>
+                  <KeyboardIcon />
                   {" "}
                   <span>{showKeyboard ? "Hide" : "Keyboard"}</span>
                 </button>
@@ -531,7 +613,7 @@ const IndexPage = () => {
               <div className="work-details">
                 <span className="eyebrow">
                   <span className="eyebrow-dispatch">DISPATCH</span>
-                  <span className="eyebrow-sep" aria-hidden="true">✦</span>
+                  <span className="eyebrow-sep" aria-hidden="true">/</span>
                   <span className="eyebrow-type">{project.type}</span>
                 </span>
                 <h3>{project.title}</h3>

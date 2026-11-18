@@ -502,7 +502,9 @@ const CVPage = () => {
                 rel="noopener noreferrer"
                 className="cv-link"
               >
-                blog.gbrachetta.com ↗
+                <span>blog.gbrachetta.com</span>
+                {" "}
+                <Arrow />
               </a>
             </div>
 
@@ -520,7 +522,9 @@ const CVPage = () => {
                 rel="noopener noreferrer"
                 className="cv-link"
               >
-                mennovandelft.com ↗
+                <span>mennovandelft.com</span>
+                {" "}
+                <Arrow />
               </a>
             </div>
 
@@ -538,7 +542,9 @@ const CVPage = () => {
                 rel="noopener noreferrer"
                 className="cv-link"
               >
-                whitequeen.nl ↗
+                <span>whitequeen.nl</span>
+                {" "}
+                <Arrow />
               </a>
             </div>
 
@@ -556,7 +562,9 @@ const CVPage = () => {
                 rel="noopener noreferrer"
                 className="cv-link"
               >
-                new-musical-dice.vercel.app ↗
+                <span>new-musical-dice.vercel.app</span>
+                {" "}
+                <Arrow />
               </a>
             </div>
           </div>
