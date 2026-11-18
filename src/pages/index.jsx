@@ -17,6 +17,8 @@ import musician from "../images/guillermo-brachetta-700.webp";
 import musician2x from "../images/guillermo-brachetta-1200.webp";
 import menno from "../images/menno-van-delft-700.webp";
 import menno2x from "../images/menno-van-delft-1200.webp";
+import blog from "../images/blog-700.webp";
+import blog2x from "../images/blog-1200.webp";
 import portfolioImage from "../images/portfolio-og.png";
 import "../style/graphic.scss";
 
@@ -53,6 +55,11 @@ const selected = [
     ...projectsData.find((project) => project.id === "menno-van-delft"),
     image: menno,
     srcSet: `${menno} 700w, ${menno2x} 1200w`,
+  },
+  {
+    ...projectsData.find((project) => project.id === "blog"),
+    image: blog,
+    srcSet: `${blog} 700w, ${blog2x} 1200w`,
   },
   {
     ...projectsData.find((project) => project.id === "guillermo-brachetta"),
@@ -312,6 +319,15 @@ const IndexPage = () => (
       <nav aria-label="Main navigation">
         <a href="#work">Work</a>
         <a href="#about">About</a>
+        <a
+          href="https://blog.gbrachetta.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Guillermo's Blog (opens in a new tab)"
+        >
+          Blog
+          <span aria-hidden="true"><Arrow /></span>
+        </a>
         <a href="#contact">
           Say hello
           <span aria-hidden="true"><Arrow /></span>
@@ -368,13 +384,25 @@ const IndexPage = () => (
             <br />
             <span>I’m Guillermo — developer and baroque performer.</span>
           </p>
-          <a className="round-link" href="#work">
-            <span>SHOW ME THE WORK</span>
-            <span aria-hidden="true"><Arrow direction="down" /></span>
-          </a>
+          <div className="intro-actions">
+            <a className="round-link" href="#work">
+              <span>SHOW ME THE WORK</span>
+              <span aria-hidden="true"><Arrow direction="down" /></span>
+            </a>
+            <a
+              className="round-link round-link--blog"
+              href="https://blog.gbrachetta.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Guillermo's Blog (opens in a new tab)"
+            >
+              <span>VISIT THE BLOG</span>
+              <span aria-hidden="true"><Arrow /></span>
+            </a>
+          </div>
         </div>
         <div className="hero-rule">
-          <span>REACT / NEXT.JS / DJANGO</span>
+          <span>REACT / NEXT.JS / ASTRO / DJANGO</span>
           <span>
             SCROLL TO EXPLORE
             <Arrow direction="down" />
@@ -494,16 +522,28 @@ const IndexPage = () => (
             Music and development both give me room to explore, solve problems, and care about the
             details. I enjoy the work that happens between an idea and something that feels right.
           </p>
-          <a
-            className="text-link"
-            href={aboutData.resume}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Take a look at my CV (PDF, opens in a new tab)"
-          >
-            Take a look at my CV
-            <Arrow />
-          </a>
+          <div className="about-actions">
+            <a
+              className="text-link"
+              href={aboutData.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Take a look at my CV (PDF, opens in a new tab)"
+            >
+              Take a look at my CV
+              <Arrow />
+            </a>
+            <a
+              className="text-link"
+              href="https://blog.gbrachetta.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Read Guillermo's blog (opens in a new tab)"
+            >
+              Read my blog
+              <Arrow />
+            </a>
+          </div>
         </div>
       </section>
       <section className="contact-section" id="contact" aria-labelledby="contact-title">
@@ -531,6 +571,15 @@ const IndexPage = () => (
           Guillermo Brachetta
         </span>
         <div>
+          <a
+            href="https://blog.gbrachetta.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Guillermo Brachetta's blog (opens in a new tab)"
+          >
+            Blog
+            <Arrow />
+          </a>
           <a
             href="https://www.linkedin.com/in/guillermo-brachetta/"
             target="_blank"

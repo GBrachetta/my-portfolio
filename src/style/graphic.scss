@@ -192,6 +192,12 @@ h1 {
     }
   }
 }
+.intro-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
 .round-link {
   display: flex;
   align-items: center;
@@ -204,6 +210,8 @@ h1 {
   padding: 15px 20px;
   font-size: 11px;
   font-weight: 700;
+  transition: all 0.15s ease;
+
   > span:last-child {
     font-size: 25px;
   }
@@ -211,6 +219,14 @@ h1 {
     background: #bddba5;
     transform: translate(-2px, -2px);
     box-shadow: 6px 6px 0 $ink;
+  }
+
+  &--blog {
+    background: #f1cf69;
+
+    &:hover {
+      background: #ecc244;
+    }
   }
 }
 .hero-rule {
@@ -366,12 +382,26 @@ h1 {
   line-height: 1.8;
   color: #bcc4b5;
 }
+.about-actions {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  align-items: center;
+}
 .text-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 13px;
   border-bottom: 2px solid #c2e3c0;
   padding-bottom: 8px;
   margin-top: 18px;
+  transition: border-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    color: $accent-dark;
+    border-color: $accent-dark;
+  }
 }
 .contact-section {
   padding: 75px 5%;

@@ -33,6 +33,16 @@ export const aboutData = {
 // PROJECTS DATA
 export const projectsData = [
   {
+    id: "blog",
+    img: "blog-700.webp",
+    title: "Guillermo's Blog",
+    type: "TECH WRITING & ASTRO BLOG",
+    description:
+      "Notes on technology, smart home automation, devices, and early music. "
+      + "A bilingual, high-performance publication built with Astro.",
+    url: "https://blog.gbrachetta.com/",
+  },
+  {
     id: "menno-van-delft",
     img: "menno-van-delft.webp",
     title: "Menno van Delft",
