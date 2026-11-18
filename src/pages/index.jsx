@@ -378,10 +378,11 @@ const IndexPage = () => {
               <h1 id="intro-title">
                 Built with
                 <br />
-                <span className="character-word">
+                <span className="character-word" aria-hidden="true">
                   character
                   <span className="period">.</span>
                 </span>
+                <span className="visually-hidden">character.</span>
               </h1>
               <span className="hero-stamp" title="Craft & Code">
                 CODE &amp;
@@ -391,16 +392,25 @@ const IndexPage = () => {
               </span>
             </div>
             <figure className="graphic-portrait">
-              <img
-                src={portrait}
-                srcSet={`${portrait} 400w, ${portrait2x} 800w`}
-                sizes="(max-width: 768px) 350px, 400px"
-                alt="Guillermo Brachetta"
-                width="400"
-                height="584"
-                fetchpriority="high"
-                decoding="async"
-              />
+              <picture>
+                <source
+                  media="(max-width: 768px)"
+                  srcSet={portrait}
+                />
+                <source
+                  media="(min-width: 769px)"
+                  srcSet={`${portrait} 400w, ${portrait2x} 800w`}
+                  sizes="400px"
+                />
+                <img
+                  src={portrait}
+                  alt="Guillermo Brachetta"
+                  width="400"
+                  height="584"
+                  fetchpriority="high"
+                  decoding="async"
+                />
+              </picture>
               <figcaption className="portrait-caption">
                 <span className="caption-tagline">“Usually at a keyboard.”</span>
                 <button
@@ -492,16 +502,25 @@ const IndexPage = () => {
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <span className="card-tape-corner" aria-hidden="true" />
-                <img
-                  src={project.image}
-                  srcSet={project.srcSet}
-                  sizes="(max-width: 900px) 100vw, 700px"
-                  alt={`${project.title} website preview`}
-                  loading="lazy"
-                  decoding="async"
-                  width="700"
-                  height="424"
-                />
+                <picture>
+                  <source
+                    media="(max-width: 768px)"
+                    srcSet={project.image}
+                  />
+                  <source
+                    media="(min-width: 769px)"
+                    srcSet={project.srcSet}
+                    sizes="(max-width: 1200px) 55vw, 650px"
+                  />
+                  <img
+                    src={project.image}
+                    alt={`${project.title} website preview`}
+                    loading="lazy"
+                    decoding="async"
+                    width="700"
+                    height="424"
+                  />
+                </picture>
                 <span className="image-arrow" aria-hidden="true"><Arrow /></span>
               </a>
               <div className="work-details">
@@ -569,16 +588,25 @@ const IndexPage = () => {
         </section>
         <section className="about-section" id="about" aria-labelledby="about-title">
           <div className="about-photo">
-            <img
-              src={aboutPortrait}
-              srcSet={`${aboutPortrait} 500w, ${aboutPortrait2x} 900w`}
-              sizes="(max-width: 768px) 100vw, 500px"
-              alt="Guillermo Brachetta"
-              loading="lazy"
-              decoding="async"
-              width="500"
-              height="670"
-            />
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcSet={aboutPortrait}
+              />
+              <source
+                media="(min-width: 769px)"
+                srcSet={`${aboutPortrait} 500w, ${aboutPortrait2x} 900w`}
+                sizes="500px"
+              />
+              <img
+                src={aboutPortrait}
+                alt="Guillermo Brachetta"
+                loading="lazy"
+                decoding="async"
+                width="500"
+                height="670"
+              />
+            </picture>
             <span>THE PERSON BEHIND THE KEYBOARD(S).</span>
           </div>
           <div className="about-copy">
@@ -625,7 +653,8 @@ const IndexPage = () => {
           <h2 id="contact-title">
             Have an idea?
             <br />
-            <em>Let’s build it.</em>
+            <em aria-hidden="true">Let’s build it.</em>
+            <span className="visually-hidden">Let’s build it.</span>
           </h2>
           <ContactPostcard />
         </section>
@@ -701,18 +730,12 @@ export const Head = () => {
       <meta name="description" content={description} />
       <meta name="theme-color" content="#f1f0e9" />
       <link rel="canonical" href={`${siteUrl}/`} />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       <link
         rel="preload"
         as="image"
         href={portrait}
         type="image/webp"
         fetchpriority="high"
-      />
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap"
       />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`${siteUrl}/`} />

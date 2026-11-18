@@ -72,11 +72,5 @@ export const Head = () => (
     <html lang="en" />
     <title>Page Not Found — Guillermo Brachetta</title>
     <meta name="theme-color" content="#f1f0e9" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap"
-    />
   </>
 );
