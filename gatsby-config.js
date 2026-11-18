@@ -10,7 +10,14 @@ module.exports = {
     author: "Guillermo Brachetta",
   },
   plugins: [
-    "gatsby-plugin-sass",
+    {
+      resolve: "gatsby-plugin-sass",
+      options: {
+        sassOptions: {
+          silenceDeprecations: ["legacy-js-api"],
+        },
+      },
+    },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",

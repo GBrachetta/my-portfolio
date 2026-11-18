@@ -17,6 +17,10 @@ body {
   font-family: "Comic Neue", "Comic Sans MS", cursive;
   -webkit-font-smoothing: antialiased;
 }
+main {
+  background-color: $paper;
+  color: $ink;
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -97,7 +101,7 @@ figcaption,
 }
 .edition {
   margin-left: auto;
-  color: #6d7369;
+  color: #424a3c;
 }
 .graphic-hero {
   display: grid;
