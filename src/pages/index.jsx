@@ -398,7 +398,7 @@ const IndexPage = () => {
                 alt="Guillermo Brachetta"
                 width="400"
                 height="584"
-                fetchPriority="high"
+                fetchpriority="high"
                 decoding="async"
               />
               <figcaption className="portrait-caption">
@@ -577,7 +577,7 @@ const IndexPage = () => {
               loading="lazy"
               decoding="async"
               width="500"
-              height="667"
+              height="670"
             />
             <span>THE PERSON BEHIND THE KEYBOARD(S).</span>
           </div>
@@ -708,7 +708,7 @@ export const Head = () => {
         as="image"
         href={portrait}
         type="image/webp"
-        fetchPriority="high"
+        fetchpriority="high"
       />
       <link
         rel="stylesheet"

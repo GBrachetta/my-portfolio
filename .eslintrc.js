@@ -16,6 +16,6 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": "off",
-    "react/no-unknown-property": ["error", { ignore: ["fetchPriority"] }],
+    "react/no-unknown-property": ["error", { ignore: ["fetchpriority", "fetchPriority"] }],
   },
 };
