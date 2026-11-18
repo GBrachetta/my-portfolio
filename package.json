@@ -8,9 +8,9 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
+    "develop": "NODE_OPTIONS='--disable-warning=DEP0040' gatsby develop",
+    "start": "NODE_OPTIONS='--disable-warning=DEP0040' gatsby develop",
+    "build": "NODE_OPTIONS='--disable-warning=DEP0040' gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
