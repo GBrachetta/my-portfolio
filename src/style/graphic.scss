@@ -64,7 +64,49 @@ a:focus-visible {
     margin-left: 5px;
   }
 }
-.header-note,
+.wordmark-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: $ink;
+  transition: transform 0.15s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+
+    .wordmark {
+      transform: rotate(0deg) scale(1.05);
+    }
+  }
+}
+
+.site-title-name {
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  color: $ink;
+  white-space: nowrap;
+}
+
+.header-note {
+  font-family: "Comic Neue", cursive;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #27362d;
+  letter-spacing: 0.1px;
+  background: #f1cf6944;
+  border: 1.5px solid $ink;
+  border-radius: 6px;
+  padding: 3px 10px 2px;
+  box-shadow: 1.5px 1.5px 0 $ink;
+  transform: rotate(-1.5deg);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+}
+
 .intro-kicker,
 .hero-rule,
 .eyebrow,
@@ -87,28 +129,14 @@ figcaption,
   }
 }
 .intro {
-  padding: 32px 5% 0;
-}
-.intro-kicker {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-.status-dot {
-  width: 7px;
-  height: 7px;
-  background: $accent;
-}
-.edition {
-  margin-left: auto;
-  color: #424a3c;
+  padding: 40px 5% 0;
 }
 .graphic-hero {
   display: grid;
   grid-template-columns: 1.8fr 1fr;
   gap: 3%;
   align-items: center;
-  padding: 48px 0 35px;
+  padding: 20px 0 35px;
 }
 .graphic-title {
   position: relative;
@@ -118,45 +146,73 @@ h1 {
   font-family: "Bangers", Impact, sans-serif;
   font-size: clamp(60px, 7.9vw, 125px);
   line-height: 0.99;
-  letter-spacing: -0.065em;
+  letter-spacing: 0.5px;
   margin: 0;
   font-weight: 400;
+  color: $ink;
+  -webkit-font-smoothing: antialiased;
 }
 .character-word {
+  display: inline-block;
   color: $accent;
-  -webkit-text-stroke: 2px $ink;
+  -webkit-text-stroke: 2.5px $ink;
   paint-order: stroke fill;
   text-shadow: 4px 5px 0 $ink;
+  letter-spacing: 1px;
+  transform: rotate(-2deg);
 }
 .period {
   color: $ink;
 }
 .hero-stamp {
   position: absolute;
-  right: 10%;
-  bottom: 0;
-  background: #bddba5;
+  left: 10px;
+  bottom: 8px;
+  background: #f1cf69;
+  color: $ink;
   border: 2px solid $ink;
-  box-shadow: 5px 5px 0 $ink;
-  padding: 12px 50px 12px 15px;
-  transform: rotate(-7deg);
-  border-radius: 8px 8px 8px 0;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1.3;
-  > span {
+  box-shadow: 3px 3px 0 $ink;
+  padding: 8px 46px 6px 14px;
+  transform: rotate(-3deg);
+  border-radius: 8px;
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.1;
+  cursor: default;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  .stamp-star {
     position: absolute;
     right: 12px;
-    top: 9px;
-    font-size: 35px;
+    top: 6px;
+    font-size: 30px;
+    transition: transform 0.25s ease;
+  }
+
+  &:hover {
+    transform: rotate(-1deg) scale(1.04);
+    box-shadow: 5px 5px 0 $ink;
+
+    .stamp-star {
+      transform: rotate(45deg);
+    }
   }
 }
 .graphic-portrait {
+  position: relative;
   margin: 10px 8% 0 0;
   transform: rotate(4deg);
   border: 2px solid $ink;
   background: $accent;
   box-shadow: 10px 10px 0 $ink;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: rotate(2deg) scale(1.01);
+    box-shadow: 12px 12px 0 $ink;
+  }
+
   img {
     display: block;
     width: 100%;
@@ -167,43 +223,43 @@ h1 {
     mix-blend-mode: normal;
   }
   figcaption {
-    padding: 13px 16px;
-    background: $paper;
+    padding: 13px 18px 14px;
+    background: #fffdf5;
     border-top: 2px solid $ink;
-    span {
-      letter-spacing: 0;
-      font-weight: 400;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
   }
 }
-.caption-actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 4px;
-  position: relative;
+
+.caption-tagline {
+  font-family: "Comic Neue", cursive;
+  font-size: 15px;
+  font-weight: 700;
+  color: #26332c;
+  letter-spacing: 0.1px;
 }
 
 .keyboard-toggle-badge {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   background: #f1cf69;
   color: $ink;
   border: 1.5px solid $ink;
-  border-radius: 12px;
-  padding: 2px 8px;
+  border-radius: 8px;
+  padding: 4px 10px 3px;
   font-family: "Comic Neue", cursive;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
   box-shadow: 2px 2px 0 $ink;
-  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+  white-space: nowrap;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease;
 
   &:hover {
-    background: #edd17d;
+    background: #ecc244;
     transform: translate(-1px, -1px);
     box-shadow: 3px 3px 0 $ink;
   }
@@ -530,15 +586,28 @@ h1 {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 25px 0 40px;
-  p {
-    font-size: 16px;
-    line-height: 1.7;
-    margin: 0;
-    span {
-      font-size: 14px;
-      color: #5b6356;
-    }
+  padding: 30px 0 35px;
+}
+.intro-bio {
+  font-family: "Comic Neue", cursive;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #1e2822;
+  margin: 0;
+  max-width: 480px;
+
+  .intro-bio-lead {
+    display: inline;
+    font-weight: 700;
+    color: $ink;
+  }
+
+  span {
+    display: block;
+    margin-top: 4px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #38473e;
   }
 }
 .intro-actions {
@@ -548,26 +617,46 @@ h1 {
   align-items: center;
 }
 .round-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 30px;
+  gap: 16px;
   background: $accent;
   color: $ink;
   border: 2px solid $ink;
   border-radius: 12px;
   box-shadow: 4px 4px 0 $ink;
-  padding: 15px 20px;
-  font-size: 11px;
-  font-weight: 700;
-  transition: all 0.15s ease;
+  padding: 13px 24px 10px;
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 
-  > span:last-child {
-    font-size: 25px;
+  .btn-arrow {
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.15s ease;
   }
+
+  .link-arrow {
+    width: 20px;
+    height: 20px;
+  }
+
   &:hover {
     background: #bddba5;
     transform: translate(-2px, -2px);
     box-shadow: 6px 6px 0 $ink;
+
+    .btn-arrow {
+      transform: translateY(3px);
+    }
+  }
+
+  &:active {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0 $ink;
   }
 
   &--blog {
@@ -575,13 +664,94 @@ h1 {
 
     &:hover {
       background: #ecc244;
+
+      .btn-arrow {
+        transform: translate(2px, -2px);
+      }
     }
   }
 }
 .hero-rule {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 20px;
   padding: 16px 0;
+  border-top: 2px solid $ink;
+  border-bottom: 2px solid $ink;
+  margin-top: 15px;
+}
+.hero-tech-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.hero-tech-tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  line-height: 1;
+  padding: 4px 9px 3px;
+  color: $ink;
+  border: 2px solid $ink;
+  border-radius: 6px 2px 6px 2px;
+  box-shadow: 2px 2px 0 $ink;
+  transition: transform 0.15s ease;
+
+  &:nth-child(5n + 1) {
+    background: #fff5da;
+    transform: rotate(-2deg);
+  }
+  &:nth-child(5n + 2) {
+    background: #dce8cf;
+    transform: rotate(2deg);
+  }
+  &:nth-child(5n + 3) {
+    background: #fde6dc;
+    transform: rotate(-1.5deg);
+  }
+  &:nth-child(5n + 4) {
+    background: #b5d6eb;
+    transform: rotate(2deg);
+  }
+  &:nth-child(5n + 5) {
+    background: #e5daf3;
+    transform: rotate(-2deg);
+  }
+
+  &:hover {
+    transform: scale(1.1) rotate(0deg) !important;
+  }
+}
+.hero-scroll-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.8px;
+  color: $ink;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s ease, transform 0.15s ease;
+
+  .link-arrow {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.15s ease;
+  }
+
+  &:hover {
+    color: $accent-dark;
+    transform: translateY(2px);
+
+    .link-arrow {
+      transform: translateY(2px);
+    }
+  }
 }
 .work-section {
   padding: 65px 5% 75px;
@@ -627,9 +797,10 @@ h1 {
   img {
     display: block;
     width: 100%;
-    aspect-ratio: 1.65;
+    height: auto;
+    aspect-ratio: 1.65 / 1;
     object-fit: cover;
-    object-position: center;
+    object-position: top center;
     background-color: #faf8f2;
     transition: transform 0.2s;
   }
@@ -759,21 +930,80 @@ h1 {
   margin: 17px 0;
 }
 .work-details p {
-  font-size: 15px;
-  line-height: 1.75;
-  color: #5b6356;
-  max-width: 400px;
+  font-family: "Comic Neue", "Comic Sans MS", cursive;
+  font-size: 17px;
+  line-height: 1.68;
+  color: #1e2822;
+  max-width: 460px;
+  margin: 12px 0 16px;
+
+  .work-lead {
+    font-weight: 700;
+    color: $ink;
+    letter-spacing: 0.1px;
+  }
 }
 .project-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 22px;
-  margin-top: 25px;
-  font-size: 12px;
-  font-weight: 600;
-  a {
-    padding-bottom: 5px;
-    border-bottom: 2px solid;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+}
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  padding: 10px 18px 8px;
+  border: 2px solid $ink;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+
+  .link-arrow {
+    width: 17px;
+    height: 17px;
+    transition: transform 0.15s ease;
+  }
+
+  &:hover {
+    transform: translate(-2px, -2px);
+
+    .link-arrow {
+      transform: translate(2px, -2px);
+    }
+  }
+
+  &:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 $ink !important;
+  }
+
+  &--primary {
+    background: #f1cf69;
+    color: $ink;
+    box-shadow: 3px 3px 0 $ink;
+
+    &:hover {
+      background: #ecc244;
+      box-shadow: 5px 5px 0 $ink;
+    }
+  }
+
+  &--secondary {
+    background: #faf8f2;
+    color: $ink;
+    box-shadow: 2px 2px 0 $ink;
+
+    &:hover {
+      background: #e5eadc;
+      box-shadow: 4px 4px 0 $ink;
+    }
   }
 }
 .github-link {
@@ -1248,87 +1478,6 @@ h1 {
     gap: 25px;
   }
 }
-@media (max-width: 700px) {
-  .header-note {
-    display: none;
-  }
-  .site-header {
-    gap: 20px;
-  }
-  .site-header nav {
-    gap: 18px;
-    font-size: 12px;
-  }
-  .intro-kicker {
-    font-size: 8px;
-  }
-  .edition {
-    display: none;
-  }
-  .graphic-hero {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding-top: 35px;
-  }
-  .graphic-title {
-    padding-bottom: 85px;
-  }
-  h1 {
-    font-size: clamp(49px, 11.8vw, 80px);
-  }
-  .hero-stamp {
-    right: 5%;
-  }
-  .graphic-portrait {
-    width: 58%;
-    max-width: 270px;
-    margin: 0 5% 5px auto;
-  }
-  .intro-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 22px;
-  }
-  .hero-rule {
-    font-size: 8px;
-    gap: 20px;
-    letter-spacing: 0.5px;
-  }
-  .work-section {
-    padding-top: 45px;
-  }
-  .section-heading {
-    display: block;
-    h2 {
-      letter-spacing: -2px;
-    }
-  }
-  .work-card {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  .work-image {
-    padding: 18px;
-  }
-  .work-details p {
-    max-width: none;
-  }
-  .about-section {
-    grid-template-columns: 1fr;
-    gap: 35px;
-    padding: 50px 5%;
-  }
-  .about-photo {
-    max-width: 300px;
-  }
-  .contact-section {
-    padding: 50px 5%;
-  }
-  .footer-bottom {
-    flex-direction: column;
-    gap: 20px;
-  }
-}
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1357,27 +1506,16 @@ h1 {
 .graphic-portrait::before {
   content: "";
   position: absolute;
-  width: 64px;
-  height: 26px;
-  top: -15px;
-  left: 35%;
-  background: #bddba5dd;
+  width: 68px;
+  height: 24px;
+  top: -14px;
+  right: 28px;
+  background: #f1cf69dd;
   border: 1px solid $ink;
-  transform: rotate(-11deg);
-  z-index: 2;
-}
-.graphic-portrait::after {
-  content: "✳";
-  position: absolute;
-  right: -24px;
-  top: 25%;
-  font-size: 70px;
-  line-height: 1;
-  color: #bddba5;
-  -webkit-text-stroke: 2px $ink;
-  paint-order: stroke fill;
-  text-shadow: 3px 3px 0 $ink;
-  transform: rotate(12deg);
+  box-shadow: 1px 1px 0 rgba(38, 51, 44, 0.25);
+  transform: rotate(6deg);
+  z-index: 3;
+  pointer-events: none;
 }
 .work-image {
   padding-top: 25px;
@@ -1425,19 +1563,6 @@ h1 {
     box-shadow 0.15s,
     background 0.15s;
 }
-@media (max-width: 700px) {
-  .character-word {
-    -webkit-text-stroke-width: 1.5px;
-    text-shadow: 3px 4px 0 $ink;
-  }
-  .work-image {
-    padding-top: 20px;
-  }
-  .graphic-portrait::after {
-    font-size: 55px;
-    right: -20px;
-  }
-}
 
 /* A comic-panel rhythm, with colour kept in small, deliberate areas. */
 .wordmark {
@@ -1459,61 +1584,9 @@ h1 {
 .site-header nav {
   align-items: center;
 }
-.character-word {
-  display: inline-block;
-  transform: rotate(-2deg);
-}
-.hero-stamp {
-  border-radius: 20px 20px 20px 0;
-  box-shadow: 4px 5px 0 $ink;
-}
-.hero-stamp::after {
-  content: "";
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  background: #bddba5;
-  border-right: 2px solid $ink;
-  border-bottom: 2px solid $ink;
-  bottom: -8px;
-  left: 15px;
-  transform: skewY(35deg);
-}
 .graphic-portrait {
   background: $paper;
-  box-shadow:
-    6px 7px 0 $accent,
-    10px 11px 0 $ink;
-}
-.graphic-portrait figcaption {
-  padding-left: 20px;
-}
-.graphic-portrait figcaption::after {
-  content: "↖";
-  position: absolute;
-  right: 18px;
-  top: 5px;
-  font-size: 35px;
-  transform: rotate(-15deg);
-}
-.graphic-portrait::after {
-  content: "✦";
-  font-size: 78px;
-  color: $accent;
-  right: -28px;
-  top: 17%;
-}
-.graphic-title::after {
-  content: "✦";
-  position: absolute;
-  left: 5%;
-  bottom: 20px;
-  font-size: 50px;
-  line-height: 1;
-  color: #bddba5;
-  -webkit-text-stroke: 2px $ink;
-  paint-order: stroke fill;
-  transform: rotate(12deg);
+  box-shadow: 10px 10px 0 $ink;
 }
 .hero-rule {
   border-bottom: 0;
@@ -1538,20 +1611,45 @@ h1 {
   box-shadow: 6px 7px 0 $ink;
 }
 .work-card .eyebrow {
-  display: inline-block;
-  background: #bddba5;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #f1cf69;
   color: $ink;
   border: 2px solid $ink;
-  padding: 6px 10px;
+  padding: 5px 12px 4px;
   border-radius: 6px;
-  transform: rotate(-3deg);
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  box-shadow: 2px 2px 0 $ink;
+  transform: rotate(-2.5deg);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  .eyebrow-dispatch {
+    font-weight: 400;
+    opacity: 0.85;
+    letter-spacing: 0.6px;
+  }
+
+  .eyebrow-sep {
+    font-size: 10px;
+    line-height: 1;
+    color: $ink;
+  }
+
+  .eyebrow-type {
+    font-weight: 400;
+    letter-spacing: 0.9px;
+  }
 }
-.work-card:nth-of-type(2) .eyebrow {
-  background: $accent;
+.work-card:nth-of-type(even) .eyebrow {
   transform: rotate(2deg);
 }
-.work-card:nth-of-type(3) .eyebrow {
-  background: #e9dfc4;
+.work-card:hover .eyebrow {
+  transform: rotate(0deg) scale(1.04);
+  box-shadow: 3px 3px 0 $ink;
 }
 .work-image {
   box-shadow: 3px 4px 0 $ink;
@@ -1564,18 +1662,22 @@ h1 {
 }
 .section-heading h2 em {
   position: relative;
+  font-style: normal;
+  display: inline-block;
+  color: #365e49;
 }
 .section-heading h2 em::after {
   content: "";
   position: absolute;
-  left: -3px;
-  right: -6px;
-  bottom: -4px;
-  height: 7px;
-  border: 2px solid $ink;
-  border-top: 0;
-  border-radius: 0 0 50% 40%;
-  transform: rotate(-3deg);
+  left: -0.06em;
+  right: -0.12em;
+  bottom: -0.2em;
+  height: 0.28em;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22260%22%20height%3D%2224%22%20viewBox%3D%220%200%20260%2024%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M%204%2011%20C%2036%2014.5%2C%2080%2016%2C%20130%2015.5%20C%20180%2015%2C%20220%2012%2C%20256%206.5%20C%20258.5%207.5%2C%20258.5%209.5%2C%20256%2011%20C%20224%2016.5%2C%20178%2020%2C%20128%2020%20C%2074%2020%2C%2028%2017.5%2C%202.5%2013.5%20C%201%2012.2%2C%201.8%2011%2C%204%2011%20Z%22%20fill%3D%22%2326332c%22%2F%3E%3C%2Fsvg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  pointer-events: none;
 }
 .about-photo img {
   box-shadow: 6px 7px 0 #bddba5;
@@ -1596,49 +1698,6 @@ h1 {
   border-radius: 50%;
   background: $accent;
   color: $ink;
-}
-@media (max-width: 700px) {
-  .site-header nav {
-    gap: 13px;
-  }
-  .site-header nav a:last-child {
-    padding: 6px 9px;
-  }
-  .work-card {
-    padding: 18px;
-    gap: 28px;
-    margin-bottom: 28px;
-  }
-  .comic-issue-stamp {
-    font-size: 15px;
-    padding: 3px 8px;
-    top: -13px;
-    left: 12px;
-  }
-  .card-tape-corner {
-    width: 50px;
-    height: 18px;
-    top: -10px;
-    right: 18px;
-  }
-  .graphic-title::after {
-    font-size: 38px;
-    bottom: 15px;
-  }
-  .graphic-portrait::after {
-    font-size: 60px;
-    right: -20px;
-  }
-  .contact-email {
-    padding: 16px;
-    font-size: clamp(17px, 4.2vw, 28px);
-  }
-  .contact-email span {
-    width: 40px;
-    height: 40px;
-    font-size: 30px;
-    flex-shrink: 0;
-  }
 }
 
 /* Keep the composition together on large monitors; the panels set the scale. */
@@ -1664,52 +1723,9 @@ main,
   margin: 0;
   padding: 0 5%;
 }
-.graphic-hero {
-  grid-template-columns: 1.65fr 1fr;
-  gap: 4%;
-  padding: 45px 0 30px;
-}
-h1 {
-  font-size: clamp(76px, 8.5vw, 126px);
-  line-height: 0.92;
-  letter-spacing: 1px;
-  transform: rotate(-2deg);
-}
-.character-word {
-  color: $accent;
-  letter-spacing: 2px;
-  -webkit-text-stroke: 2px $ink;
-  text-shadow: 5px 6px 0 $ink;
-  transform: rotate(1deg);
-}
-.graphic-title {
-  padding-bottom: 105px;
-}
-.hero-stamp,
-.graphic-portrait figcaption,
-.round-link,
-.work-card .eyebrow,
 .contact-section > .eyebrow {
   font-family: "Comic Neue", cursive;
   font-weight: 700;
-}
-.hero-stamp {
-  font-size: 16px;
-  line-height: 1.1;
-  padding-right: 55px;
-}
-.graphic-portrait figcaption {
-  font-size: 13px;
-  letter-spacing: 0.3px;
-}
-.graphic-portrait figcaption span {
-  font-size: 13px;
-}
-.graphic-portrait {
-  margin-right: 5%;
-}
-.round-link {
-  font-size: 15px;
 }
 .section-heading h2 {
   font-size: clamp(48px, 5.2vw, 72px);
@@ -1725,10 +1741,6 @@ h1 {
 }
 .work-card {
   gap: 5%;
-}
-.work-card .eyebrow {
-  font-size: 12px;
-  letter-spacing: 0.4px;
 }
 .about-copy h2 {
   font-size: clamp(40px, 4.3vw, 58px);
@@ -1747,45 +1759,11 @@ h1 {
 .contact-section > .eyebrow {
   font-size: 13px;
 }
-@media (max-width: 700px) {
-  #gatsby-focus-wrapper {
-    border: 0;
-  }
-  .graphic-hero {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-  .graphic-title {
-    padding-bottom: 85px;
-  }
-  h1 {
-    font-size: clamp(66px, 15vw, 100px);
-  }
-  .character-word {
-    letter-spacing: 1px;
-  }
-  .graphic-portrait {
-    width: 58%;
-  }
-  .site-header {
-    gap: 12px;
-  }
-  .wordmark {
-    font-size: 31px;
-  }
-  .site-header nav {
-    gap: 12px;
-  }
-  .round-link {
-    font-size: 14px;
-  }
-}
 
 /* One comic lettering system: display titles and legible hand-lettered copy. */
 body {
   font-size: 18px;
 }
-.header-note,
 .intro-kicker,
 .hero-rule,
 .eyebrow,
@@ -1793,9 +1771,6 @@ figcaption,
 .about-photo span {
   font-weight: 700;
   letter-spacing: 0.5px;
-}
-.header-note {
-  font-size: 12px;
 }
 .site-header nav {
   font-family: "Bangers", Impact, sans-serif;
@@ -1815,36 +1790,14 @@ figcaption,
 .edition {
   font-size: 11px;
 }
-.character-word {
-  color: $accent;
-}
-.hero-stamp,
-.hero-stamp::after {
+.hero-stamp {
   background: #f1cf69;
 }
-.graphic-title::after {
-  color: #ec9e81;
-}
-.graphic-portrait::before {
-  background: #f1cf69dd;
-}
-.graphic-portrait::after {
-  color: #ec9e81;
-}
 .graphic-portrait {
-  box-shadow:
-    6px 7px 0 $accent,
-    10px 11px 0 $ink;
+  box-shadow: 10px 10px 0 $ink;
 }
 .graphic-portrait figcaption {
   background: #fff5da;
-}
-.intro-bottom p {
-  font-size: 21px;
-  line-height: 1.55;
-}
-.intro-bottom p span {
-  font-size: 18px;
 }
 .hero-rule {
   font-size: 12px;
@@ -1853,18 +1806,9 @@ figcaption,
   font-size: 16px;
   font-weight: 700;
 }
-.section-heading h2 em {
-  color: #365e49;
-}
 .work-details p {
-  font-size: 19px;
-  line-height: 1.6;
-}
-.project-links {
-  font-family: "Bangers", Impact, sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  letter-spacing: 0.6px;
+  font-size: 17px;
+  line-height: 1.68;
 }
 .github-link {
   font-size: 18px;
@@ -1946,37 +1890,6 @@ figcaption,
   border-bottom: 2px solid $accent;
   padding-bottom: 3px;
 }
-@media (max-width: 700px) {
-  .site-header nav {
-    font-size: 18px;
-  }
-  .intro-kicker {
-    font-size: 11px;
-  }
-  .hero-rule {
-    font-size: 10px;
-  }
-  .intro-bottom p {
-    font-size: 19px;
-  }
-  .intro-bottom p span {
-    font-size: 17px;
-  }
-  .about-section {
-    padding: 30px 6%;
-    gap: 35px;
-  }
-  .about-copy p,
-  .work-details p {
-    font-size: 18px;
-  }
-  .footer-bottom {
-    font-size: 14px;
-  }
-  .contact-email {
-    font-size: clamp(19px, 4.5vw, 30px);
-  }
-}
 
 /* Individually drawn single ink strokes: no underlying rule or duplicate stroke. */
 .site-header {
@@ -2039,13 +1952,6 @@ figcaption,
 .link-arrow--up {
   transform: rotate(-45deg);
 }
-.graphic-portrait figcaption::after {
-  content: "";
-  width: 30px;
-  height: 30px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 20 Q12 12 4 4 M4 16 Q3 10 4 4 Q10 3 16 4' fill='none' stroke='%2326332c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
-    center / contain no-repeat;
-}
 
 /* Additional examples use the same comic-card palette and rhythm. */
 .work-card:nth-of-type(4) .work-image {
@@ -2062,6 +1968,9 @@ figcaption,
 }
 .work-card:nth-of-type(6) .eyebrow {
   background: #a9dcd4;
+}
+.work-card:nth-of-type(7) .eyebrow {
+  background: #fde6dc;
 }
 
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
@@ -2084,6 +1993,352 @@ figcaption,
   .contact-email:hover {
     scale: 1.06;
     rotate: -1deg;
+  }
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  #gatsby-focus-wrapper {
+    border: 0;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  // Header
+  .site-header {
+    padding: 14px 4%;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+
+    .wordmark-group {
+      gap: 0;
+    }
+
+    .site-title-name {
+      display: none;
+    }
+
+    .header-note {
+      display: none;
+    }
+
+    nav {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+
+      a:last-child {
+        padding: 5px 9px 4px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  // Hero section
+  .intro {
+    padding: 16px 5% 0;
+  }
+
+  .graphic-hero {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px !important;
+    padding: 8px 0 20px !important;
+  }
+
+  .graphic-title {
+    width: 100%;
+    padding-bottom: 0 !important;
+  }
+
+  h1 {
+    font-size: clamp(38px, 11vw, 54px) !important;
+    line-height: 1 !important;
+    letter-spacing: 0.5px !important;
+    transform: none !important;
+  }
+
+  .character-word {
+    display: inline-block;
+    color: $accent;
+    letter-spacing: 0.5px;
+    -webkit-text-stroke: 2px $ink;
+    paint-order: stroke fill;
+    text-shadow: 3px 3px 0 $ink;
+    transform: rotate(-2deg);
+  }
+
+  .hero-stamp {
+    position: static !important;
+    display: inline-flex !important;
+    margin-top: 14px;
+    font-size: 15px;
+    padding: 6px 38px 5px 12px;
+    box-shadow: 3px 3px 0 $ink;
+    transform: rotate(-2deg);
+
+    .stamp-star {
+      font-size: 24px;
+      right: 9px;
+      top: 5px;
+    }
+  }
+
+  .graphic-portrait {
+    width: 100% !important;
+    max-width: 310px !important;
+    margin: 14px auto 0 !important;
+    transform: rotate(1deg);
+    box-shadow: 7px 7px 0 $ink !important;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    &::before {
+      width: 52px;
+      height: 18px;
+      top: -10px;
+      right: 20px;
+    }
+
+    .portrait-caption,
+    figcaption {
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .caption-tagline {
+      font-size: 13px;
+    }
+
+    .keyboard-toggle-badge {
+      font-size: 11.5px;
+      padding: 3px 8px 2px;
+    }
+  }
+
+  // Harpsichord strip when open on mobile
+  .hero-harpsichord-wrapper {
+    margin: 12px auto 0;
+    max-width: 100%;
+  }
+
+  // Bio & Call to Actions
+  .intro-bottom {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 18px 0 22px;
+  }
+
+  .intro-bio {
+    font-size: 15.5px;
+    line-height: 1.55;
+    max-width: none;
+
+    .intro-bio-lead {
+      font-size: 17.5px;
+    }
+
+    span {
+      font-size: 14.5px;
+    }
+  }
+
+  .intro-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .round-link {
+    width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 12px 18px 10px;
+    font-size: 18px;
+  }
+
+  // Hero rule (divider)
+  .hero-rule {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 0;
+  }
+
+  .hero-tech-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .hero-tech-tag {
+    font-size: 11px;
+    padding: 3px 7px 2px;
+  }
+
+  .hero-scroll-btn {
+    font-size: 14px;
+    align-self: flex-start;
+  }
+
+  // Work section & cards
+  .work-section {
+    padding-top: 36px;
+  }
+
+  .section-heading {
+    display: block;
+
+    h2 {
+      font-size: clamp(34px, 10vw, 48px);
+      letter-spacing: -1.5px;
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 15px;
+    }
+  }
+
+  .work-card {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 18px;
+    padding: 16px;
+    margin-bottom: 24px;
+    box-shadow: 5px 5px 0 $ink;
+  }
+
+  .comic-issue-stamp {
+    font-size: 13px;
+    padding: 3px 8px;
+    top: -11px;
+    left: 10px;
+  }
+
+  .card-tape-corner {
+    width: 44px;
+    height: 15px;
+    top: -8px;
+    right: 14px;
+  }
+
+  .work-image {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    padding-top: 18px;
+
+    img {
+      width: 100% !important;
+      height: auto !important;
+      aspect-ratio: 1.65 / 1 !important;
+      object-fit: cover !important;
+      object-position: top center !important;
+      display: block !important;
+      border: 2px solid $ink;
+      border-radius: 4px;
+    }
+  }
+
+  .image-arrow {
+    padding: 3px 10px;
+    font-size: 20px;
+    border-radius: 10px 0 13px 0;
+  }
+
+  .work-details h3 {
+    font-size: clamp(28px, 8vw, 36px);
+  }
+
+  .work-details p {
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: none;
+  }
+
+  .project-links {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .project-btn {
+    font-size: 15px;
+    padding: 8px 14px 6px;
+    flex: 1 1 auto;
+    min-width: 120px;
+    justify-content: center;
+  }
+
+  // About section
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin: 0 4%;
+    padding: 30px 5%;
+    box-shadow: 5px 5px 0 $ink;
+  }
+
+  .about-photo {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .about-copy h2 {
+    font-size: clamp(32px, 8.5vw, 44px);
+  }
+
+  .about-copy p {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  // Contact section
+  .contact-section {
+    padding: 36px 5%;
+
+    h2 {
+      font-size: clamp(48px, 12vw, 76px);
+    }
+  }
+
+  .contact-email {
+    padding: 14px 18px;
+    font-size: clamp(17px, 4.5vw, 26px);
+    box-shadow: 4px 4px 0 $ink;
+
+    span {
+      width: 42px;
+      height: 42px;
+      font-size: 26px;
+      flex-shrink: 0;
+    }
+  }
+
+  // Footer
+  .footer-bottom {
+    flex-direction: column;
+    gap: 14px;
+    font-size: 13.5px;
   }
 }
 

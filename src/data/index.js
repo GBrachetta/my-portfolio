@@ -36,9 +36,10 @@ export const projectsData = [
     id: "blog",
     img: "blog-700.webp",
     title: "Guillermo's Blog",
-    type: "TECH WRITING & ASTRO BLOG",
+    type: "DEV DISPATCH & TECH PUBLICATION",
+    lead: "Field notes from the keyboard.",
     description:
-      "Notes on technology, smart home automation, devices, and early music. "
+      "Articles on web development, smart home automation, vintage hardware, and early music. "
       + "A bilingual, high-performance publication built with Astro.",
     tags: ["Astro", "Home Assistant", "Tech Writing"],
     url: "https://blog.gbrachetta.com/",
@@ -47,11 +48,12 @@ export const projectsData = [
     id: "menno-van-delft",
     img: "menno-van-delft.webp",
     title: "Menno van Delft",
-    type: "ARTIST WEBSITE",
+    type: "FEATURED ARTIST PLATFORM",
+    lead: "A bespoke digital stage.",
     description:
-      "A multilingual website for harpsichordist and clavichordist Menno van Delft, "
-      + "with audio previews, a recordings catalogue, and a press kit. Built with "
-      + "Astro and Sanity.",
+      "Crafted for harpsichordist and clavichordist Menno van Delft, "
+      + "featuring audio previews, a recordings catalogue, and a complete press kit. "
+      + "Built with Astro and Sanity.",
     tags: ["Astro", "Sanity CMS", "Audio Previews"],
     url: "https://www.mennovandelft.com/",
   },
@@ -59,10 +61,11 @@ export const projectsData = [
     id: "white-queen",
     img: "white-queen.webp",
     title: "White Queen",
-    type: "CLIENT WEBSITE",
+    type: "SAFETY CONSULTANCY PORTAL",
+    lead: "Clarity in high-stakes safety.",
     description:
-      "A clear digital presence for a Dutch safety consultancy. Branding, "
-      + "development, and a way to start the conversation.",
+      "A modern digital presence for a Dutch safety consultancy. "
+      + "Crisp branding, performant architecture, and an effortless way to start the conversation.",
     tags: ["React", "Client Branding", "Consultancy"],
     url: "https://www.whitequeen.nl/",
   },
@@ -70,10 +73,11 @@ export const projectsData = [
     id: "mozarts-dice-game",
     img: "mozarts-dice-game.webp",
     title: "Mozart's Dice Game",
-    type: "INTERACTIVE EXPERIMENT",
+    type: "GENERATIVE AUDIO LAB",
+    lead: "An 18th-century algorithmic puzzle.",
     description:
-      "An eighteenth-century idea, a browser, and a roll of the dice. An "
-      + "interactive musical game where performance meets programming.",
+      "Roll the dice in the browser to compose a minuet. An interactive "
+      + "Web Audio game where classical performance meets generative programming.",
     tags: ["Web Audio API", "JavaScript", "Music Game"],
     url: "https://new-musical-dice.vercel.app/",
     repo: "https://github.com/GBrachetta/new-musical-dice",
@@ -99,11 +103,11 @@ export const projectsData = [
     id: "guillermo-brachetta",
     img: "guillermo-brachetta.webp",
     title: "Guillermo Brachetta",
-    type: "ARTIST WEBSITE & SHOP",
+    type: "BAROQUE ATELIER & STORE",
+    lead: "My other life, online.",
     description:
-      "My other life, online. A Django website for my work as a baroque "
-      + "performer, bringing together recordings, events, a gallery, and an "
-      + "online shop.",
+      "A dedicated platform for my work as a baroque performer, "
+      + "bringing together recordings, concert dates, a media gallery, and an online shop.",
     tags: ["Django", "Python", "E-Commerce"],
     url: "https://guillermo-brachetta.herokuapp.com/",
     repo: "https://github.com/GBrachetta/guillermo",
@@ -112,10 +116,11 @@ export const projectsData = [
     id: "nina-przewozniak",
     img: "nina-przewozniak.webp",
     title: "Nina Przewoźniak",
-    type: "ARTIST WEBSITE",
+    type: "VIOLIN VIRTUOSO SHOWCASE",
+    lead: "A stage for the virtuoso.",
     description:
-      "A digital stage for Nina Przewoźniak. Built with Next.js, Tailwind CSS, "
-      + "and Framer Motion.",
+      "A vibrant digital showcase for violinist Nina Przewoźniak. "
+      + "Built with Next.js, fluid Tailwind styling, and smooth Framer Motion choreography.",
     tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
     url: "https://nina-przewozniak.com",
   },
@@ -123,11 +128,11 @@ export const projectsData = [
     id: "parfumier",
     img: "parfumier.webp",
     title: "Parfumier",
-    type: "FULL-STACK APPLICATION",
+    type: "CURATED SCENT ARCHIVE",
+    lead: "Curated scent exploration.",
     description:
-      "A place to discover fragrances and share reviews. Built with Flask and "
-      + "MongoDB, with user accounts, search, and tools for managing the perfume "
-      + "collection.",
+      "A fragrance discovery hub and community review archive. "
+      + "Full-stack Python architecture with MongoDB search and collection curation.",
     tags: ["Flask", "MongoDB", "Full-Stack"],
     url: "https://parfumier.herokuapp.com/",
     repo: "https://github.com/GBrachetta/Parfumier",

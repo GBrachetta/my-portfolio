@@ -348,8 +348,11 @@ const IndexPage = () => {
     <>
       <a className="skip-link" href="#work">Skip to work</a>
       <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Guillermo Brachetta home">GB</a>
-        <span className="header-note">WEB DEVELOPER. BAROQUE PERFORMER.</span>
+        <a className="wordmark-group" href="#top" aria-label="Guillermo Brachetta home">
+          <span className="wordmark">GB</span>
+          <span className="site-title-name">GUILLERMO BRACHETTA</span>
+        </a>
+        <span className="header-note">Web performer. Baroque developer.</span>
         <nav aria-label="Main navigation">
           <a href="#work">Work</a>
           <a href="#about">About</a>
@@ -370,13 +373,6 @@ const IndexPage = () => {
       </header>
       <main id="top">
         <section className="intro" aria-labelledby="intro-title">
-          <div className="intro-kicker">
-            <span className="status-dot" aria-hidden="true" />
-            {" "}
-            GUILLERMO BRACHETTA
-            {" "}
-            <span className="edition">WEB DEVELOPMENT / SELECTED WORK</span>
-          </div>
           <div className="graphic-hero">
             <div className="graphic-title">
               <h1 id="intro-title">
@@ -387,11 +383,11 @@ const IndexPage = () => {
                   <span className="period">.</span>
                 </span>
               </h1>
-              <span className="hero-stamp">
+              <span className="hero-stamp" title="Craft & Code">
                 CODE &amp;
                 <br />
                 CURIOSITY
-                <span aria-hidden="true">✳</span>
+                <span className="stamp-star" aria-hidden="true">✳</span>
               </span>
             </div>
             <figure className="graphic-portrait">
@@ -405,24 +401,20 @@ const IndexPage = () => {
                 fetchPriority="high"
                 decoding="async"
               />
-              <figcaption>
-                GUILLERMO BRACHETTA
-                <br />
-                <div className="caption-actions">
-                  <span>Usually at a keyboard.</span>
-                  <button
-                    type="button"
-                    className="keyboard-toggle-badge"
-                    onClick={() => setShowKeyboard((prev) => !prev)}
-                    aria-expanded={showKeyboard}
-                    aria-controls="harpsichord-strip"
-                    title="Toggle the mini Baroque Harpsichord"
-                  >
-                    <span aria-hidden="true">🎹</span>
-                    {" "}
-                    <span>{showKeyboard ? "Hide" : "Keyboard"}</span>
-                  </button>
-                </div>
+              <figcaption className="portrait-caption">
+                <span className="caption-tagline">“Usually at a keyboard.”</span>
+                <button
+                  type="button"
+                  className="keyboard-toggle-badge"
+                  onClick={() => setShowKeyboard((prev) => !prev)}
+                  aria-expanded={showKeyboard}
+                  aria-controls="harpsichord-strip"
+                  title="Toggle the mini Baroque Harpsichord"
+                >
+                  <span aria-hidden="true">🎹</span>
+                  {" "}
+                  <span>{showKeyboard ? "Hide" : "Keyboard"}</span>
+                </button>
               </figcaption>
             </figure>
           </div>
@@ -432,15 +424,15 @@ const IndexPage = () => {
             </div>
           )}
           <div className="intro-bottom">
-            <p>
-              Websites, applications, and a point of view.
+            <p className="intro-bio">
+              <strong className="intro-bio-lead">Websites, applications, and a point of view.</strong>
               <br />
-              <span>I’m Guillermo — developer and baroque performer.</span>
+              <span>I’m Guillermo — web developer and baroque harpsichordist.</span>
             </p>
             <div className="intro-actions">
-              <a className="round-link" href="#work">
+              <a className="round-link round-link--work" href="#work">
                 <span>SHOW ME THE WORK</span>
-                <span aria-hidden="true"><Arrow direction="down" /></span>
+                <span className="btn-arrow" aria-hidden="true"><Arrow direction="down" /></span>
               </a>
               <a
                 className="round-link round-link--blog"
@@ -450,16 +442,22 @@ const IndexPage = () => {
                 aria-label="Visit Guillermo's Blog (opens in a new tab)"
               >
                 <span>VISIT THE BLOG</span>
-                <span aria-hidden="true"><Arrow /></span>
+                <span className="btn-arrow" aria-hidden="true"><Arrow /></span>
               </a>
             </div>
           </div>
           <div className="hero-rule">
-            <span>REACT / NEXT.JS / ASTRO / DJANGO</span>
-            <span>
-              SCROLL TO EXPLORE
+            <div className="hero-tech-strip" aria-label="Core technologies">
+              <span className="hero-tech-tag">REACT</span>
+              <span className="hero-tech-tag">NEXT.JS</span>
+              <span className="hero-tech-tag">ASTRO</span>
+              <span className="hero-tech-tag">DJANGO</span>
+              <span className="hero-tech-tag">WEB AUDIO</span>
+            </div>
+            <a className="hero-scroll-btn" href="#work">
+              <span>SCROLL TO EXPLORE</span>
               <Arrow direction="down" />
-            </span>
+            </a>
           </div>
         </section>
         <section className="work-section" id="work" aria-labelledby="work-title">
@@ -469,7 +467,8 @@ const IndexPage = () => {
               <br />
               <span className="heading-solid">
                 More
-                <em> doing.</em>
+                {" "}
+                <em>doing.</em>
               </span>
             </h2>
             <p>
@@ -507,14 +506,20 @@ const IndexPage = () => {
               </a>
               <div className="work-details">
                 <span className="eyebrow">
-                  {String(index + 1).padStart(2, "0")}
-                  {" "}
-                  /
-                  {" "}
-                  {project.type}
+                  <span className="eyebrow-dispatch">DISPATCH</span>
+                  <span className="eyebrow-sep" aria-hidden="true">✦</span>
+                  <span className="eyebrow-type">{project.type}</span>
                 </span>
                 <h3>{project.title}</h3>
-                <p>{project.description}</p>
+                <p className="work-description">
+                  {project.lead && (
+                    <strong className="work-lead">
+                      {project.lead}
+                      {" "}
+                    </strong>
+                  )}
+                  {project.description}
+                </p>
                 {project.tags && (
                   <div className="project-tags" aria-label="Key technologies">
                     {project.tags.map((tag) => (
@@ -526,24 +531,26 @@ const IndexPage = () => {
                 )}
                 <div className="project-links">
                   <a
+                    className="project-btn project-btn--primary"
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit ${project.title} website (opens in a new tab)`}
                   >
-                    Visit website
+                    <span>VISIT WEBSITE</span>
                     <Arrow />
                   </a>
                   {project.repo && (
-                  <a
-                    href={project.repo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`View ${project.title} source on GitHub (opens in a new tab)`}
-                  >
-                    Source code
-                    <Arrow />
-                  </a>
+                    <a
+                      className="project-btn project-btn--secondary"
+                      href={project.repo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View ${project.title} source on GitHub (opens in a new tab)`}
+                    >
+                      <span>SOURCE CODE</span>
+                      <Arrow />
+                    </a>
                   )}
                 </div>
               </div>
