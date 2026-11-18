@@ -176,6 +176,355 @@ h1 {
     }
   }
 }
+.caption-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+  position: relative;
+}
+
+.keyboard-toggle-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f1cf69;
+  color: $ink;
+  border: 1.5px solid $ink;
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-family: "Comic Neue", cursive;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 $ink;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+
+  &:hover {
+    background: #edd17d;
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 $ink;
+  }
+
+  &:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 $ink;
+  }
+}
+
+.hero-harpsichord-wrapper {
+  margin: 15px auto 30px;
+  max-width: 540px;
+  width: 100%;
+  animation: harpsichordUnfold 0.22s ease-out;
+}
+
+.harpsichord-panel {
+  background: $paper;
+  border: 2px solid $ink;
+  border-radius: 12px;
+  box-shadow: 6px 6px 0 $ink;
+  padding: 16px 20px;
+  width: 100%;
+}
+
+.harpsichord-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.harpsichord-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.harpsichord-badge {
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.8px;
+  color: $ink;
+}
+
+.harpsichord-caption {
+  font-family: "Comic Neue", cursive;
+  font-size: 12px;
+  color: #556b5e;
+  font-weight: 700;
+}
+
+.harpsichord-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pitch-toggle-group {
+  display: inline-flex;
+  border: 2px solid $ink;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 2px 2px 0 $ink;
+
+  .pitch-btn {
+    background: #fff;
+    color: $ink;
+    border: none;
+    border-right: 1px solid $ink;
+    padding: 5px 9px;
+    font-family: "Comic Neue", cursive;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &--active {
+      background: #c2e3c0;
+    }
+  }
+}
+
+.harpsichord-flourish-btn {
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  background: #f1cf69;
+  color: $ink;
+  border: 2px solid $ink;
+  border-radius: 8px;
+  padding: 5px 12px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 $ink;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+
+  &:hover:not(:disabled) {
+    background: #edd17d;
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 $ink;
+  }
+
+  &:active:not(:disabled) {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 $ink;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: wait;
+  }
+}
+
+.harpsichord-close-btn {
+  background: transparent;
+  color: $ink;
+  border: 2px solid $ink;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+
+  &:hover {
+    background: #ec9e81;
+    transform: scale(1.08);
+  }
+}
+
+.harpsichord-keyboard-frame {
+  background: #202722;
+  border: 2px solid $ink;
+  border-radius: 8px;
+  padding: 10px 10px 14px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.harpsichord-keybed {
+  display: flex;
+  position: relative;
+  user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+}
+
+.natural-key-slot {
+  position: relative;
+  flex: 1;
+  min-width: 28px;
+}
+
+.harpsichord-key {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: "Comic Neue", cursive;
+  font-weight: 700;
+  transition: background 0.08s ease, transform 0.05s ease;
+
+  .key-char {
+    font-size: 11px;
+    line-height: 1;
+    opacity: 0.75;
+  }
+
+  .key-name {
+    font-size: 13px;
+    line-height: 1.2;
+  }
+
+  // Inverted Harpsichord Naturals: Ebony / Dark
+  &--natural {
+    height: 130px;
+    background: #171d19;
+    color: #e4e2d3;
+    border: 1px solid #0d120f;
+    border-bottom: 5px solid #090c0a;
+    border-radius: 0 0 4px 4px;
+    padding-bottom: 6px;
+
+    &:hover {
+      background: #252e28;
+    }
+
+    &.harpsichord-key--active {
+      background: #39473e;
+      transform: translateY(2px);
+      border-bottom-width: 3px;
+      color: #fff;
+    }
+  }
+
+  // Inverted Harpsichord Sharps/Accidentals: Bone / Ivory / Pale Cream
+  &--sharp {
+    height: 82px;
+    width: 62%;
+    position: absolute;
+    right: -31%;
+    top: 0;
+    z-index: 3;
+    background: #fffdf5;
+    color: #171d19;
+    border: 1px solid $ink;
+    border-bottom: 4px solid #b8ab8d;
+    border-radius: 0 0 3px 3px;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.45);
+    padding-bottom: 4px;
+
+    .key-char {
+      font-size: 10px;
+      color: #6a6a60;
+    }
+
+    .key-name {
+      font-size: 11px;
+      color: #171d19;
+    }
+
+    &:hover {
+      background: #f4ecce;
+    }
+
+    &.harpsichord-key--active {
+      background: #e2d39b;
+      transform: translateY(2px);
+      border-bottom-width: 2px;
+    }
+  }
+}
+
+.harpsichord-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  font-family: "Comic Neue", cursive;
+  font-size: 12px;
+}
+
+.harpsichord-hint {
+  color: $ink;
+  strong {
+    letter-spacing: 0.5px;
+  }
+}
+
+.harpsichord-footnote {
+  color: #556b5e;
+  font-style: italic;
+}
+
+.comic-stamp-bubble {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  right: -5px;
+  background: #f1cf69;
+  color: $ink;
+  border: 1.5px solid $ink;
+  border-radius: 8px;
+  padding: 6px 11px;
+  font-family: "Comic Neue", cursive;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 2px 2px 0 $ink;
+  z-index: 25;
+  pointer-events: none;
+  animation: bubblePop 0.18s ease-out;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 24px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: $ink transparent transparent transparent;
+  }
+
+  &.fork-bubble {
+    right: 0;
+    background: #fff5da;
+    white-space: normal;
+    max-width: 220px;
+    line-height: 1.35;
+    text-align: right;
+  }
+}
+
+@keyframes bubblePop {
+  from {
+    opacity: 0;
+    transform: scale(0.88) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 .intro-bottom {
   display: flex;
   align-items: center;
@@ -517,6 +866,21 @@ h1 {
   box-shadow: 2px 3px 0 $ink;
   transform: rotate(2deg);
   min-width: 68px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+
+  &:hover {
+    background: #fff8e8;
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 3px 4px 0 $ink;
+  }
+
+  &:active,
+  &.is-plucking {
+    transform: rotate(2deg) scale(0.97);
+    background: #f1cf69;
+  }
 
   .stamp-value {
     font-family: "Bangers", Impact, sans-serif;
