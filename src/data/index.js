@@ -18,7 +18,7 @@ export const heroData = {
 
 // ABOUT DATA
 export const aboutData = {
-  img: "me.png",
+  img: "me.webp",
   paragraphOne:
     "I love to create, to sort challenges, to defy limitations, to conquer "
     + "tenacious obstacles, to express myself, to learn.",
@@ -34,7 +34,7 @@ export const aboutData = {
 export const projectsData = [
   {
     id: "menno-van-delft",
-    img: "menno-van-delft.png",
+    img: "menno-van-delft.webp",
     title: "Menno van Delft",
     type: "ARTIST WEBSITE",
     description:
@@ -45,7 +45,7 @@ export const projectsData = [
   },
   {
     id: "white-queen",
-    img: "project4.jpg",
+    img: "white-queen.webp",
     title: "White Queen",
     type: "CLIENT WEBSITE",
     description:
@@ -55,7 +55,7 @@ export const projectsData = [
   },
   {
     id: "mozarts-dice-game",
-    img: "mozarts-dice-game.png",
+    img: "mozarts-dice-game.webp",
     title: "Mozart's Dice Game",
     type: "INTERACTIVE EXPERIMENT",
     description:
@@ -83,7 +83,7 @@ export const projectsData = [
   },
   {
     id: "guillermo-brachetta",
-    img: "guillermo-brachetta.png",
+    img: "guillermo-brachetta.webp",
     title: "Guillermo Brachetta",
     type: "ARTIST WEBSITE & SHOP",
     description:
@@ -95,7 +95,7 @@ export const projectsData = [
   },
   {
     id: "nina-przewozniak",
-    img: "project6.jpg",
+    img: "nina-przewozniak.webp",
     title: "Nina Przewoźniak",
     type: "ARTIST WEBSITE",
     description:
@@ -105,7 +105,7 @@ export const projectsData = [
   },
   {
     id: "parfumier",
-    img: "parfumier.png",
+    img: "parfumier.webp",
     title: "Parfumier",
     type: "FULL-STACK APPLICATION",
     description:

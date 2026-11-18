@@ -1,15 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { projectsData, aboutData } from "../data";
-import portrait from "../images/me.png";
-import aboutPortrait from "../images/me-about.jpeg";
-import whiteQueen from "../images/project4.jpg";
-import dice from "../images/mozarts-dice-game.png";
-import nina from "../images/project6.jpg";
-import parfumier from "../images/parfumier.png";
-import musician from "../images/guillermo-brachetta.png";
-import menno from "../images/menno-van-delft.png";
-import portfolioImage from "../images/portfolio.png";
+import portrait from "../images/me.webp";
+import aboutPortrait from "../images/me-about.webp";
+import whiteQueen from "../images/white-queen.webp";
+import dice from "../images/mozarts-dice-game.webp";
+import nina from "../images/nina-przewozniak.webp";
+import parfumier from "../images/parfumier.webp";
+import musician from "../images/guillermo-brachetta.webp";
+import menno from "../images/menno-van-delft.webp";
+import portfolioImage from "../images/portfolio-og.png";
 import "../style/graphic.scss";
 
 const Arrow = ({ direction }) => (
@@ -109,7 +109,7 @@ const IndexPage = () => (
             </span>
           </div>
           <figure className="graphic-portrait">
-            <img src={portrait} alt="Guillermo Brachetta" />
+            <img src={portrait} alt="Guillermo Brachetta" width="400" height="584" />
             <figcaption>
               GUILLERMO BRACHETTA
               <br />
@@ -162,7 +162,13 @@ const IndexPage = () => (
               rel="noopener noreferrer"
               aria-label={`Visit ${project.title}`}
             >
-              <img src={project.image} alt={`${project.title} website preview`} loading="lazy" />
+              <img
+                src={project.image}
+                alt={`${project.title} website preview`}
+                loading="lazy"
+                width="700"
+                height="424"
+              />
               <span className="image-arrow" aria-hidden="true"><Arrow /></span>
             </a>
             <div className="work-details">
@@ -202,7 +208,13 @@ const IndexPage = () => (
       </section>
       <section className="about-section" id="about" aria-labelledby="about-title">
         <div className="about-photo">
-          <img src={aboutPortrait} alt="Guillermo Brachetta" loading="lazy" />
+          <img
+            src={aboutPortrait}
+            alt="Guillermo Brachetta"
+            loading="lazy"
+            width="500"
+            height="667"
+          />
           <span>THE PERSON BEHIND THE KEYBOARD(S).</span>
         </div>
         <div className="about-copy">
