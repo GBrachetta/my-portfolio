@@ -85,7 +85,7 @@ const IndexPage = () => (
     <main id="top">
       <section className="intro" aria-labelledby="intro-title">
         <div className="intro-kicker">
-          <span className="status-dot" />
+          <span className="status-dot" aria-hidden="true" />
           {" "}
           GUILLERMO BRACHETTA
           {" "}
@@ -160,7 +160,7 @@ const IndexPage = () => (
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Visit ${project.title}`}
+              aria-label={`Visit ${project.title} (opens in a new tab)`}
             >
               <img
                 src={project.image}
@@ -182,12 +182,22 @@ const IndexPage = () => (
               <h3>{project.title}</h3>
               <p>{project.description}</p>
               <div className="project-links">
-                <a href={project.url} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${project.title} website (opens in a new tab)`}
+                >
                   Visit website
                   <Arrow />
                 </a>
                 {project.repo && (
-                  <a href={project.repo} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={project.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${project.title} source on GitHub (opens in a new tab)`}
+                  >
                     Source code
                     <Arrow />
                   </a>
@@ -201,6 +211,7 @@ const IndexPage = () => (
           href="https://github.com/GBrachetta"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Explore more on GitHub (opens in a new tab)"
         >
           Explore more on GitHub
           <Arrow />
@@ -237,6 +248,7 @@ const IndexPage = () => (
             href={aboutData.resume}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Take a look at my CV (PDF, opens in a new tab)"
           >
             Take a look at my CV
             <Arrow />
@@ -275,15 +287,21 @@ const IndexPage = () => (
             href="https://www.linkedin.com/in/guillermo-brachetta/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Guillermo Brachetta on LinkedIn (opens in a new tab)"
           >
             LinkedIn
             <Arrow />
           </a>
-          <a href="https://github.com/GBrachetta" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://github.com/GBrachetta"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Guillermo Brachetta on GitHub (opens in a new tab)"
+          >
             GitHub
             <Arrow />
           </a>
-          <a href="#top">
+          <a href="#top" aria-label="Back to top of page">
             Back to top
             <Arrow direction="up" />
           </a>

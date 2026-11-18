@@ -32,7 +32,7 @@ const NotFoundPage = () => (
     </header>
     <main className="not-found-page">
       <div className="not-found-kicker">
-        <span className="status-dot" />
+        <span className="status-dot" aria-hidden="true" />
         {" "}
         ERROR 404 / CADENCE INTERRUPTED
       </div>
