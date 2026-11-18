@@ -9,6 +9,7 @@ import nina from "../images/project6.jpg";
 import parfumier from "../images/parfumier.png";
 import musician from "../images/guillermo-brachetta.png";
 import menno from "../images/menno-van-delft.png";
+import portfolioImage from "../images/portfolio.png";
 import "../style/graphic.scss";
 
 const Arrow = ({ direction }) => (
@@ -282,17 +283,33 @@ const IndexPage = () => (
 
 export default IndexPage;
 
-export const Head = () => (
-  <>
-    <html lang="en" />
-    <title>Guillermo Brachetta — Developer &amp; Baroque Performer</title>
-    <meta
-      name="description"
-      content={
-        "Websites, applications, and a different perspective. Selected development "
-        + "work by Guillermo Brachetta, web developer and baroque performer."
-      }
-    />
-    <meta name="theme-color" content="#f1f0e9" />
-  </>
-);
+export const Head = () => {
+  const siteUrl = "https://gbrachetta.com";
+  const title = "Guillermo Brachetta — Developer & Baroque Performer";
+  const description = (
+    "Websites, applications, and a different perspective. Selected development "
+    + "work by Guillermo Brachetta, web developer and baroque performer."
+  );
+  const ogImageUrl = `${siteUrl}${portfolioImage}`;
+
+  return (
+    <>
+      <html lang="en" />
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta name="theme-color" content="#f1f0e9" />
+      <link rel="canonical" href={`${siteUrl}/`} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={`${siteUrl}/`} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={ogImageUrl} />
+      <meta property="og:image:alt" content="Guillermo Brachetta portfolio preview" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:creator" content="@brachetta" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImageUrl} />
+    </>
+  );
+};

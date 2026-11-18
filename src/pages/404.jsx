@@ -1,59 +1,76 @@
-import * as React from "react";
+import React from "react";
 import { Link } from "gatsby";
+import "../style/graphic.scss";
 
-const pageStyles = {
-
-  margin: "auto",
-  alignItems: "center",
-  justifyContent: "center",
-  color: "#232129",
-  padding: "160px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-};
-
-const headingStyles = {
-  marginLeft: 0,
-  marginRight: 0,
-  marginTop: 0,
-  marginBottom: 64,
-};
-
-const paragraphStyles = {
-  marginBottom: 48,
-};
-
-const buttonStyle = {
-  fontSize: "1.25rem",
-  padding: "0.25rem 0.75rem",
-  borderRadius: "0.5rem",
-  color: "white",
-
-  backgroundColor: "#333",
-  borderColor: "#333",
-  cursor: "pointer",
-  textDecoration: "none",
-
-  "&:hover": {
-    backgroundColor: "#fff",
-    borderColor: "#333",
-  },
-
-};
+const Arrow = () => (
+  <svg
+    className="link-arrow"
+    viewBox="0 0 24 24"
+    width="24"
+    height="24"
+    fill="none"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path
+      d="M4 20 C9 15 14 10 20 4 M8 4 Q14 3 20 4 Q21 10 20 16"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
 const NotFoundPage = () => (
-  <main style={pageStyles}>
-    <h1 style={headingStyles}>PAGE NOT FOUND</h1>
-    <p style={paragraphStyles}>
-      We could not find what you were looking for
-      <br />
-      <br />
-      <button type="button" style={buttonStyle}>
-        <Link to="/" style={{ textDecoration: "none", color: "white" }}>Go home</Link>
-      </button>
-    </p>
-  </main>
+  <>
+    <header className="site-header">
+      <Link className="wordmark" to="/" aria-label="Guillermo Brachetta home">
+        GB
+      </Link>
+      <span className="header-note">WEB DEVELOPER. BAROQUE PERFORMER.</span>
+    </header>
+    <main className="not-found-page">
+      <div className="not-found-kicker">
+        <span className="status-dot" />
+        {" "}
+        ERROR 404 / CADENCE INTERRUPTED
+      </div>
+      <h1>
+        Tacet
+        <span>.</span>
+      </h1>
+      <p>
+        Looks like this page didn’t make it to the score, hit a sour note, or
+        wandered off into the archives.
+      </p>
+      <Link className="round-link" to="/">
+        <span>BACK TO SAFETY</span>
+        <Arrow />
+      </Link>
+    </main>
+    <footer className="site-footer">
+      <div className="footer-bottom">
+        <span>
+          ©
+          {new Date().getFullYear()}
+          {" "}
+          Guillermo Brachetta
+        </span>
+        <div>
+          <Link to="/">Back to home</Link>
+        </div>
+      </div>
+    </footer>
+  </>
 );
 
 export default NotFoundPage;
 
-export const Head = () => <title>Not found</title>;
+export const Head = () => (
+  <>
+    <html lang="en" />
+    <title>Page Not Found — Guillermo Brachetta</title>
+    <meta name="theme-color" content="#f1f0e9" />
+  </>
+);

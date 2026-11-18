@@ -1249,3 +1249,51 @@ figcaption,
     rotate: -1deg;
   }
 }
+
+.not-found-page {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px 5%;
+  max-width: 900px;
+  margin: 0 auto;
+
+  .not-found-kicker {
+    font-family: "Comic Neue", "Comic Sans MS", cursive;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: $accent-dark;
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  h1 {
+    font-family: "Bangers", Impact, sans-serif;
+    font-size: clamp(64px, 12vw, 140px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin: 0 0 24px;
+    color: $ink;
+
+    span {
+      color: $accent-dark;
+    }
+  }
+
+  p {
+    font-size: clamp(16px, 2.5vw, 22px);
+    line-height: 1.6;
+    margin: 0 0 40px;
+    color: #4b5a52;
+    max-width: 580px;
+  }
+
+  .round-link {
+    align-self: flex-start;
+  }
+}

@@ -3,8 +3,11 @@
  */
 module.exports = {
   siteMetadata: {
-    title: "My Portfolio",
-    siteUrl: "https://www.yourdomain.tld",
+    title: "Guillermo Brachetta — Developer & Baroque Performer",
+    description:
+      "Websites, applications, and a different perspective. Selected development work by Guillermo Brachetta, web developer and baroque performer.",
+    siteUrl: "https://gbrachetta.com",
+    author: "Guillermo Brachetta",
   },
   plugins: [
     "gatsby-plugin-sass",
@@ -29,11 +32,11 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "Gatsby Simplefolio",
-        short_name: "Simplefolio",
+        name: "Guillermo Brachetta — Developer & Baroque Performer",
+        short_name: "Guillermo Brachetta",
         start_url: "/",
-        background_color: "#fff",
-        theme_color: "#02aab0",
+        background_color: "#f1f0e9",
+        theme_color: "#26332c",
         display: "standalone",
         icon: "src/images/favicon.svg",
       },
