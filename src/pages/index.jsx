@@ -488,6 +488,11 @@ const IndexPage = () => {
                 rel="noopener noreferrer"
                 aria-label={`Visit ${project.title} (opens in a new tab)`}
               >
+                <span className="comic-issue-stamp" aria-hidden="true">
+                  ISSUE #
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="card-tape-corner" aria-hidden="true" />
                 <img
                   src={project.image}
                   srcSet={project.srcSet}
@@ -510,6 +515,15 @@ const IndexPage = () => {
                 </span>
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
+                {project.tags && (
+                  <div className="project-tags" aria-label="Key technologies">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="project-tag-pill">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
                 <div className="project-links">
                   <a
                     href={project.url}

@@ -654,6 +654,99 @@ h1 {
   border-left: 2px solid $ink;
   font-size: 24px;
 }
+.comic-issue-stamp {
+  position: absolute;
+  top: -16px;
+  left: 18px;
+  background: #f1cf69;
+  color: $ink;
+  border: 2px solid $ink;
+  border-radius: 6px;
+  padding: 4px 11px;
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 19px;
+  line-height: 1;
+  letter-spacing: 0.8px;
+  box-shadow: 3px 3px 0 $ink;
+  transform: rotate(-3deg);
+  z-index: 4;
+  pointer-events: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.work-card:nth-of-type(even) .comic-issue-stamp {
+  background: #bddba5;
+  transform: rotate(3deg);
+}
+.work-card:hover .comic-issue-stamp {
+  transform: rotate(0deg) scale(1.06);
+  box-shadow: 4px 4px 0 $ink;
+}
+.card-tape-corner {
+  position: absolute;
+  top: -14px;
+  right: 28px;
+  width: 68px;
+  height: 24px;
+  background: #f1cf69dd;
+  border: 1px solid $ink;
+  box-shadow: 1px 1px 0 rgba(38, 51, 44, 0.25);
+  transform: rotate(7deg);
+  z-index: 3;
+  pointer-events: none;
+  transition: transform 0.2s ease;
+}
+.work-card:nth-of-type(even) .card-tape-corner {
+  right: 36px;
+  transform: rotate(-6deg);
+}
+.work-card:hover .card-tape-corner {
+  transform: rotate(3deg) scale(1.04);
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 20px;
+}
+.project-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  font-family: "Bangers", Impact, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  padding: 4px 9px 3px;
+  color: $ink;
+  border: 2px solid $ink;
+  border-radius: 6px 2px 7px 3px;
+  box-shadow: 2px 2px 0 $ink;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:nth-child(4n + 1) {
+    background: #fff5da;
+    transform: rotate(-2deg);
+  }
+
+  &:nth-child(4n + 2) {
+    background: #dce8cf;
+    transform: rotate(2.5deg);
+  }
+
+  &:nth-child(4n + 3) {
+    background: #fde6dc;
+    transform: rotate(-1.5deg);
+  }
+
+  &:nth-child(4n + 4) {
+    background: #e5daf3;
+    transform: rotate(2deg);
+  }
+
+  &:hover {
+    transform: scale(1.12) rotate(0deg) !important;
+    box-shadow: 3px 3px 0 $ink;
+  }
+}
 .eyebrow {
   color: $accent-dark;
 }
@@ -1287,19 +1380,10 @@ h1 {
   transform: rotate(12deg);
 }
 .work-image {
-  padding-top: 45px;
+  padding-top: 25px;
   border-radius: 14px;
   background-image: radial-gradient(#26332c24 1px, transparent 1px);
   background-size: 8px 8px;
-}
-.work-image::before {
-  content: "● ● ●";
-  position: absolute;
-  top: 8px;
-  left: 14px;
-  color: $ink;
-  font-size: 12px;
-  letter-spacing: 3px;
 }
 .work-image img {
   border: 2px solid $ink;
@@ -1347,7 +1431,7 @@ h1 {
     text-shadow: 3px 4px 0 $ink;
   }
   .work-image {
-    padding-top: 38px;
+    padding-top: 20px;
   }
   .graphic-portrait::after {
     font-size: 55px;
@@ -1524,6 +1608,18 @@ h1 {
     padding: 18px;
     gap: 28px;
     margin-bottom: 28px;
+  }
+  .comic-issue-stamp {
+    font-size: 15px;
+    padding: 3px 8px;
+    top: -13px;
+    left: 12px;
+  }
+  .card-tape-corner {
+    width: 50px;
+    height: 18px;
+    top: -10px;
+    right: 18px;
   }
   .graphic-title::after {
     font-size: 38px;

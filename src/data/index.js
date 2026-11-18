@@ -40,6 +40,7 @@ export const projectsData = [
     description:
       "Notes on technology, smart home automation, devices, and early music. "
       + "A bilingual, high-performance publication built with Astro.",
+    tags: ["Astro", "Home Assistant", "Tech Writing"],
     url: "https://blog.gbrachetta.com/",
   },
   {
@@ -51,6 +52,7 @@ export const projectsData = [
       "A multilingual website for harpsichordist and clavichordist Menno van Delft, "
       + "with audio previews, a recordings catalogue, and a press kit. Built with "
       + "Astro and Sanity.",
+    tags: ["Astro", "Sanity CMS", "Audio Previews"],
     url: "https://www.mennovandelft.com/",
   },
   {
@@ -61,6 +63,7 @@ export const projectsData = [
     description:
       "A clear digital presence for a Dutch safety consultancy. Branding, "
       + "development, and a way to start the conversation.",
+    tags: ["React", "Client Branding", "Consultancy"],
     url: "https://www.whitequeen.nl/",
   },
   {
@@ -71,6 +74,7 @@ export const projectsData = [
     description:
       "An eighteenth-century idea, a browser, and a roll of the dice. An "
       + "interactive musical game where performance meets programming.",
+    tags: ["Web Audio API", "JavaScript", "Music Game"],
     url: "https://new-musical-dice.vercel.app/",
     repo: "https://github.com/GBrachetta/new-musical-dice",
   },
@@ -100,6 +104,7 @@ export const projectsData = [
       "My other life, online. A Django website for my work as a baroque "
       + "performer, bringing together recordings, events, a gallery, and an "
       + "online shop.",
+    tags: ["Django", "Python", "E-Commerce"],
     url: "https://guillermo-brachetta.herokuapp.com/",
     repo: "https://github.com/GBrachetta/guillermo",
   },
@@ -111,6 +116,7 @@ export const projectsData = [
     description:
       "A digital stage for Nina Przewoźniak. Built with Next.js, Tailwind CSS, "
       + "and Framer Motion.",
+    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
     url: "https://nina-przewozniak.com",
   },
   {
@@ -122,6 +128,7 @@ export const projectsData = [
       "A place to discover fragrances and share reviews. Built with Flask and "
       + "MongoDB, with user accounts, search, and tools for managing the perfume "
       + "collection.",
+    tags: ["Flask", "MongoDB", "Full-Stack"],
     url: "https://parfumier.herokuapp.com/",
     repo: "https://github.com/GBrachetta/Parfumier",
   },
