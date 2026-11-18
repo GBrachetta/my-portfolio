@@ -305,7 +305,7 @@ const ContactPostcard = () => {
             <span className="destination-to">DELIVER TO:</span>
             <strong>Guillermo Brachetta</strong>
             <span>Usually at a keyboard</span>
-            <span>Amsterdam, Netherlands</span>
+            <span>Melick, NL</span>
           </div>
 
           <button

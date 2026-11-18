@@ -60,6 +60,25 @@ const BackIcon = () => (
   </svg>
 );
 
+const DownloadIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    width="18"
+    height="18"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+    <polyline points="7 10 12 15 17 10" />
+    <line x1="12" y1="15" x2="12" y2="3" />
+  </svg>
+);
+
 const CVPage = () => {
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -94,10 +113,10 @@ const CVPage = () => {
               type="button"
               className="cv-btn cv-btn--print"
               onClick={handlePrint}
-              aria-label="Print or save this CV as PDF"
+              aria-label="Print this CV"
             >
               <PrintIcon />
-              <span>PRINT / SAVE PDF</span>
+              <span>PRINT PDF</span>
             </button>
             <a
               href={aboutData.resume}
@@ -105,10 +124,10 @@ const CVPage = () => {
               target="_blank"
               rel="noopener noreferrer"
               download="Guillermo-Brachetta-CV.pdf"
-              aria-label="Download original PDF copy (opens in a new tab)"
+              aria-label="Save this CV as PDF"
             >
-              <span>ORIGINAL PDF</span>
-              <Arrow />
+              <DownloadIcon />
+              <span>SAVE AS PDF</span>
             </a>
           </div>
         </div>
@@ -140,7 +159,7 @@ const CVPage = () => {
             <div className="cv-contact-panel">
               <div className="cv-contact-row">
                 <span className="cv-label">LOCATION:</span>
-                <span className="cv-value">The Hague, Netherlands (Remote / Hybrid)</span>
+                <span className="cv-value">Melick, NL (Remote / Hybrid)</span>
               </div>
               <div className="cv-contact-row">
                 <span className="cv-label">EMAIL:</span>
@@ -291,7 +310,7 @@ const CVPage = () => {
               <div className="cv-entry-header">
                 <div className="cv-entry-role-group">
                   <h3 className="cv-entry-title">Freelance Full-Stack Web Developer</h3>
-                  <span className="cv-entry-company">Self-Employed · The Hague, Netherlands</span>
+                  <span className="cv-entry-company">Self-Employed · Melick, NL</span>
                 </div>
                 <div className="cv-entry-badge">2020 — PRESENT</div>
               </div>
@@ -354,7 +373,7 @@ const CVPage = () => {
                 <div className="cv-entry-role-group">
                   <h3 className="cv-entry-title">Editor</h3>
                   <span className="cv-entry-company">
-                    Cambridge University Press · Amsterdam / Cambridge
+                    Cambridge University Press
                   </span>
                 </div>
                 <div className="cv-entry-badge">2001 — 2018</div>
@@ -380,7 +399,7 @@ const CVPage = () => {
               <div className="cv-entry-header">
                 <div className="cv-entry-role-group">
                   <h3 className="cv-entry-title">Account Leader — Palm Computing, Inc.</h3>
-                  <span className="cv-entry-company">Sykes Enterprises · Amsterdam, Netherlands</span>
+                  <span className="cv-entry-company">Sykes Enterprises</span>
                 </div>
                 <div className="cv-entry-badge">1999 — 2001</div>
               </div>
@@ -565,7 +584,7 @@ const CVPage = () => {
         {/* Print Only Footer / Contact */}
         <footer className="cv-print-footer">
           <p>
-            Guillermo Brachetta · brachetta@me.com · +31 6 51063002 · gbrachetta.com · The Hague, NL
+            Guillermo Brachetta · brachetta@me.com · +31 6 51063002 · gbrachetta.com · Melick, NL
           </p>
         </footer>
       </main>
