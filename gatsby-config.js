@@ -6,7 +6,7 @@ module.exports = {
     title: "Guillermo Brachetta — Developer & Baroque Performer",
     description:
       "Websites, applications, and a different perspective. Selected development work by Guillermo Brachetta, web developer and baroque performer.",
-    siteUrl: "https://gbrachetta.com",
+    siteUrl: "https://www.gbrachetta.com",
     author: "Guillermo Brachetta",
   },
   plugins: [

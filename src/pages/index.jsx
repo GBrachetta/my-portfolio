@@ -1,14 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { projectsData, aboutData } from "../data";
-import portrait from "../images/me.webp";
-import aboutPortrait from "../images/me-about.webp";
-import whiteQueen from "../images/white-queen.webp";
-import dice from "../images/mozarts-dice-game.webp";
-import nina from "../images/nina-przewozniak.webp";
-import parfumier from "../images/parfumier.webp";
-import musician from "../images/guillermo-brachetta.webp";
-import menno from "../images/menno-van-delft.webp";
+import portrait from "../images/me-700.webp";
+import portrait2x from "../images/me-1200.webp";
+import aboutPortrait from "../images/me-about-700.webp";
+import aboutPortrait2x from "../images/me-about-1200.webp";
+import whiteQueen from "../images/white-queen-700.webp";
+import whiteQueen2x from "../images/white-queen-1200.webp";
+import dice from "../images/mozarts-dice-game-700.webp";
+import dice2x from "../images/mozarts-dice-game-1200.webp";
+import nina from "../images/nina-przewozniak-700.webp";
+import nina2x from "../images/nina-przewozniak-1200.webp";
+import parfumier from "../images/parfumier-700.webp";
+import parfumier2x from "../images/parfumier-1200.webp";
+import musician from "../images/guillermo-brachetta-700.webp";
+import musician2x from "../images/guillermo-brachetta-1200.webp";
+import menno from "../images/menno-van-delft-700.webp";
+import menno2x from "../images/menno-van-delft-1200.webp";
 import portfolioImage from "../images/portfolio-og.png";
 import "../style/graphic.scss";
 
@@ -44,26 +52,32 @@ const selected = [
   {
     ...projectsData.find((project) => project.id === "menno-van-delft"),
     image: menno,
+    srcSet: `${menno} 700w, ${menno2x} 1200w`,
   },
   {
     ...projectsData.find((project) => project.id === "guillermo-brachetta"),
     image: musician,
+    srcSet: `${musician} 700w, ${musician2x} 1200w`,
   },
   {
     ...projectsData.find((project) => project.id === "parfumier"),
     image: parfumier,
+    srcSet: `${parfumier} 700w, ${parfumier2x} 1200w`,
   },
   {
     ...projectsData.find((project) => project.id === "white-queen"),
     image: whiteQueen,
+    srcSet: `${whiteQueen} 700w, ${whiteQueen2x} 1200w`,
   },
   {
     ...projectsData.find((project) => project.id === "mozarts-dice-game"),
     image: dice,
+    srcSet: `${dice} 700w, ${dice2x} 1200w`,
   },
   {
     ...projectsData.find((project) => project.id === "nina-przewozniak"),
     image: nina,
+    srcSet: `${nina} 700w, ${nina2x} 1200w`,
   },
 ];
 
@@ -109,7 +123,16 @@ const IndexPage = () => (
             </span>
           </div>
           <figure className="graphic-portrait">
-            <img src={portrait} alt="Guillermo Brachetta" width="400" height="584" />
+            <img
+              src={portrait}
+              srcSet={`${portrait} 400w, ${portrait2x} 800w`}
+              sizes="(max-width: 768px) 350px, 400px"
+              alt="Guillermo Brachetta"
+              width="400"
+              height="584"
+              fetchPriority="high"
+              decoding="async"
+            />
             <figcaption>
               GUILLERMO BRACHETTA
               <br />
@@ -164,8 +187,11 @@ const IndexPage = () => (
             >
               <img
                 src={project.image}
+                srcSet={project.srcSet}
+                sizes="(max-width: 900px) 100vw, 700px"
                 alt={`${project.title} website preview`}
                 loading="lazy"
+                decoding="async"
                 width="700"
                 height="424"
               />
@@ -221,8 +247,11 @@ const IndexPage = () => (
         <div className="about-photo">
           <img
             src={aboutPortrait}
+            srcSet={`${aboutPortrait} 500w, ${aboutPortrait2x} 900w`}
+            sizes="(max-width: 768px) 100vw, 500px"
             alt="Guillermo Brachetta"
             loading="lazy"
+            decoding="async"
             width="500"
             height="667"
           />
@@ -314,7 +343,7 @@ const IndexPage = () => (
 export default IndexPage;
 
 export const Head = () => {
-  const siteUrl = "https://gbrachetta.com";
+  const siteUrl = "https://www.gbrachetta.com";
   const title = "Guillermo Brachetta — Developer & Baroque Performer";
   const description = (
     "Websites, applications, and a different perspective. Selected development "
@@ -329,6 +358,19 @@ export const Head = () => {
       <meta name="description" content={description} />
       <meta name="theme-color" content="#f1f0e9" />
       <link rel="canonical" href={`${siteUrl}/`} />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link
+        rel="preload"
+        as="image"
+        href={portrait}
+        type="image/webp"
+        fetchPriority="high"
+      />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap"
+      />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`${siteUrl}/`} />
       <meta property="og:title" content={title} />
