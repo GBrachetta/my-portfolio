@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { projectsData, aboutData } from "../data";
 import portrait from "../images/me-700.webp";
@@ -81,6 +81,228 @@ const selected = [
   },
 ];
 
+const TOPICS = [
+  "Web Application",
+  "Baroque Performance",
+  "Harpsichord Advice",
+  "Just Saying Hello",
+];
+
+const ContactPostcard = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    topic: TOPICS[0],
+    message: "",
+    botField: "",
+  });
+  const [status, setStatus] = useState("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleTopicSelect = (t) => {
+    setFormData((prev) => ({ ...prev, topic: t }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("sending");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        setStatus("error");
+        setErrorMessage(data.error || "Transmission interrupted. Please write directly to brachetta@me.com");
+        return;
+      }
+
+      setStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        topic: TOPICS[0],
+        message: "",
+        botField: "",
+      });
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage("Could not reach the dispatch service. Please write directly to brachetta@me.com");
+    }
+  };
+
+  return (
+    <div className="comic-postcard" role="region" aria-label="Courier Dispatch Postcard">
+      <div className="postcard-header">
+        <div className="postcard-kicker">
+          <span className="airmail-badge">PRIORITY AIR MAIL</span>
+          <span className="dispatch-no">DISPATCH NO. 0415</span>
+        </div>
+        <div className="postcard-stamp-area">
+          <div className="cancellation-stamp" aria-hidden="true">
+            <svg viewBox="0 0 110 32" className="wavy-lines">
+              <path d="M 0 8 Q 12 0 24 8 T 48 8 T 72 8 T 96 8" fill="none" stroke="currentColor" strokeWidth="1.5" />
+              <path d="M 0 16 Q 12 8 24 16 T 48 16 T 72 16 T 96 16" fill="none" stroke="currentColor" strokeWidth="1.5" />
+              <path d="M 0 24 Q 12 16 24 24 T 48 24 T 72 24 T 96 24" fill="none" stroke="currentColor" strokeWidth="1.5" />
+            </svg>
+            <span className="stamp-city">AMSTERDAM · A415</span>
+          </div>
+          <div className="postage-stamp" aria-label="Harpsichord postage stamp">
+            <span className="stamp-value">415 Hz</span>
+            <svg viewBox="0 0 24 24" className="stamp-icon" width="26" height="26" fill="none" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="2" />
+              <line x1="7" y1="4" x2="7" y2="20" stroke="currentColor" strokeWidth="1.5" />
+              <line x1="12" y1="4" x2="12" y2="20" stroke="currentColor" strokeWidth="1.5" />
+              <line x1="17" y1="4" x2="17" y2="20" stroke="currentColor" strokeWidth="1.5" />
+              <rect x="5.5" y="4" width="3" height="9" fill="currentColor" />
+              <rect x="10.5" y="4" width="3" height="9" fill="currentColor" />
+              <rect x="15.5" y="4" width="3" height="9" fill="currentColor" />
+            </svg>
+            <span className="stamp-caption">KEYBOARD</span>
+          </div>
+        </div>
+      </div>
+
+      <form className="postcard-body" onSubmit={handleSubmit}>
+        <div className="visually-hidden" aria-hidden="true">
+          <label htmlFor="postcard-bot-field">
+            Leave this empty
+            <input
+              type="text"
+              id="postcard-bot-field"
+              name="botField"
+              value={formData.botField}
+              onChange={handleChange}
+              tabIndex="-1"
+              autoComplete="off"
+            />
+          </label>
+        </div>
+
+        <div className="postcard-left">
+          <span className="postcard-field-label">THE FREQUENCY / TOPIC</span>
+          <div className="topic-pills" role="radiogroup" aria-label="Select message topic">
+            {TOPICS.map((t) => (
+              <button
+                type="button"
+                key={t}
+                className={`topic-pill ${formData.topic === t ? "is-active" : ""}`}
+                onClick={() => handleTopicSelect(t)}
+                role="radio"
+                aria-checked={formData.topic === t}
+              >
+                {t}
+              </button>
+            ))}
+          </div>
+
+          <label
+            className="postcard-field-label postcard-field-label--message"
+            htmlFor="postcard-message"
+          >
+            <span>YOUR MESSAGE / PROPOSITION</span>
+            <div className="ruled-paper-wrapper">
+              <textarea
+                id="postcard-message"
+                name="message"
+                required
+                rows="5"
+                placeholder="Dear Guillermo, I have a project / proposition / question about..."
+                value={formData.message}
+                onChange={handleChange}
+                disabled={status === "sending"}
+              />
+            </div>
+          </label>
+        </div>
+
+        <div className="postcard-divider" aria-hidden="true" />
+
+        <div className="postcard-right">
+          <div className="postcard-field">
+            <label className="postcard-field-label" htmlFor="postcard-name">
+              <span>FROM (YOUR NAME)</span>
+              <input
+                type="text"
+                id="postcard-name"
+                name="name"
+                required
+                placeholder="Jane Doe"
+                value={formData.name}
+                onChange={handleChange}
+                disabled={status === "sending"}
+              />
+            </label>
+          </div>
+
+          <div className="postcard-field">
+            <label className="postcard-field-label" htmlFor="postcard-email">
+              <span>RETURN DISPATCH (EMAIL)</span>
+              <input
+                type="email"
+                id="postcard-email"
+                name="email"
+                required
+                placeholder="jane@example.com"
+                value={formData.email}
+                onChange={handleChange}
+                disabled={status === "sending"}
+              />
+            </label>
+          </div>
+
+          <div className="postcard-destination-stamp">
+            <span className="destination-to">DELIVER TO:</span>
+            <strong>Guillermo Brachetta</strong>
+            <span>Usually at a keyboard</span>
+            <span>Amsterdam, Netherlands</span>
+          </div>
+
+          <button
+            type="submit"
+            className="dispatch-button"
+            disabled={status === "sending"}
+          >
+            {status === "sending" ? (
+              <span>TRANSMITTING FREQUENCIES...</span>
+            ) : (
+              <>
+                <span>DISPATCH MESSAGE</span>
+                <span aria-hidden="true">✳</span>
+              </>
+            )}
+          </button>
+
+          <div className="form-feedback" aria-live="polite">
+            {status === "success" && (
+              <p className="feedback-success">
+                ✓ Dispatched! No carrier pigeons were harmed. I’ll reply shortly.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="feedback-error">
+                <span>⚠ </span>
+                {errorMessage}
+              </p>
+            )}
+          </div>
+        </div>
+      </form>
+    </div>
+  );
+};
+
 const IndexPage = () => (
   <>
     <a className="skip-link" href="#work">Skip to work</a>
@@ -90,7 +312,7 @@ const IndexPage = () => (
       <nav aria-label="Main navigation">
         <a href="#work">Work</a>
         <a href="#about">About</a>
-        <a href="mailto:brachetta@me.com">
+        <a href="#contact">
           Say hello
           <span aria-hidden="true"><Arrow /></span>
         </a>
@@ -284,17 +506,14 @@ const IndexPage = () => (
           </a>
         </div>
       </section>
-      <section className="contact-section" aria-labelledby="contact-title">
+      <section className="contact-section" id="contact" aria-labelledby="contact-title">
         <span className="eyebrow">GOT SOMETHING IN MIND?</span>
         <h2 id="contact-title">
           Have an idea?
           <br />
           <em>Let’s build it.</em>
         </h2>
-        <a className="contact-email" href="mailto:brachetta@me.com">
-          brachetta@me.com
-          <span aria-hidden="true"><Arrow /></span>
-        </a>
+        <ContactPostcard />
       </section>
     </main>
     <footer className="site-footer">
