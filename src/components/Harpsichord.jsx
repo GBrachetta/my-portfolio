@@ -219,9 +219,14 @@ const Harpsichord = ({ onClose, initialPitch }) => {
 
       <div className="harpsichord-footer">
         <span className="harpsichord-hint">
-          Click or tap physical keys:
-          {" "}
-          <strong>A W S E D F T G Y H U J K</strong>
+          <span className="harpsichord-hint-desktop">
+            Click or tap physical keys:
+            {" "}
+            <strong>A W S E D F T G Y H U J K</strong>
+          </span>
+          <span className="harpsichord-hint-mobile">
+            Tap keys to play
+          </span>
         </span>
         <span className="harpsichord-footnote">
           {pitch === 415

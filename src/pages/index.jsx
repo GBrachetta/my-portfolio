@@ -192,6 +192,7 @@ const ContactPostcard = () => {
     message: "",
     botField: "",
   });
+  const [fieldErrors, setFieldErrors] = useState({});
   const [status, setStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [toccataBubble, setToccataBubble] = useState(false);
@@ -209,6 +210,9 @@ const ContactPostcard = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (fieldErrors[name]) {
+      setFieldErrors((prev) => ({ ...prev, [name]: "" }));
+    }
   };
 
   const handleTopicSelect = (t) => {
@@ -217,6 +221,36 @@ const ContactPostcard = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const errors = {};
+    if (!formData.message.trim()) {
+      errors.message = "Ran out of ink?";
+    }
+    if (!formData.name.trim()) {
+      errors.name = "Who holds the quill?";
+    }
+    if (!formData.email.trim()) {
+      errors.email = "Pigeon needs an address!";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+      errors.email = "Pigeon got lost!";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      if (errors.message) {
+        const el = document.getElementById("postcard-message");
+        if (el) el.focus({ preventScroll: true });
+      } else if (errors.name) {
+        const el = document.getElementById("postcard-name");
+        if (el) el.focus({ preventScroll: true });
+      } else if (errors.email) {
+        const el = document.getElementById("postcard-email");
+        if (el) el.focus({ preventScroll: true });
+      }
+      return;
+    }
+
+    setFieldErrors({});
     setStatus("sending");
     setErrorMessage("");
 
@@ -231,7 +265,9 @@ const ContactPostcard = () => {
 
       if (!res.ok) {
         setStatus("error");
-        setErrorMessage(data.error || "Transmission interrupted. Please write directly to brachetta@me.com");
+        setErrorMessage(
+          data.error || "Transmission interrupted. Please write directly to brachetta@me.com",
+        );
         return;
       }
 
@@ -245,7 +281,9 @@ const ContactPostcard = () => {
       });
     } catch (err) {
       setStatus("error");
-      setErrorMessage("Could not reach the dispatch service. Please write directly to brachetta@me.com");
+      setErrorMessage(
+        "Could not reach the dispatch service. Please write directly to brachetta@me.com",
+      );
     }
   };
 
@@ -299,7 +337,7 @@ const ContactPostcard = () => {
         </div>
       </div>
 
-      <form className="postcard-body" onSubmit={handleSubmit}>
+      <form className="postcard-body" noValidate onSubmit={handleSubmit}>
         <div className="visually-hidden" aria-hidden="true">
           <label htmlFor="postcard-bot-field">
             Leave this empty
@@ -336,8 +374,19 @@ const ContactPostcard = () => {
             className="postcard-field-label postcard-field-label--message"
             htmlFor="postcard-message"
           >
-            <span>YOUR MESSAGE / PROPOSITION</span>
-            <div className="ruled-paper-wrapper">
+            <div className="postcard-label-row">
+              <span>YOUR MESSAGE / PROPOSITION</span>
+              {fieldErrors.message && (
+                <span className="postcard-field-error" role="alert">
+                  {fieldErrors.message}
+                </span>
+              )}
+            </div>
+            <div
+              className={`ruled-paper-wrapper ${
+                fieldErrors.message ? "ruled-paper-wrapper--error" : ""
+              }`}
+            >
               <textarea
                 id="postcard-message"
                 name="message"
@@ -347,6 +396,7 @@ const ContactPostcard = () => {
                 value={formData.message}
                 onChange={handleChange}
                 disabled={status === "sending"}
+                aria-invalid={Boolean(fieldErrors.message)}
               />
             </div>
           </label>
@@ -357,32 +407,50 @@ const ContactPostcard = () => {
         <div className="postcard-right">
           <div className="postcard-field">
             <label className="postcard-field-label" htmlFor="postcard-name">
-              <span>FROM (YOUR NAME)</span>
+              <div className="postcard-label-row">
+                <span>FROM (YOUR NAME)</span>
+                {fieldErrors.name && (
+                  <span className="postcard-field-error" role="alert">
+                    {fieldErrors.name}
+                  </span>
+                )}
+              </div>
               <input
                 type="text"
                 id="postcard-name"
                 name="name"
+                className={fieldErrors.name ? "postcard-input--error" : ""}
                 required
                 placeholder="Jane Doe"
                 value={formData.name}
                 onChange={handleChange}
                 disabled={status === "sending"}
+                aria-invalid={Boolean(fieldErrors.name)}
               />
             </label>
           </div>
 
           <div className="postcard-field">
             <label className="postcard-field-label" htmlFor="postcard-email">
-              <span>RETURN DISPATCH (EMAIL)</span>
+              <div className="postcard-label-row">
+                <span>RETURN DISPATCH (EMAIL)</span>
+                {fieldErrors.email && (
+                  <span className="postcard-field-error" role="alert">
+                    {fieldErrors.email}
+                  </span>
+                )}
+              </div>
               <input
                 type="email"
                 id="postcard-email"
                 name="email"
+                className={fieldErrors.email ? "postcard-input--error" : ""}
                 required
                 placeholder="jane@example.com"
                 value={formData.email}
                 onChange={handleChange}
                 disabled={status === "sending"}
+                aria-invalid={Boolean(fieldErrors.email)}
               />
             </label>
           </div>
