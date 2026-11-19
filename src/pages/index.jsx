@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { projectsData } from "../data";
@@ -243,7 +243,7 @@ const ContactPostcard = () => {
   };
 
   return (
-    <div className="comic-postcard" role="region" aria-label="Courier Dispatch Postcard">
+    <div className="comic-postcard" id="contact" role="region" aria-label="Courier Dispatch Postcard">
       <div className="postcard-header">
         <div className="postcard-kicker">
           <span className="airmail-badge">PRIORITY AIR MAIL</span>
@@ -427,11 +427,36 @@ const ContactPostcard = () => {
 const IndexPage = () => {
   const [showKeyboard, setShowKeyboard] = useState(false);
 
+  useEffect(() => {
+    if (typeof window !== "undefined" && !window.location.hash) {
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
+  const handleScrollToTop = (e) => {
+    e.preventDefault();
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (window.history.pushState) {
+        window.history.pushState(null, "", "#top");
+      }
+    }
+  };
+
   return (
     <>
+      <div id="top" />
       <a className="skip-link" href="#work">Skip to work</a>
       <header className="site-header">
-        <a className="wordmark-group" href="#top" aria-label="Guillermo Brachetta home">
+        <a
+          className="wordmark-group"
+          href="#top"
+          aria-label="Guillermo Brachetta home"
+          onClick={handleScrollToTop}
+        >
           <span className="wordmark">GB</span>
           <span className="site-title-name">GUILLERMO BRACHETTA</span>
         </a>
@@ -454,7 +479,7 @@ const IndexPage = () => {
           </a>
         </nav>
       </header>
-      <main id="top">
+      <main>
         <section className="intro" aria-labelledby="intro-title">
           <div className="graphic-hero">
             <div className="graphic-title">
@@ -559,17 +584,21 @@ const IndexPage = () => {
         </section>
         <section className="work-section" id="work" aria-labelledby="work-title">
           <div className="section-heading">
-            <h2 id="work-title">
-              Less theory.
-              <br />
-              <span className="heading-solid">
-                More
-                {" "}
-                <em>doing.</em>
-              </span>
-            </h2>
+            <div className="section-title-group">
+              <span className="eyebrow">SELECTED WORK</span>
+              <h2 id="work-title">
+                Less theory.
+                <br />
+                <span className="heading-solid" aria-hidden="true">
+                  More
+                  {" "}
+                  <em>doing.</em>
+                </span>
+                <span className="visually-hidden">More doing.</span>
+              </h2>
+            </div>
             <p>
-              SELECTED WORK / 01—
+              CASE ARCHIVE / 01—
               {String(selected.length).padStart(2, "0")}
               <br />
               Websites. Experiments. Things that work.
@@ -662,78 +691,77 @@ const IndexPage = () => {
               </div>
             </article>
           ))}
-          <a
-            className="github-link"
-            href="https://github.com/GBrachetta"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Explore more on GitHub (opens in a new tab)"
-          >
-            Explore more on GitHub
-            <Arrow />
-          </a>
         </section>
         <section className="about-section" id="about" aria-labelledby="about-title">
-          <div className="about-photo">
-            <picture>
-              <source
-                media="(max-width: 768px)"
-                srcSet={aboutPortrait}
-              />
-              <source
-                media="(min-width: 769px)"
-                srcSet={`${aboutPortrait} 500w, ${aboutPortrait2x} 900w`}
-                sizes="500px"
-              />
-              <img
-                src={aboutPortrait}
-                alt="Guillermo Brachetta"
-                loading="lazy"
-                decoding="async"
-                width="500"
-                height="670"
-              />
-            </picture>
-            <span>THE PERSON BEHIND THE KEYBOARD(S).</span>
-          </div>
-          <div className="about-copy">
-            <span className="eyebrow">A NOTE ABOUT ME</span>
-            <h2 id="about-title">
-              Different disciplines.
-              <br />
-              <em>Same curiosity.</em>
-            </h2>
-            <p>
-              I’m Guillermo, a web developer and baroque performer. I work with React, Next.js, and
-              Django to turn ideas into websites and applications.
-            </p>
-            <p>
-              Music and development both give me room to explore, solve problems, and care about the
-              details. I enjoy the work that happens between an idea and something that feels right.
-            </p>
-            <div className="about-actions">
-              <Link
-                className="text-link"
-                to="/cv"
-                aria-label="Take a look at my CV dossier (opens interactive curriculum vitae)"
-              >
-                Take a look at my CV
-                <Arrow />
-              </Link>
-              <a
-                className="text-link"
-                href="https://blog.gbrachetta.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Read Guillermo's blog (opens in a new tab)"
-              >
-                Read my blog
-                <Arrow />
-              </a>
+          <span className="eyebrow">A NOTE ABOUT ME</span>
+          <h2 id="about-title">
+            Different disciplines.
+            <br />
+            <em aria-hidden="true">Same curiosity.</em>
+            <span className="visually-hidden">Same curiosity.</span>
+          </h2>
+          <div className="about-card">
+            <div className="about-photo">
+              <picture>
+                <source
+                  media="(max-width: 768px)"
+                  srcSet={aboutPortrait}
+                />
+                <source
+                  media="(min-width: 769px)"
+                  srcSet={`${aboutPortrait} 500w, ${aboutPortrait2x} 900w`}
+                  sizes="500px"
+                />
+                <img
+                  src={aboutPortrait}
+                  alt="Guillermo Brachetta"
+                  loading="lazy"
+                  decoding="async"
+                  width="500"
+                  height="670"
+                />
+              </picture>
+              <span>THE PERSON BEHIND THE KEYBOARDS.</span>
+            </div>
+            <div className="about-copy">
+              <span className="about-kicker">TWO KEYBOARDS, ONE HABIT</span>
+              <p className="about-lead">
+                I’ve spent more than thirty years at the harpsichord — on concert stages
+                across Europe and the Americas, recording over a dozen albums, and living
+                inside early music. At an instrument with no pedal to hide behind, either every
+                note has clean articulation and purpose, or the music simply doesn’t speak.
+              </p>
+              <p>
+                Writing software grew straight out of that habit. Combined with seventeen years
+                as an editor at Cambridge University Press, it gave me a very specific way
+                of working: zero patience for clutter, deep respect for structure, and a
+                genuine love for building clean, fast applications with React, Next.js,
+                and Django.
+              </p>
+              <div className="about-actions">
+                <Link
+                  className="text-link text-link--cv"
+                  to="/cv"
+                  aria-label="Take a look at my CV dossier (opens interactive curriculum vitae)"
+                >
+                  Take a look at my CV
+                  <Arrow />
+                </Link>
+                <a
+                  className="text-link text-link--blog"
+                  href="https://blog.gbrachetta.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Read Guillermo's blog (opens in a new tab)"
+                >
+                  Read my blog
+                  <Arrow />
+                </a>
+              </div>
             </div>
           </div>
         </section>
-        <section className="contact-section" id="contact" aria-labelledby="contact-title">
+        <section className="contact-section" aria-labelledby="contact-title">
           <span className="eyebrow">GOT SOMETHING IN MIND?</span>
           <h2 id="contact-title">
             Have an idea?
@@ -745,7 +773,12 @@ const IndexPage = () => {
         </section>
       </main>
       <footer className="site-footer">
-        <a className="footer-signature" href="#top" aria-label="Guillermo Brachetta — back to top">
+        <a
+          className="footer-signature"
+          href="#top"
+          aria-label="Guillermo Brachetta — back to top"
+          onClick={handleScrollToTop}
+        >
           Guillermo
           <br />
           <em>Brachetta.</em>
@@ -786,7 +819,11 @@ const IndexPage = () => {
               GitHub
               <Arrow />
             </a>
-            <a href="#top" aria-label="Back to top of page">
+            <a
+              href="#top"
+              aria-label="Back to top of page"
+              onClick={handleScrollToTop}
+            >
               Back to top
               <Arrow direction="up" />
             </a>

@@ -23,25 +23,6 @@ const Arrow = () => (
   </svg>
 );
 
-const PrintIcon = () => (
-  <svg
-    viewBox="0 0 24 24"
-    width="18"
-    height="18"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-    focusable="false"
-  >
-    <polyline points="6 9 6 2 18 2 18 9" />
-    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-    <rect x="6" y="14" width="12" height="8" />
-  </svg>
-);
-
 const BackIcon = () => (
   <svg
     viewBox="0 0 24 24"
@@ -82,22 +63,24 @@ const DownloadIcon = () => (
 const CVPage = () => {
   useEffect(() => {
     if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
+      window.scrollTo(0, 0);
+      const timer = setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 30);
+      return () => clearTimeout(timer);
     }
+    return undefined;
   }, []);
-
-  const handlePrint = () => {
-    if (typeof window !== "undefined") {
-      window.print();
-    }
-  };
 
   return (
     <div className="cv-wrapper">
       {/* Top Floating / Fixed Utility Bar */}
       <nav className="cv-nav-bar" aria-label="CV Quick Actions">
         <div className="cv-nav-container">
-          <Link to="/#about" className="cv-btn cv-btn--back">
+          <Link to="/" className="cv-btn cv-btn--back">
             <BackIcon />
             <span>BACK TO PORTFOLIO</span>
           </Link>
@@ -109,15 +92,6 @@ const CVPage = () => {
             >
               <span>GET IN TOUCH</span>
             </Link>
-            <button
-              type="button"
-              className="cv-btn cv-btn--print"
-              onClick={handlePrint}
-              aria-label="Print this CV"
-            >
-              <PrintIcon />
-              <span>PRINT PDF</span>
-            </button>
             <a
               href={aboutData.resume}
               className="cv-btn cv-btn--download"
@@ -150,9 +124,9 @@ const CVPage = () => {
                 <span className="cv-name-accent">BRACHETTA</span>
               </h1>
               <p className="cv-headline">
-                Full-Stack Web Developer · Former Cambridge University Press Editor
+                Full-Stack Web Developer · Concert Harpsichordist
                 {" · "}
-                Concert Harpsichordist
+                Former Cambridge University Press Editor
               </p>
             </div>
 
@@ -211,27 +185,33 @@ const CVPage = () => {
           </div>
         </header>
 
-        {/* Narrative / Superpower Panel */}
+        {/* Narrative / Approach Panel */}
         <section className="cv-section cv-section--summary">
           <div className="cv-section-tag">
-            <span>FIELD SUMMARY // THE CONVERGENCE</span>
+            <span>BACKGROUND & APPROACH</span>
           </div>
           <div className="cv-summary-card">
             <h2 className="cv-summary-lead">
-              Where software engineering logic meets 17 years of academic editorial rigor
-              {" and musical discipline."}
+              Web developer with thirty years on concert stages and seventeen at Cambridge
+              {" University Press."}
             </h2>
             <p>
-              I build responsive, performant web applications, modern platforms, and bespoke
-              digital architectures with React, Next.js, Astro, and Django. Before dedicating my
-              full time to software engineering, I spent 17 years as an editor at Cambridge
-              University Press, founded an independent printing company, and established an
-              international career as a concert harpsichordist and recording artist.
+              I build web applications using modern React frameworks, Astro, and Python/Django.
+              My path into software development wasn’t a standard boot-camp pivot: it grew
+              out of a lifetime spent between keyboards.
             </p>
             <p>
-              That convergence is my engineering advantage: I don’t just write clean code —
-              I approach every interface with deep typographic respect, structural clarity,
-              uncompromising quality assurance, and the calm required to deliver under pressure.
+              For over thirty years, I’ve performed and recorded internationally as a baroque
+              harpsichordist. On a historical keyboard with no sustain pedals to blur sound,
+              clarity is everything: every voice needs clean articulation, tempo, and intent.
+              Alongside music, seventeen years as an editor at Cambridge University Press
+              trained my eye for typography, information hierarchy, and editorial precision.
+            </p>
+            <p>
+              That combination directly shapes how I write code. I care about how things are
+              structured under the hood, how fast they run, and how natural they feel to use.
+              No needless layers, no over-engineering — just solid, well-built software that
+              does what it’s meant to do.
             </p>
           </div>
         </section>
@@ -244,7 +224,7 @@ const CVPage = () => {
           <div className="cv-skills-grid">
             <div className="cv-skill-card">
               <h3 className="cv-skill-title">FRONTEND & UI</h3>
-              <p className="cv-skill-lead">React · Next.js · Astro · TypeScript</p>
+              <p className="cv-skill-lead">React · Astro · TypeScript · Next.js</p>
               <ul className="cv-skill-tags">
                 <li>JavaScript (ES6+)</li>
                 <li>HTML5 & Semantic SEO</li>
@@ -291,7 +271,7 @@ const CVPage = () => {
                 <li>English (Fluent)</li>
                 <li>Spanish (Native)</li>
                 <li>Italian (Fluent)</li>
-                <li>Dutch (Professional)</li>
+                <li>Dutch (Conversational)</li>
                 <li>Mentorship & Communication</li>
               </ul>
             </div>
@@ -328,8 +308,9 @@ const CVPage = () => {
                   Sanity CMS) and White Queen (modern consultancy portal with responsive React).
                 </li>
                 <li>
-                  Built Mozart’s Musical Dice Game, an interactive algorithmic generative music
-                  laboratory leveraging Web Audio API in vanilla JavaScript.
+                  Built Mozart’s Musical Dice Game (new-musical-dice.vercel.app), an 18th-century
+                  algorithmic music puzzle originally written in vanilla JavaScript and recently
+                  modernized and rebuilt in React with the Web Audio API.
                 </li>
                 <li>
                   Published in-depth technical articles on smart-home automation, Astro, and web
@@ -343,7 +324,7 @@ const CVPage = () => {
               <div className="cv-entry-header">
                 <div className="cv-entry-role-group">
                   <h3 className="cv-entry-title">
-                    Concert Harpsichordist, Conductor & Recording Artist
+                    Concert Harpsichordist, Director & Recording Artist
                   </h3>
                   <span className="cv-entry-company">
                     International Concert Stages & Studios
@@ -352,17 +333,17 @@ const CVPage = () => {
                 <div className="cv-entry-badge">2001 — PRESENT</div>
               </div>
               <p className="cv-entry-summary">
-                World-class performer specializing in 17th and 18th-century repertoire, directing
-                early music ensembles, and producing commercial recordings.
+                Over thirty years performing 17th- and 18th-century repertoire, directing
+                ensembles from the keyboard, and producing commercial recordings.
               </p>
               <ul className="cv-entry-bullets">
                 <li>
-                  Recorded over 12 critically acclaimed commercial CDs and performed in major
-                  concert halls across Europe, the Americas, and Asia.
+                  Recorded over 12 commercial CDs and toured concert halls and festivals
+                  across Europe, the Americas, and Asia.
                 </li>
                 <li>
-                  Brings decades of real-time execution, intensive collaboration, complex
-                  structural pattern recognition, and focus into software engineering.
+                  Directing ensembles from the keyboard taught me active listening, real-time
+                  collaboration, and staying calm under live pressure.
                 </li>
               </ul>
             </article>
@@ -379,17 +360,17 @@ const CVPage = () => {
                 <div className="cv-entry-badge">2001 — 2018</div>
               </div>
               <p className="cv-entry-summary">
-                17 years directing editorial quality, structural consistency, and typesetting
-                standards for one of the world’s most respected academic publishers.
+                Seventeen years reviewing, structuring, and editing high-level academic books
+                and technical publications.
               </p>
               <ul className="cv-entry-bullets">
                 <li>
-                  Enforced uncompromising standards of accuracy, cross-referencing, and structural
-                  integrity across high-level academic and technical manuscripts.
+                  Maintained editorial quality, typography, and consistency across scholarly
+                  monographs and complex reference texts.
                 </li>
                 <li>
-                  Honed an instinct for visual clarity, typographic hierarchy, and defect-free
-                  production that directly powers my frontend engineering today.
+                  Developed an instinctive eye for layout balance, typographic hierarchy, and
+                  catching the subtle errors that others overlook.
                 </li>
               </ul>
             </article>
@@ -530,6 +511,26 @@ const CVPage = () => {
 
             <div className="cv-project-row">
               <div className="cv-project-main">
+                <strong className="cv-project-name">Mozart’s Musical Dice Game</strong>
+                <span className="cv-project-desc">
+                  18th-century algorithmic dice game; originally vanilla JS, modernized to React
+                </span>
+              </div>
+              <div className="cv-project-stack">React · Web Audio API</div>
+              <a
+                href="https://new-musical-dice.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cv-link"
+              >
+                <span>new-musical-dice.vercel.app</span>
+                {" "}
+                <Arrow />
+              </a>
+            </div>
+
+            <div className="cv-project-row">
+              <div className="cv-project-main">
                 <strong className="cv-project-name">White Queen</strong>
                 <span className="cv-project-desc">
                   Safety consultancy corporate platform & client onboarding
@@ -547,26 +548,6 @@ const CVPage = () => {
                 <Arrow />
               </a>
             </div>
-
-            <div className="cv-project-row">
-              <div className="cv-project-main">
-                <strong className="cv-project-name">Mozart’s Musical Dice Game</strong>
-                <span className="cv-project-desc">
-                  18th-century algorithmic dice puzzle game in the browser
-                </span>
-              </div>
-              <div className="cv-project-stack">Web Audio API · Vanilla JS</div>
-              <a
-                href="https://new-musical-dice.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cv-link"
-              >
-                <span>new-musical-dice.vercel.app</span>
-                {" "}
-                <Arrow />
-              </a>
-            </div>
           </div>
         </section>
 
@@ -575,12 +556,12 @@ const CVPage = () => {
           <div className="cv-cta-card">
             <h2 className="cv-cta-title">HAVE A PROJECT OR ROLE IN MIND?</h2>
             <p className="cv-cta-desc">
-              Whether you need a full-stack engineer, an artist platform, or an editorially
-              rigorous collaborator, let’s build something with character.
+              If you have an interesting project, an open role, or just want to talk code,
+              music, or typography, I’d love to hear from you.
             </p>
             <Link
               to="/#contact"
-              className="cv-btn cv-btn--print cv-btn--cta"
+              className="cv-btn cv-btn--cta"
               aria-label="Send a message through the contact postcard form on the homepage"
             >
               <span>GET IN TOUCH // SEND A POSTCARD</span>
@@ -608,7 +589,7 @@ const CVPage = () => {
             Guillermo Brachetta · Classified Dossier
           </span>
           <div className="cv-footer-links">
-            <Link to="/#about">Back to Portfolio</Link>
+            <Link to="/">Back to Portfolio</Link>
             <Link to="/#contact">Get in touch</Link>
           </div>
         </div>

@@ -1,4 +1,4 @@
-\documentclass[9.5pt,a4paper]{article}
+\documentclass[a4paper]{article}
 
 \usepackage[margin=1.1cm, top=1.0cm, bottom=1.0cm]{geometry}
 \usepackage{fontspec}
@@ -34,7 +34,7 @@
 \pagestyle{empty}
 
 % Tight lists
-\setlist[itemize]{leftmargin=1.2em, itemsep=1pt, topsep=1pt, parsep=0pt}
+\setlist[itemize]{leftmargin=1.2em, itemsep=1.2pt, topsep=1.5pt, parsep=0pt}
 
 % Section formatting
 \titleformat{\section}
@@ -50,8 +50,8 @@
 % --- HEADER ---
 \noindent
 \begin{minipage}[t]{0.65\textwidth}
-  {\fontsize{21}{23}\headerfont\color{ink} GUILLERMO BRACHETTA}\\[2pt]
-  {\fontsize{9.5}{11.5}\textbf{\color{accent} Full-Stack Web Developer · Former CUP Editor · Baroque Performer}}\\[1.5pt]
+  {\fontsize{21}{23}\headerfont\color{ink} GUILLERMO BRACHETTA}\\[2.5pt]
+  {\fontsize{9}{11}\textbf{\color{accent} Full-Stack Web Developer · Concert Harpsichordist · Former CUP Editor}}\\[1.5pt]
   {\fontsize{8}{10}\color{inksoft} Melick, NL · Open to Hybrid \& Remote Roles}
 \end{minipage}
 \hfill
@@ -67,7 +67,7 @@
 
 \vspace{4pt}
 
-% --- EXECUTIVE SUMMARY BOX ---
+% --- PROFILE SUMMARY BOX ---
 \begin{tcolorbox}[
   colback=accentlight,
   colframe=accent,
@@ -76,45 +76,46 @@
   top=4.5pt,bottom=4.5pt,left=6pt,right=6pt
 ]
   \fontsize{7.8}{10.5}\selectfont
-  \textbf{\color{accent} THE CONVERGENCE:}\hspace{3pt}
-  Full-stack software developer engineering responsive web applications, bespoke digital stages, and performant architectures with React, Next.js, Astro, and Django. With an earlier 17-year career as an editor at Cambridge University Press, a business administration degree, and an international career as a concert harpsichordist, I approach software with architectural discipline, deep typographic respect, and unyielding quality control.
+  \textbf{\color{accent} PROFILE:}\hspace{4pt}
+  Full-stack web developer building clean, fast web applications with modern React frameworks, Astro, Python, and Django. My path into code grew out of two lifelong disciplines: over thirty years on stage as an international baroque harpsichordist, and seventeen years editing scholarly books at Cambridge University Press. Playing polyphony and typesetting complex manuscripts taught me to break intricate systems into clear, readable structures—habits that directly shape how I write and architect software today.
 \end{tcolorbox}
 
 \vspace{-3pt}
 
 % --- TECHNICAL EXPERTISE ---
 \section*{TECHNICAL TOOLKIT \& CAPABILITIES}
-\begin{tabularx}{\textwidth}{@{}X X X X@{}}
+\setlength{\tabcolsep}{5pt}
+\begin{tabularx}{\textwidth}{@{}>{\hsize=0.96\hsize}X >{\hsize=1.00\hsize}X >{\hsize=0.94\hsize}X >{\hsize=1.10\hsize}X@{}}
   \textbf{\fontsize{8.2}{9.2}\selectfont\color{accent} Frontend \& UI} &
   \textbf{\fontsize{8.2}{9.2}\selectfont\color{accent} Backend \& Data} &
   \textbf{\fontsize{8.2}{9.2}\selectfont\color{accent} Systems \& Workflow} &
   \textbf{\fontsize{8.2}{9.2}\selectfont\color{accent} Editorial \& Languages} \\
-  \fontsize{7.5}{9.4}\selectfont
-  React · Next.js · Astro\newline
-  TypeScript · JavaScript\newline
+  \fontsize{7.5}{9.5}\selectfont
+  React · Astro · TypeScript\newline
+  JavaScript · Next.js\newline
   HTML5 · CSS3 / SASS\newline
   Tailwind CSS · Web Audio\newline
-  Responsive UI / WCAG 2.1
+  Responsive UI · WCAG 2.1
   &
-  \fontsize{7.5}{9.4}\selectfont
+  \fontsize{7.5}{9.5}\selectfont
   Python · Django\newline
   Django REST Framework\newline
   Node.js · Express · Flask\newline
   PostgreSQL · MySQL · MongoDB\newline
   RESTful APIs · GraphQL
   &
-  \fontsize{7.5}{9.4}\selectfont
+  \fontsize{7.5}{9.5}\selectfont
   Git · GitHub Workflows\newline
   Vercel · Netlify · Heroku\newline
   Sanity CMS · Headless\newline
   Linux / Shell Scripting\newline
   Lighthouse Performance
   &
-  \fontsize{7.5}{9.4}\selectfont
+  \fontsize{7.5}{9.5}\selectfont
   17 yrs Academic Editing\newline
   Typography \& Proofreading\newline
-  Spanish (Native) · English (Fl.)\newline
-  Italian (Fluent) · Dutch (Prof.)\newline
+  English (Fluent) · Spanish (Nat.)\newline
+  Italian (Fl.) · Dutch (Conversational)\newline
   Technical Documentation
 \end{tabularx}
 
@@ -124,46 +125,56 @@
 \section*{PROFESSIONAL CHRONICLE}
 
 \noindent
-\textbf{\fontsize{8.7}{10.5}\selectfont Freelance Full-Stack Web Developer} \hfill \textbf{\fontsize{7.8}{9}\selectfont\color{accent} 2020 — PRESENT}\\
-\textit{\fontsize{7.8}{9}\selectfont Self-Employed · Melick, NL}\\[-3pt]
+\textbf{\fontsize{8.7}{10.5}\selectfont Freelance Full-Stack Web Developer} \hfill \textbf{\fontsize{7.8}{9}\selectfont\color{accent} 2020 — PRESENT}\par
+\vspace{1pt}
+\noindent\textit{\fontsize{7.8}{9}\selectfont Self-Employed · Melick, NL}\par
+\vspace{-2pt}
 \begin{itemize}
-  \item Architect, build, and deploy high-performance web applications, client portals, and e-commerce platforms with React, Next.js, Astro, TypeScript, and Django.
-  \item Built \textbf{Menno van Delft} (\href{https://www.mennovandelft.com}{mennovandelft.com}): concert artist platform with Astro, Sanity CMS, discography, and custom audio preview systems.
-  \item Built \textbf{White Queen} (\href{https://www.whitequeen.nl}{whitequeen.nl}): corporate safety consultancy portal with responsive React architecture and crisp branding.
-  \item Engineered \textbf{Mozart’s Musical Dice Game} (\href{https://new-musical-dice.vercel.app}{new-musical-dice.vercel.app}): interactive algorithmic Web Audio generative game.
-  \item Author in-depth technical articles on Astro, smart automation, and modern web architecture at \href{https://blog.gbrachetta.com}{blog.gbrachetta.com}.
+  \item Architect, build, and deploy responsive web applications, client portals, and bespoke tools with React, Next.js, Astro, and Django.
+  \item Built \textbf{Menno van Delft} (\href{https://www.mennovandelft.com}{mennovandelft.com}): concert artist platform with Astro, Sanity CMS, discography, and audio preview player.
+  \item Built \textbf{Mozart’s Musical Dice Game} (\href{https://new-musical-dice.vercel.app}{new-musical-dice.vercel.app}): 18th-century algorithmic music puzzle; originally written in vanilla JavaScript, recently modernized and rebuilt in React with the Web Audio API.
+  \item Built \textbf{White Queen} (\href{https://www.whitequeen.nl}{whitequeen.nl}): corporate safety consultancy portal with responsive React architecture.
+  \item Write technical articles on Astro, home automation, and web architecture at \href{https://blog.gbrachetta.com}{blog.gbrachetta.com}.
 \end{itemize}
 
 \vspace{2pt}
 \noindent
-\textbf{\fontsize{8.7}{10.5}\selectfont Concert Harpsichordist, Conductor \& Recording Artist} \hfill \textbf{\fontsize{7.8}{9}\selectfont\color{accent} 2001 — PRESENT}\\
-\textit{\fontsize{7.8}{9}\selectfont International Concert Stages \& Recording Studios}\\[-3pt]
+\textbf{\fontsize{8.7}{10.5}\selectfont Concert Harpsichordist, Director \& Recording Artist} \hfill \textbf{\fontsize{7.8}{9}\selectfont\color{accent} 2001 — PRESENT}\par
+\vspace{1pt}
+\noindent\textit{\fontsize{7.8}{9}\selectfont International Concert Stages \& Recording Studios}\par
+\vspace{-2pt}
 \begin{itemize}
-  \item Performed across Europe, the Americas, and Asia; recorded 12+ critically acclaimed commercial CDs.
-  \item Direct early music ensembles; brings real-time execution, intensive collaboration, structural pattern recognition, and calm under high-stakes performance pressure into technical engineering.
+  \item Over thirty years performing 17th- and 18th-century repertoire; recorded 12+ commercial CDs and performed across Europe, the Americas, and Asia.
+  \item Decades of directing early music ensembles from the keyboard taught me active listening, real-time collaboration, and staying calm under live pressure.
 \end{itemize}
 
 \vspace{2pt}
 \noindent
-\textbf{\fontsize{8.7}{10.5}\selectfont Editor} \hfill \textbf{\fontsize{7.8}{9}\selectfont\color{accent} 2001 — 2018}\\
-\textit{\fontsize{7.8}{9}\selectfont Cambridge University Press}\\[-3pt]
+\textbf{\fontsize{8.7}{10.5}\selectfont Editor} \hfill \textbf{\fontsize{7.8}{9}\selectfont\color{accent} 2001 — 2018}\par
+\vspace{1pt}
+\noindent\textit{\fontsize{7.8}{9}\selectfont Cambridge University Press}\par
+\vspace{-2pt}
 \begin{itemize}
-  \item 17 years directing editorial quality, structural accuracy, and typesetting standards for high-level academic publications.
-  \item Built mastery in visual clarity, information hierarchy, typographic systems, and meticulous defect reduction.
+  \item 17 years reviewing, structuring, and editing high-level academic books, monographs, and technical reference works.
+  \item Developed an instinctive eye for typography, layout hierarchy, and catching the subtle errors that others overlook.
 \end{itemize}
 
 \vspace{2pt}
 \noindent
-\textbf{\fontsize{8.7}{10.5}\selectfont Account Leader — Palm Computing, Inc.} \hfill \textbf{\fontsize{7.8}{9}\selectfont\color{accent} 1999 — 2001}\\
-\textit{\fontsize{7.8}{9}\selectfont Sykes Enterprises}\\[-3pt]
+\textbf{\fontsize{8.7}{10.5}\selectfont Account Leader — Palm Computing, Inc.} \hfill \textbf{\fontsize{7.8}{9}\selectfont\color{accent} 1999 — 2001}\par
+\vspace{1pt}
+\noindent\textit{\fontsize{7.8}{9}\selectfont Sykes Enterprises}\par
+\vspace{-2pt}
 \begin{itemize}
-  \item Coordinated technical account operations and technical escalation teams during the rapid rise of mobile OS devices.
+  \item Coordinated technical account operations and technical escalation teams during the rapid rise of handheld computing and mobile operating systems.
 \end{itemize}
 
 \vspace{2pt}
 \noindent
-\textbf{\fontsize{8.7}{10.5}\selectfont Founder \& General Manager} \hfill \textbf{\fontsize{7.8}{9}\selectfont\color{accent} 1995 — 1997}\\
-\textit{\fontsize{7.8}{9}\selectfont Diseño y Gráfica · Rosario, Argentina}\\[-3pt]
+\textbf{\fontsize{8.7}{10.5}\selectfont Founder \& General Manager} \hfill \textbf{\fontsize{7.8}{9}\selectfont\color{accent} 1995 — 1997}\par
+\vspace{1pt}
+\noindent\textit{\fontsize{7.8}{9}\selectfont Diseño y Gráfica · Rosario, Argentina}\par
+\vspace{-2pt}
 \begin{itemize}
   \item Founded and managed an independent commercial printing and prepress editorial house. Directed typography, press production, supply-chain logistics, and corporate client accounts.
 \end{itemize}
@@ -178,7 +189,7 @@
   \textit{\fontsize{7.5}{9}\selectfont Code Institute · Dublin, Ireland} &
   \textit{\fontsize{7.5}{9}\selectfont Koninklijk Conservatorium Den Haag \& Cons. van Amsterdam} \\
   \fontsize{7.2}{8.6}\selectfont\color{inksoft}
-  \textbf{First Class Honours.} Python, Flask, Django, JS, SQL, MongoDb. &
+  \textbf{First Class Honours.} Python, Flask, Django, JS, SQL, MongoDB. &
   \fontsize{7.2}{8.6}\selectfont\color{inksoft}
   Advanced performance, acoustics, ensemble direction, structural analysis. \\[1.5pt]
   \textbf{\fontsize{8}{9.5}\selectfont Bachelor in Business Administration} &
