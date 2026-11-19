@@ -78,105 +78,110 @@ export const playPluck = (freq, duration = 1.4, gainLevel = 0.85) => {
 
 /**
  * Authentic French/Bach Baroque Cadence in D minor
- * Features:
- * - Rolled opening broken chord (style luthé / brisé)
- * - Affective sighing descent with pathopoeic Bb4
- * - Dominant 7th suspension
- * - Measured tremblement (trill on C# leading tone starting on upper auxiliary with turn)
- * - Final rolled Picardy Third (Tierce de Picardie)!
+ * Tunings supported:
+ * - 440 Hz: Modern Equal Temperament (12-TET)
+ * - 415 Hz: Authentic 1/4-Comma Meantone (pure 5:4 major thirds, pure beatless Picardy third!)
+ *
+ * Structure:
+ * 1. Style brisé rolled opening
+ * 2. Affective descent (pathopoeic Bb4 lament)
+ * 3. Dominant harmony preparation
+ * 4. Measured tremblement (trill on C# leading tone with upper auxiliary D and turn)
+ * 5. Final resolution with pure Tierce de Picardie (D-F#-A)!
  */
 const BAROQUE_CADENCE = [
   // 1. Style brisé rolled opening
   {
-    freq440: 146.83, time: 0.0, dur: 2.3, vol: 0.95,
+    freq440: 146.83, freq415: 138.76, time: 0.0, dur: 2.3, vol: 0.95,
   }, // D3 bass pedal
   {
-    freq440: 220.0, time: 0.07, dur: 1.9, vol: 0.8,
+    freq440: 220.0, freq415: 207.5, time: 0.07, dur: 1.9, vol: 0.8,
   }, // A3
   {
-    freq440: 293.66, time: 0.14, dur: 1.7, vol: 0.8,
+    freq440: 293.66, freq415: 277.53, time: 0.14, dur: 1.7, vol: 0.8,
   }, // D4
   {
-    freq440: 349.23, time: 0.21, dur: 1.5, vol: 0.85,
+    freq440: 349.23, freq415: 332.0, time: 0.21, dur: 1.5, vol: 0.85,
   }, // F4
   {
-    freq440: 440.0, time: 0.28, dur: 1.4, vol: 0.9,
+    freq440: 440.0, freq415: 415.0, time: 0.28, dur: 1.4, vol: 0.9,
   }, // A4
   {
-    freq440: 587.33, time: 0.38, dur: 0.7, vol: 0.95,
+    freq440: 587.33, freq415: 555.05, time: 0.38, dur: 0.7, vol: 0.95,
   }, // D5 (high peak)
 
   // 2. Affective descent (lament / pathopoeia)
   {
-    freq440: 466.16, time: 0.54, dur: 0.35, vol: 0.85,
-  }, // Bb4
+    freq440: 466.16, freq415: 444.04, time: 0.54, dur: 0.35, vol: 0.85,
+  }, // Bb4 (pure 5:4 under D5)
   {
-    freq440: 392.0, time: 0.66, dur: 0.3, vol: 0.8,
+    freq440: 392.0, freq415: 371.19, time: 0.66, dur: 0.3, vol: 0.8,
   }, // G4
   {
-    freq440: 349.23, time: 0.78, dur: 0.28, vol: 0.8,
+    freq440: 349.23, freq415: 332.0, time: 0.78, dur: 0.28, vol: 0.8,
   }, // F4
   {
-    freq440: 329.63, time: 0.9, dur: 0.38, vol: 0.85,
+    freq440: 329.63, freq415: 310.28, time: 0.9, dur: 0.38, vol: 0.85,
   }, // E4 (suspension)
 
   // 3. Dominant harmony preparation
   {
-    freq440: 220.0, time: 1.02, dur: 1.2, vol: 0.85,
+    freq440: 220.0, freq415: 207.5, time: 1.02, dur: 1.2, vol: 0.85,
   }, // A3 bass
   {
-    freq440: 392.0, time: 1.06, dur: 0.3, vol: 0.8,
+    freq440: 392.0, freq415: 371.19, time: 1.06, dur: 0.3, vol: 0.8,
   }, // G4 (dom 7th)
   {
-    freq440: 349.23, time: 1.18, dur: 0.25, vol: 0.75,
+    freq440: 349.23, freq415: 332.0, time: 1.18, dur: 0.25, vol: 0.75,
   }, // F4
 
   // 4. Tremblement (Baroque Trill on C# with upper D and turn)
   {
-    freq440: 293.66, time: 1.28, dur: 0.12, vol: 0.85,
+    freq440: 293.66, freq415: 277.53, time: 1.28, dur: 0.12, vol: 0.85,
   }, // D4 (upper aux)
   {
-    freq440: 277.18, time: 1.36, dur: 0.12, vol: 0.8,
+    freq440: 277.18, freq415: 259.38, time: 1.36, dur: 0.12, vol: 0.8,
   }, // C#4
   {
-    freq440: 293.66, time: 1.44, dur: 0.12, vol: 0.85,
+    freq440: 293.66, freq415: 277.53, time: 1.44, dur: 0.12, vol: 0.85,
   }, // D4
   {
-    freq440: 277.18, time: 1.52, dur: 0.12, vol: 0.8,
+    freq440: 277.18, freq415: 259.38, time: 1.52, dur: 0.12, vol: 0.8,
   }, // C#4
   {
-    freq440: 246.94, time: 1.6, dur: 0.11, vol: 0.75,
+    freq440: 246.94, freq415: 231.99, time: 1.6, dur: 0.11, vol: 0.75,
   }, // B3 (turn)
   {
-    freq440: 277.18, time: 1.68, dur: 0.28, vol: 0.9,
+    freq440: 277.18, freq415: 259.38, time: 1.68, dur: 0.28, vol: 0.9,
   }, // C#4 (leading tone)
 
   // 5. Final resolution with Picardy Third (Tierce de Picardie)!
   {
-    freq440: 146.83, time: 1.84, dur: 2.4, vol: 1.0,
+    freq440: 146.83, freq415: 138.76, time: 1.84, dur: 2.4, vol: 1.0,
   }, // D3 low bass
   {
-    freq440: 220.0, time: 1.87, dur: 2.2, vol: 0.85,
+    freq440: 220.0, freq415: 207.5, time: 1.87, dur: 2.2, vol: 0.85,
   }, // A3 fifth
   {
-    freq440: 293.66, time: 1.9, dur: 2.2, vol: 0.85,
+    freq440: 293.66, freq415: 277.53, time: 1.9, dur: 2.2, vol: 0.85,
   }, // D4 octave
   {
-    freq440: 369.99, time: 1.94, dur: 2.4, vol: 0.95,
-  }, // F#4 (Picardy third!)
+    freq440: 369.99, freq415: 346.91, time: 1.94, dur: 2.4, vol: 0.95,
+  }, // F#4 (Pure 5:4 beatless Picardy third in meantone!)
 ];
 
 /**
  * Plays an authentic Baroque Harpsichord Cadence
- * @param {number} pitchRef - 415 for Baroque, 440 for Modern
+ * @param {number} pitchRef - 415 for 1/4-Comma Meantone, 440 for Equal Temperament
  */
 export const playToccataFlourish = (pitchRef = 415) => {
-  const ratio = pitchRef / 440;
+  const isMeantone = pitchRef === 415;
   BAROQUE_CADENCE.forEach(({
-    freq440, time, dur, vol,
+    freq440, freq415, time, dur, vol,
   }) => {
+    const freq = isMeantone ? freq415 : freq440;
     setTimeout(() => {
-      playPluck(freq440 * ratio, dur, vol);
+      playPluck(freq, dur, vol);
     }, time * 1000);
   });
 };

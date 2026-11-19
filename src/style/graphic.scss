@@ -577,6 +577,66 @@ h1 {
   }
 }
 
+// Modern Piano Keys (440 Hz Mode): White Naturals, Black Sharps
+.harpsichord-panel--modern {
+  .harpsichord-badge {
+    background: #bddba5;
+  }
+
+  .harpsichord-key--natural {
+    background: #faf8f2;
+    color: #171d19;
+    border: 1px solid #cfcbbe;
+    border-bottom: 5px solid #b8b3a0;
+
+    .key-char {
+      color: #8c8979;
+    }
+
+    .key-name {
+      color: #171d19;
+    }
+
+    &:hover {
+      background: #ffffff;
+    }
+
+    &.harpsichord-key--active {
+      background: #ebe6d5;
+      color: #171d19;
+      transform: translateY(2px);
+      border-bottom-width: 3px;
+    }
+  }
+
+  .harpsichord-key--sharp {
+    background: #171d19;
+    color: #e4e2d3;
+    border: 1px solid #0d120f;
+    border-bottom: 4px solid #090c0a;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.6);
+
+    .key-char {
+      color: #8c9c91;
+    }
+
+    .key-name {
+      color: #e4e2d3;
+    }
+
+    &:hover {
+      background: #28332c;
+    }
+
+    &.harpsichord-key--active {
+      background: #39473e;
+      color: #ffffff;
+      transform: translateY(2px);
+      border-bottom-width: 2px;
+    }
+  }
+}
+
 .harpsichord-footer {
   display: flex;
   justify-content: space-between;

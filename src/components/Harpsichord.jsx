@@ -2,46 +2,48 @@ import React, { useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 import { playPluck, playToccataFlourish } from "../utils/audio";
 
-// Standard equal temperament frequencies for octave 4 (based on A4 = 440 Hz)
+// Frequencies for octave 4:
+// - freq440: Modern 12-TET (Equal Temperament, A4 = 440 Hz)
+// - freq415: Authentic Baroque 1/4-Comma Meantone (A4 = 415 Hz, pure 5:4 thirds)
 const BASE_NOTES = [
   {
-    name: "C4", label: "C", key: "a", freq440: 261.63, isSharp: false,
+    name: "C4", label: "C", key: "a", freq440: 261.63, freq415: 248.23, isSharp: false,
   },
   {
-    name: "C#4", label: "C♯", key: "w", freq440: 277.18, isSharp: true,
+    name: "C#4", label: "C♯", key: "w", freq440: 277.18, freq415: 259.38, isSharp: true,
   },
   {
-    name: "D4", label: "D", key: "s", freq440: 293.66, isSharp: false,
+    name: "D4", label: "D", key: "s", freq440: 293.66, freq415: 277.53, isSharp: false,
   },
   {
-    name: "D#4", label: "D♯", key: "e", freq440: 311.13, isSharp: true,
+    name: "D#4", label: "D♯", key: "e", freq440: 311.13, freq415: 296.95, isSharp: true,
   },
   {
-    name: "E4", label: "E", key: "d", freq440: 329.63, isSharp: false,
+    name: "E4", label: "E", key: "d", freq440: 329.63, freq415: 310.28, isSharp: false,
   },
   {
-    name: "F4", label: "F", key: "f", freq440: 349.23, isSharp: false,
+    name: "F4", label: "F", key: "f", freq440: 349.23, freq415: 332.0, isSharp: false,
   },
   {
-    name: "F#4", label: "F♯", key: "t", freq440: 369.99, isSharp: true,
+    name: "F#4", label: "F♯", key: "t", freq440: 369.99, freq415: 346.91, isSharp: true,
   },
   {
-    name: "G4", label: "G", key: "g", freq440: 392.0, isSharp: false,
+    name: "G4", label: "G", key: "g", freq440: 392.0, freq415: 371.19, isSharp: false,
   },
   {
-    name: "G#4", label: "G♯", key: "y", freq440: 415.3, isSharp: true,
+    name: "G#4", label: "G♯", key: "y", freq440: 415.3, freq415: 387.86, isSharp: true,
   },
   {
-    name: "A4", label: "A", key: "h", freq440: 440.0, isSharp: false,
+    name: "A4", label: "A", key: "h", freq440: 440.0, freq415: 415.0, isSharp: false,
   },
   {
-    name: "A#4", label: "A♯", key: "u", freq440: 466.16, isSharp: true,
+    name: "A#4", label: "A♯", key: "u", freq440: 466.16, freq415: 444.04, isSharp: true,
   },
   {
-    name: "B4", label: "B", key: "j", freq440: 493.88, isSharp: false,
+    name: "B4", label: "B", key: "j", freq440: 493.88, freq415: 463.98, isSharp: false,
   },
   {
-    name: "C5", label: "C", key: "k", freq440: 523.25, isSharp: false,
+    name: "C5", label: "C", key: "k", freq440: 523.25, freq415: 496.46, isSharp: false,
   },
 ];
 
@@ -63,8 +65,8 @@ const Harpsichord = ({ onClose, initialPitch }) => {
   const triggerKey = useCallback(
     (note) => {
       setActiveKey(note.name);
-      const ratio = pitch / 440;
-      playPluck(note.freq440 * ratio, 1.3);
+      const freq = pitch === 415 ? note.freq415 : note.freq440;
+      playPluck(freq, 1.3);
       setTimeout(() => {
         setActiveKey((prev) => (prev === note.name ? null : prev));
       }, 180);
@@ -102,12 +104,19 @@ const Harpsichord = ({ onClose, initialPitch }) => {
   const naturalNotes = BASE_NOTES.filter((n) => !n.isSharp);
 
   return (
-    <aside className="harpsichord-panel" aria-label="Interactive Baroque Harpsichord">
+    <aside
+      className={`harpsichord-panel ${pitch === 440 ? "harpsichord-panel--modern" : ""}`}
+      aria-label="Interactive Harpsichord and Piano Keyboard"
+    >
       <div className="harpsichord-header">
         <div className="harpsichord-title-wrap">
-          <span className="harpsichord-badge">THE OTHER KEYBOARD</span>
+          <span className="harpsichord-badge">
+            {pitch === 415 ? "THE OTHER KEYBOARD" : "THE MODERN PIANO"}
+          </span>
           <span className="harpsichord-caption">
-            Historically inverted keys • Web Audio synthesis
+            {pitch === 415
+              ? "Historically inverted keys • 1/4-comma Meantone (pure 5:4 thirds)"
+              : "Standard piano keys • Modern Equal Temperament (12-TET)"}
           </span>
         </div>
         <div className="harpsichord-controls">
@@ -117,18 +126,18 @@ const Harpsichord = ({ onClose, initialPitch }) => {
               className={`pitch-btn ${pitch === 415 ? "pitch-btn--active" : ""}`}
               onClick={() => setPitch(415)}
               aria-pressed={pitch === 415}
-              title="Historically informed pitch (Baroque: A = 415 Hz)"
+              title="Baroque pitch: A = 415 Hz, 1/4-comma Meantone tuning"
             >
-              415 Hz (Baroque)
+              415 Hz · Meantone
             </button>
             <button
               type="button"
               className={`pitch-btn ${pitch === 440 ? "pitch-btn--active" : ""}`}
               onClick={() => setPitch(440)}
               aria-pressed={pitch === 440}
-              title="Modern concert pitch (A = 440 Hz)"
+              title="Modern concert pitch: A = 440 Hz, Equal Temperament"
             >
-              440 Hz (Modern)
+              440 Hz · Equal
             </button>
           </div>
           <button
