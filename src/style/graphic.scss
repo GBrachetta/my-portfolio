@@ -881,7 +881,7 @@ h1 {
   display: block;
   position: relative;
   padding: 25px;
-  background: #e0e9d9;
+  background-color: #e0e9d9;
   border: 2px solid $ink;
   box-shadow: 6px 6px 0 $ink;
   picture {
@@ -901,12 +901,6 @@ h1 {
   &:hover img {
     transform: translateY(-4px);
   }
-}
-.work-card:nth-of-type(2) .work-image {
-  background: #d5e4ce;
-}
-.work-card:nth-of-type(3) .work-image {
-  background: #e9dfc4;
 }
 .image-arrow {
   position: absolute;
@@ -2055,15 +2049,6 @@ figcaption,
   font-size: 17px;
   line-height: 1.68;
 }
-.work-card:nth-of-type(1) .eyebrow {
-  background: #f1cf69;
-}
-.work-card:nth-of-type(2) .eyebrow {
-  background: #ecb7a2;
-}
-.work-card:nth-of-type(3) .eyebrow {
-  background: #bddba5;
-}
 .section-heading .eyebrow,
 .about-section > .eyebrow,
 .contact-section > .eyebrow {
@@ -2348,23 +2333,46 @@ figcaption,
   transform: rotate(-45deg);
 }
 
-/* Additional examples use the same comic-card palette and rhythm. */
-.work-card:nth-of-type(4) .work-image {
+/* Comic-card cycling palette:
+   - work-image containers cycle through 5 pastel background tones
+   - eyebrow pills cycle through 7 distinctive comic accent colors
+   - Since 5 and 7 are coprime, pairings stay varied across any number of projects!
+   - Always uses `background-color` (never shorthand `background`) so the halftone dots stay intact. */
+.work-card:nth-of-type(5n + 1) .work-image {
+  background-color: #e0e9d9;
+}
+.work-card:nth-of-type(5n + 2) .work-image {
+  background-color: #d5e4ce;
+}
+.work-card:nth-of-type(5n + 3) .work-image {
+  background-color: #e9dfc4;
+}
+.work-card:nth-of-type(5n + 4) .work-image {
   background-color: #dce8cf;
 }
-.work-card:nth-of-type(4) .eyebrow {
-  background: #b5d6eb;
-}
-.work-card:nth-of-type(5) .work-image {
+.work-card:nth-of-type(5n) .work-image {
   background-color: #eee4c8;
 }
-.work-card:nth-of-type(5) .eyebrow {
+
+.work-card:nth-of-type(7n + 1) .eyebrow {
+  background: #f1cf69;
+}
+.work-card:nth-of-type(7n + 2) .eyebrow {
+  background: #ecb7a2;
+}
+.work-card:nth-of-type(7n + 3) .eyebrow {
+  background: #bddba5;
+}
+.work-card:nth-of-type(7n + 4) .eyebrow {
+  background: #b5d6eb;
+}
+.work-card:nth-of-type(7n + 5) .eyebrow {
   background: #d6c3e8;
 }
-.work-card:nth-of-type(6) .eyebrow {
+.work-card:nth-of-type(7n + 6) .eyebrow {
   background: #a9dcd4;
 }
-.work-card:nth-of-type(7) .eyebrow {
+.work-card:nth-of-type(7n) .eyebrow {
   background: #fde6dc;
 }
 

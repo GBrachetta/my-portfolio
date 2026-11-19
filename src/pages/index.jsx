@@ -20,6 +20,8 @@ import menno from "../images/menno-van-delft-700.webp";
 import menno2x from "../images/menno-van-delft-1200.webp";
 import blog from "../images/blog-700.webp";
 import blog2x from "../images/blog-1200.webp";
+import myPortfolio from "../images/my-portfolio-700.webp";
+import myPortfolio2x from "../images/my-portfolio-1200.webp";
 import portfolioImage from "../images/portfolio-og.png";
 import { playToccataFlourish } from "../utils/audio";
 import Harpsichord from "../components/Harpsichord";
@@ -137,6 +139,11 @@ const selected = [
     ...projectsData.find((project) => project.id === "menno-van-delft"),
     image: menno,
     srcSet: `${menno} 700w, ${menno2x} 1200w`,
+  },
+  {
+    ...projectsData.find((project) => project.id === "my-portfolio"),
+    image: myPortfolio,
+    srcSet: `${myPortfolio} 700w, ${myPortfolio2x} 1200w`,
   },
   {
     ...projectsData.find((project) => project.id === "blog"),
@@ -604,93 +611,106 @@ const IndexPage = () => {
               Websites. Experiments. Things that work.
             </p>
           </div>
-          {selected.map((project, index) => (
-            <article className="work-card" key={project.id}>
-              <a
-                className="work-image"
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Visit ${project.title} (opens in a new tab)`}
-              >
-                <span className="comic-issue-stamp" aria-hidden="true">
-                  ISSUE #
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <span className="card-tape-corner" aria-hidden="true" />
-                <picture>
-                  <source
-                    media="(max-width: 768px)"
-                    srcSet={project.image}
-                  />
-                  <source
-                    media="(min-width: 769px)"
-                    srcSet={project.srcSet}
-                    sizes="(max-width: 1200px) 55vw, 650px"
-                  />
-                  <img
-                    src={project.image}
-                    alt={`${project.title} website preview`}
-                    loading="lazy"
-                    decoding="async"
-                    width="700"
-                    height="424"
-                  />
-                </picture>
-                <span className="image-arrow" aria-hidden="true"><Arrow /></span>
-              </a>
-              <div className="work-details">
-                <span className="eyebrow">
-                  <span className="eyebrow-dispatch">DISPATCH</span>
-                  <span className="eyebrow-sep" aria-hidden="true">/</span>
-                  <span className="eyebrow-type">{project.type}</span>
-                </span>
-                <h3>{project.title}</h3>
-                <p className="work-description">
-                  {project.lead && (
-                    <strong className="work-lead">
-                      {project.lead}
-                      {" "}
-                    </strong>
+          {selected.map((project, index) => {
+            const isExternal = project.url.startsWith("http");
+            return (
+              <article className="work-card" key={project.id}>
+                <a
+                  className="work-image"
+                  href={project.url}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noopener noreferrer" : undefined}
+                  aria-label={
+                    isExternal
+                      ? `Visit ${project.title} (opens in a new tab)`
+                      : `Scroll to top of ${project.title}`
+                  }
+                >
+                  <span className="comic-issue-stamp" aria-hidden="true">
+                    ISSUE #
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="card-tape-corner" aria-hidden="true" />
+                  <picture>
+                    <source
+                      media="(max-width: 768px)"
+                      srcSet={project.image}
+                    />
+                    <source
+                      media="(min-width: 769px)"
+                      srcSet={project.srcSet}
+                      sizes="(max-width: 1200px) 55vw, 650px"
+                    />
+                    <img
+                      src={project.image}
+                      alt={`${project.title} website preview`}
+                      loading="lazy"
+                      decoding="async"
+                      width="700"
+                      height="424"
+                    />
+                  </picture>
+                  <span className="image-arrow" aria-hidden="true">
+                    <Arrow direction={isExternal ? "external" : "up"} />
+                  </span>
+                </a>
+                <div className="work-details">
+                  <span className="eyebrow">
+                    <span className="eyebrow-dispatch">DISPATCH</span>
+                    <span className="eyebrow-sep" aria-hidden="true">/</span>
+                    <span className="eyebrow-type">{project.type}</span>
+                  </span>
+                  <h3>{project.title}</h3>
+                  <p className="work-description">
+                    {project.lead && (
+                      <strong className="work-lead">
+                        {project.lead}
+                        {" "}
+                      </strong>
+                    )}
+                    {project.description}
+                  </p>
+                  {project.tags && (
+                    <div className="project-tags" aria-label="Key technologies">
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="project-tag-pill">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   )}
-                  {project.description}
-                </p>
-                {project.tags && (
-                  <div className="project-tags" aria-label="Key technologies">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="project-tag-pill">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-                <div className="project-links">
-                  <a
-                    className="project-btn project-btn--primary"
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Visit ${project.title} website (opens in a new tab)`}
-                  >
-                    <span>VISIT WEBSITE</span>
-                    <Arrow />
-                  </a>
-                  {project.repo && (
+                  <div className="project-links">
                     <a
-                      className="project-btn project-btn--secondary"
-                      href={project.repo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`View ${project.title} source on GitHub (opens in a new tab)`}
+                      className="project-btn project-btn--primary"
+                      href={project.url}
+                      target={isExternal ? "_blank" : undefined}
+                      rel={isExternal ? "noopener noreferrer" : undefined}
+                      aria-label={
+                        isExternal
+                          ? `Visit ${project.title} website (opens in a new tab)`
+                          : `Scroll to top of ${project.title}`
+                      }
                     >
-                      <span>SOURCE CODE</span>
-                      <Arrow />
+                      <span>VISIT WEBSITE</span>
+                      <Arrow direction={isExternal ? "external" : "up"} />
                     </a>
-                  )}
+                    {project.repo && (
+                      <a
+                        className="project-btn project-btn--secondary"
+                        href={project.repo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`View ${project.title} source on GitHub (opens in a new tab)`}
+                      >
+                        <span>SOURCE CODE</span>
+                        <Arrow />
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </section>
         <section className="about-section" id="about" aria-labelledby="about-title">
           <span className="eyebrow">A NOTE ABOUT ME</span>

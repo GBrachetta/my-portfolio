@@ -93,11 +93,17 @@ export const projectsData = [
   },
   {
     id: "my-portfolio",
-    img: "portfolio.png",
-    title: "My Portfolio",
-    description: "My Modern, Minimalistic Portfolio. Built with Gatsby.",
+    img: "my-portfolio-700.webp",
+    title: "This Very Portfolio",
+    type: "RECURSIVE META-DISPATCH // OUROBOROS",
+    lead: "The site you are currently reading.",
+    description:
+      "A self-referential case study. Built with warm paper textures, "
+      + "halftone dot grids, dynamic comic tilts, and a synced LaTeX CV dossier. "
+      + "Like a snake eating its own tail, yes, this card links to itself.",
+    tags: ["Gatsby 5", "Graphic Theme", "Recursion", "XeLaTeX"],
+    url: "#top",
     repo: "https://github.com/GBrachetta/my-portfolio",
-
   },
   {
     id: "guillermo-brachetta",
