@@ -304,8 +304,9 @@ const CVPage = () => {
                   and Django for clients in music, consultancy, and e-commerce.
                 </li>
                 <li>
-                  Developed Menno van Delft (bespoke audio stage & discography with Astro and
-                  Sanity CMS) and White Queen (modern consultancy portal with responsive React).
+                  Engineered this portfolio (gbrachetta.com) using Gatsby 5, custom SCSS theme,
+                  and synced LaTeX dossier; built Menno van Delft (bespoke audio stage &
+                  discography with Astro/Sanity) and White Queen (consultancy portal with React).
                 </li>
                 <li>
                   Built Mozart’s Musical Dice Game (new-musical-dice.vercel.app), an 18th-century
@@ -469,6 +470,26 @@ const CVPage = () => {
           </div>
 
           <div className="cv-projects-table">
+            <div className="cv-project-row">
+              <div className="cv-project-main">
+                <strong className="cv-project-name">This Portfolio (Ouroboros)</strong>
+                <span className="cv-project-desc">
+                  Tactile graphic-novel portfolio, pre-rendered Gatsby 5 architecture & synced LaTeX
+                </span>
+              </div>
+              <div className="cv-project-stack">Gatsby 5 · SCSS · XeLaTeX · Netlify</div>
+              <a
+                href="https://www.gbrachetta.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cv-link"
+              >
+                <span>gbrachetta.com</span>
+                {" "}
+                <Arrow />
+              </a>
+            </div>
+
             <div className="cv-project-row">
               <div className="cv-project-main">
                 <strong className="cv-project-name">Guillermo’s Blog</strong>
