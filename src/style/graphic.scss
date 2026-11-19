@@ -42,6 +42,17 @@
     U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+@font-face {
+  font-family: "Caveat";
+  font-style: normal;
+  font-weight: 600 700;
+  font-display: swap;
+  src: url("../fonts/caveat-v23-latin-700.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC,
+    U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 $paper: #f1f0e9;
 $ink: #26332c;
 $accent: #aed2b2;
@@ -54,6 +65,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 25px;
 }
+
 body {
   margin: 0;
   background: $paper;
@@ -1542,25 +1554,57 @@ h1 {
   border: 2px solid $ink;
   border-radius: 10px;
   box-shadow: 3px 4px 0 $ink;
-  padding: 12px 14px;
-  background-image: repeating-linear-gradient(transparent, transparent 27px, #edf0e9 28px);
+  padding: 0;
+  overflow: hidden;
 
   textarea {
     flex: 1;
     width: 100%;
     height: 100%;
     min-height: 0;
+    box-sizing: border-box;
     border: none;
     outline: none;
-    background: transparent;
-    font-family: "Comic Neue", cursive;
-    font-size: 15px;
-    line-height: 28px;
-    color: $ink;
+    background-color: transparent;
+    font-family: "Caveat", "Comic Neue", cursive;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 32px;
+    color: #1a2921;
     resize: none;
+    padding: 6px 16px 8px;
+    background-attachment: local;
+    background-image: repeating-linear-gradient(
+      transparent,
+      transparent 31px,
+      #cfd7c8 31px,
+      #cfd7c8 32px
+    );
 
     &::placeholder {
       color: #7b8577;
+      font-weight: 400;
+      font-size: 17px;
+    }
+
+    scrollbar-width: thin;
+    scrollbar-color: #b8c3b0 transparent;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #b8c3b0;
+      border-radius: 4px;
+
+      &:hover {
+        background: #8fa086;
+      }
     }
   }
 
@@ -1581,14 +1625,25 @@ h1 {
 .postcard-field {
   input {
     width: 100%;
+    box-sizing: border-box;
     border: 2px solid $ink;
     border-radius: 8px;
     box-shadow: 3px 3px 0 $ink;
-    padding: 10px 14px;
-    font-family: "Comic Neue", cursive;
-    font-size: 15px;
-    color: $ink;
-    background: #fff;
+    padding: 8px 14px 8px;
+    font-family: "Caveat", "Comic Neue", cursive;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #1a2921;
+    background-color: #fff;
+    padding: 6px 14px 6px;
+    background-image: linear-gradient(
+      to bottom,
+      transparent 29px,
+      #cfd7c8 29px,
+      #cfd7c8 30px,
+      transparent 30px
+    );
     outline: none;
     transition: box-shadow 0.15s;
 
@@ -1598,7 +1653,9 @@ h1 {
     }
 
     &::placeholder {
-      color: #8c9688;
+      color: #7b8577;
+      font-weight: 400;
+      font-size: 16px;
     }
   }
 }
