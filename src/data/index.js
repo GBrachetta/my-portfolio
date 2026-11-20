@@ -112,11 +112,11 @@ export const projectsData = [
     type: "BAROQUE ATELIER & STORE",
     lead: "My other life, online.",
     description:
-      "A dedicated platform for my work as a baroque performer, "
-      + "bringing together recordings, concert dates, a media gallery, and an online shop.",
-    tags: ["Django", "Python", "E-Commerce"],
-    url: "https://guillermo-brachetta.herokuapp.com/",
-    repo: "https://github.com/GBrachetta/guillermo",
+      "My performance, teaching, and research platform, with audio previews "
+      + "and a recording shop featuring live Stripe payments. "
+      + "Built with Astro, Tailwind CSS, and server-side checkout.",
+    tags: ["Astro", "Tailwind CSS", "Stripe"],
+    url: "https://www.brachetta.com/",
   },
   {
     id: "nina-przewozniak",
